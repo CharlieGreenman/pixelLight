@@ -31,7 +31,7 @@ var utils = {
     return "#" + utils.componentToHex(r) + utils.componentToHex(g) + utils.componentToHex(b);
   },
   invert: (rgb) => {
-    rgb = [].slice.call(arguments).join(",").replace(/rgb\(|\)|rgba\(|\)|\s/gi, '').split(',');
+    rgb = [].slice.call(arguments).join(",").replace(/rgb\(|\)|rgba\(|\)|\s/gi, "").split(",");
     for (var i = 0; i < rgb.length; i++) rgb[i] = (i === 3 ? 1 : 255) - rgb[i];
     return rgb.join(", ");
   }

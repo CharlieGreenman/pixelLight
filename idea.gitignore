@@ -1,4 +1,0 @@
-.idea/workspace.xml
-!./dist
-./dist/*
-!/dist/bower.json

@@ -4,6 +4,11 @@
  * @param {string} title - Pixelator
  * @param {string} author - Charlie Greenman
  */
+
+require("../scss/core.scss");
+
+var jade = require("../jade/index.jade")();
+document.innerHTML = jade;
 import utils from "./_utils.js";
 import grid from "./_grid.js";
 import hndClck from "./_when-clicked.js";
@@ -12,6 +17,7 @@ import convertJS from "./_js-conversion.js";
 import cntrlView from "./_control-view.js";
 import clrPckr from "./_color-picker.js";
 import elem from "./_elem.js";
+
 
 var s, x, y, z,
  colorNum = 0,

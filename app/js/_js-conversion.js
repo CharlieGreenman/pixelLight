@@ -88,7 +88,7 @@ var convertJS = {
         for (x = 0; x < elem.s.storeColors.length; x++) {
             elem.el.innerCodeBox.innerHTML += `new arrMap.Color(${utils.hexToRgb(elem.s.storeColors[x]).r},${utils.hexToRgb(elem.s.storeColors[x]).g},${utils.hexToRgb(elem.s.storeColors[x]).b}, 1)`;
             if (x === elem.s.storeColors.length - 1) {
-                elem.el.innerCodeBox.innerHTML += '';
+                elem.el.innerCodeBox.innerHTML += "";
             }
             else {
                 elem.el.innerCodeBox.innerHTML += ", ";
