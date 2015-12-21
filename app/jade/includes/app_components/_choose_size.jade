@@ -2,16 +2,15 @@
   h6.row#choose_size_header
     | Choose size of grid
   form#choose_size_form.row.large-12.medium-12.small-12
-    label.column.large-6
+    label.choose_size_form__column
       | columns
-    label.column.large-6
+    label.choose_size_form__column
       | rows
     input(type="text" value = "20")#input-for-columns.column.large-6
     input(type="text" value = "20")#input-for-rows.column.large-6
-    label.column.large-6
+    label.choose_size_form__column
       | Pixel Size
-    button(id = "create_grid" type = "button").column.large-6.tiny
+    button(id = "create_grid" class = "choose_size_form__column choose_size_form__button" type = "button")
       | Create Grid
     input(type="text" value = "20")#input-for-pixel-size.column.large-1.end
-
   #need_help.row

@@ -7,8 +7,6 @@
 
 require("../scss/core.scss");
 
-var jade = require("../jade/index.jade")();
-document.innerHTML = jade;
 import utils from "./_utils.js";
 import grid from "./_grid.js";
 import hndClck from "./_when-clicked.js";
@@ -147,8 +145,6 @@ var s, x, y, z,
 
 bitIllustrator.init();
 
-
-
-
+import chooseSize from "./choose-size.js";
 
 
