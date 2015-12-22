@@ -145,6 +145,4 @@ var s, x, y, z,
 
 bitIllustrator.init();
 
-import chooseSize from "./choose-size.js";
-
-
+import chooseSize from "./components/choose-size.js";
