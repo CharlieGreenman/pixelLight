@@ -1,37 +1,53 @@
 {
-  "name": "gulp",
+  "name": "",
   "version": "0.1.0",
   "author": "Charlie Greenman",
   "private": true,
   "devDependencies": {
-    "browser-sync": "*",
-    "gulp": "^3.9.0",
-    "gulp-autoprefixer": "^2.3.1",
-    "gulp-babel": "^5.1.0",
-    "gulp-browserify": "^0.5.1",
-    "gulp-concat": "*",
-    "gulp-eslint": "*",
-    "gulp-iconfont": "^3.0.2",
-    "gulp-imagemin": "^2.3.0",
-    "gulp-jade": "*",
-    "gulp-load-plugins": "^1.0.0-rc.1",
-    "gulp-plumber": "^1.0.1",
-    "gulp-sass": "*",
-    "gulp-watch": "*",
-    "gulp-webserver": "*",
-    "regenerator": "^0.8.40",
-    "regenerator-loader": "^2.0.0",
-    "webpack-stream": "^2.1.0",
-    "wiredep": "*"
+    "autoprefixer-loader": "^3.1.0",
+    "babel-core": "^6.2.1",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-stage-0": "^6.3.13",
+    "babel-preset-stage-1": "^6.3.13",
+    "babel-preset-stage-2": "^6.3.13",
+    "css-loader": "^0.23.0",
+    "eslint": "^1.10.2",
+    "eslint-loader": "^1.1.1",
+    "eslint-plugin-react": "^3.11.3",
+    "express": "^4.13.3",
+    "file-loader": "^0.8.5",
+    "foundation-sites": "^6.0.6",
+    "jade": "^1.11.0",
+    "jade-loader": "^0.8.0",
+    "jquery": "^2.1.4",
+    "jsx-loader": "^0.13.2",
+    "loader": "^2.0.0",
+    "node-sass": "^3.4.2",
+    "open": "0.0.5",
+    "path": "^0.12.7",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.0",
+    "sass-loader": "^3.1.2",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
-    "babel-eslint": "^3.1.18",
-    "imagemin-pngquant": "^4.1.0"
+    "babel-eslint": "^4.1.6",
+    "babel-plugin-transform-runtime": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "imagemin-pngquant": "^4.1.0",
+    "json-loader": "^0.5.4"
   },
   "eslintConfig": {
     "parser": "babel-eslint",
     "rules": {
       "strict": 0
     }
+  },
+  "scripts": {
+    "watch": "npm run webpack-dev-server",
+    "webpack-dev-server": "webpack-dev-server --devtool eval --progress --colors --hot --inline --content-base dist"
   }
 }
