@@ -7,8 +7,6 @@
 
 require("../scss/core.scss");
 
-import chooseSize from "./components/choose-size.js";
-
 import utils from "./_utils.js";
 import grid from "./_grid.js";
 import hndClck from "./_when-clicked.js";
@@ -146,3 +144,5 @@ var s, x, y, z,
   };
 
 bitIllustrator.init();
+
+import chooseSize from "./components/choose-size.js";
