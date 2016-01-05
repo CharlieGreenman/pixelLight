@@ -8,3 +8,12 @@ export function initApp(init) {
     init
   };
 }
+
+export function initEnvironment() {
+  //trying to fully understand why we would return dispatch in this instance
+    return dispatch => {
+
+
+      dispatch(initApp(App));
+    }
+}
