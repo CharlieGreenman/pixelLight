@@ -1,1 +1,1 @@
-export const INIT_GRID = 'INIT_GRID';
+export const INIT_APP = 'INIT_APP';

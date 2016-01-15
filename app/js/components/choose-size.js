@@ -56,6 +56,6 @@ class ChooseSize extends React.Component {
      }
 }
 
-ReactDOM.render(<ChooseSize/>, document.body);
+ReactDOM.render(<ChooseSize/>, document.getElementById("choose_size_container"));
 
 export default ChooseSize;

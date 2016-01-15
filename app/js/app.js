@@ -146,3 +146,4 @@ var s, x, y, z,
 bitIllustrator.init();
 
 import chooseSize from "./components/choose-size.js";
+import controlPanel from "./components/control-panel.js";
