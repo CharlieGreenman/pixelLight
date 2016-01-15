@@ -48,6 +48,7 @@
   },
   "scripts": {
     "watch": "npm run webpack-dev-server",
+    "jade": "jade -P ./app/**/*.jade -o ./dist",
     "webpack-dev-server": "webpack-dev-server --devtool eval --progress --colors --hot --inline --content-base dist"
   }
 }
