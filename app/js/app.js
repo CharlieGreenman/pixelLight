@@ -16,6 +16,10 @@ import cntrlView from "./_control-view.js";
 import clrPckr from "./_color-picker.js";
 import elem from "./_elem.js";
 
+import ReactDOM from "react-dom";
+import chooseSize from "./components/choose-size.js";
+import controlPanel from "./components/control-panel.js";
+
 
 var s, x, y, z,
  colorNum = 0,
@@ -145,5 +149,4 @@ var s, x, y, z,
 
 bitIllustrator.init();
 
-import chooseSize from "./components/choose-size.js";
-import controlPanel from "./components/control-panel.js";
+// ReactDOM.render(<ChooseSize/>, document.getElementById("choose_size_container"));

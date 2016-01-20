@@ -2,10 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import elem from "../_elem.js";
 import $ from "jquery";
+import controlPanel from "../components/control-panel.js";
 require("../../scss/core.scss");
 
 
 class ChooseSize extends React.Component {
+
   constructor(){
     super()
     this.state = {isSelected: false}
@@ -18,6 +20,7 @@ class ChooseSize extends React.Component {
   handleClick(){
         const container = this.refs.chooseSizeContainer
         container.style.display = "none";
+        // ReactDOM.render(<controlPanel/>, document.getElementById("choose_size_container"));
         // $(".choose-size").css("display", "none");
         // elem.el.codeBoxContainer.style.display = "block";
         // elem.el.colorPicker.style.display = "block";
@@ -29,16 +32,20 @@ class ChooseSize extends React.Component {
   }
 
   handleChange(){
+    //  ReactDOM.unmountComponentAtNode
       elem.s.rowCount = document.getElementById("input-for-rows").value;
       elem.s.columnCount = document.getElementById("input-for-columns").value;
       elem.s.pixSize = document.getElementById("input-for-pixel-size").value;
       alert("works");
   }
 
-
+  componentWillMount(){
+    console.log('will mount');
+  }
 
 
   render() {
+    console.log('render');
       return(
         <div className="choose-size" ref = "chooseSizeContainer">
           <h6 className="choose-size__header">Choose size of grid</h6>
@@ -54,6 +61,13 @@ class ChooseSize extends React.Component {
         </div>
           )
      }
+   componentDidMount(){
+     console.log('did mount');
+   }
+
+   componentWillUnmount(){
+     console.log('will unmount');
+   }
 }
 
 ReactDOM.render(<ChooseSize/>, document.getElementById("choose_size_container"));
