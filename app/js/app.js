@@ -18,7 +18,6 @@ import elem from "./_elem.js";
 
 import ReactDOM from "react-dom";
 import chooseSize from "./components/choose-size.js";
-import controlPanel from "./components/control-panel.js";
 
 
 var s, x, y, z,

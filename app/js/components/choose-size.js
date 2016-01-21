@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import elem from "../_elem.js";
 import $ from "jquery";
-import controlPanel from "../components/control-panel.js";
+import ControlPanel from "../components/control-panel.js";
 require("../../scss/core.scss");
 
 
@@ -18,17 +18,9 @@ class ChooseSize extends React.Component {
 
 
   handleClick(){
-        const container = this.refs.chooseSizeContainer
-        container.style.display = "none";
-        // ReactDOM.render(<controlPanel/>, document.getElementById("choose_size_container"));
-        // $(".choose-size").css("display", "none");
-        // elem.el.codeBoxContainer.style.display = "block";
-        // elem.el.colorPicker.style.display = "block";
-        // elem.el.backgroundColorPicker.style.display = "block";
-        // elem.el.headerContainer.style.display = "block";
-        // elem.s.canvas.style.display = "block";
-        alert("works");
-        //taken from createGridIllustrator
+        // this.refs.chooseSizeContainer;
+        const container = document.getElementById("choose_size_container");
+        ReactDOM.unmountComponentAtNode(container);
   }
 
   handleChange(){
@@ -40,12 +32,12 @@ class ChooseSize extends React.Component {
   }
 
   componentWillMount(){
-    console.log('will mount');
+    console.log("will mount");
   }
 
 
   render() {
-    console.log('render');
+    console.log("render");
       return(
         <div className="choose-size" ref = "chooseSizeContainer">
           <h6 className="choose-size__header">Choose size of grid</h6>
@@ -62,11 +54,12 @@ class ChooseSize extends React.Component {
           )
      }
    componentDidMount(){
-     console.log('did mount');
+     console.log("did mount");
    }
 
    componentWillUnmount(){
-     console.log('will unmount');
+     ReactDOM.render(<ControlPanel/>, document.getElementById("header-container"));
+     //need to put new elements that should be rendered here
    }
 }
 
