@@ -71,7 +71,7 @@ textarea:focus, input:focus{
 }
 
 #color-picker, #background-color-picker{
-  display: none;
+
   color: black;
   margin-top: .5rem;
   label{
@@ -179,7 +179,7 @@ label#hex_label{
 }
 
 #need_help{
-  display: none;
+
   height: 40px;
   line-height: 40px;
   color: $dark-color;
@@ -187,7 +187,7 @@ label#hex_label{
 
 //3. Grid & canvas
 #canvasGrid{
-  display: none;
+
   //background: rgba(0, 0, 0, 0.1);
   position: absolute;
   top: 50%;
@@ -199,7 +199,7 @@ label#hex_label{
 
 //4. Code Box
 #code_box_container{
-  display: none;
+
   position: fixed;
   width: 230px;
   height: 100%;
