@@ -8,9 +8,7 @@ class ControlPanel extends React.Component {
 
   render() {
     return (
-
-
-        <div id="background-color-picker" className="column large-12" style={{display: "block"}}>
+        <div id="background-color-picker" className="column large-12">
           <h3>Background Color</h3>
           <div className="large-12">
             <label id="hex_label">Hex
@@ -36,7 +34,7 @@ class ControlPanel extends React.Component {
             </div>
           </div>
 
-        <div id="color-picker" className="column large-12" style={{display: "block"}}>
+        <div id="color-picker" className="column large-12">
           <h3>Pixel Color</h3>
           <div className="large-12">
             <label id="hex_label">Hex

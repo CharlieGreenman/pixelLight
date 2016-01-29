@@ -3,8 +3,6 @@
 ###Heavy Usage of SMACCS###
 ###########################
 */
-@import 'vendor/_toast-grid.scss';
-
 @import 'imports/vars';
 @import 'imports/base';
 @import 'imports/layout';
@@ -13,3 +11,5 @@
 @import 'imports/utils';
 @import 'imports/_monkey_patch.scss';
 @import 'components/_choose-size';
+@import 'components/_control-panel';
+@import 'components/_code-box';
