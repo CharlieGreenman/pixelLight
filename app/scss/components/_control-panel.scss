@@ -1,0 +1,69 @@
+//header-container
+#header-container {
+  display: block;
+  position: fixed;
+  width: 200px;
+  height: 100%;
+  right: 0;
+  color: white;
+  background: black;
+  $bord-var: 10px;
+  font-family: 'Reenie Beanie', cursive;
+  box-shadow: 0 0 0 $bord-var black inset;
+  h3{
+    font-family: 'Reenie Beanie', cursive;
+    margin: 0;
+  }
+  label, input{
+    font-size: 1.5rem;
+    text-align: center;
+    background: black;
+  }
+}
+
+
+#reset-button, #view-button, #draw-button{
+  background: #000;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+}
+
+#view-button{
+  margin-top: 0;
+  border-bottom: 1px solid white;
+}
+
+#view-button, #draw-button{
+  cursor: pointer;
+  height: 35px;
+  line-height: 35px;
+}
+
+#reset-button{
+  height: 50px;
+  line-height: 50px;
+  color: #FF4A00;
+  text-transform: uppercase;
+  transition: .8s;
+  &.warning{
+    color: #B33A3A;
+  }
+}
+
+#color-picker, #background-color-picker{
+  display: block;
+  color: black;
+  margin-top: .5rem;
+  label{
+    color: #999999;
+  }
+  input{
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    color: white;
+    text-align: center;
+  }
+}

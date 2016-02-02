@@ -13,10 +13,10 @@ class ChooseSize extends React.Component {
     super(props)
     this.state = {
       isSelected: false,
-      rowCount: "",
-      columnCount: "",
-      pixSize: ""
-
+      rowCount: "20",
+      columnCount: "20",
+      pixSize: "20",
+      initGrid: false
     }
     //allows us to simply call this.handleClick to call the handleClick function
     this.handleClick = this.handleClick.bind(this);
@@ -25,30 +25,28 @@ class ChooseSize extends React.Component {
 
   handleClick(){
         // this.refs.chooseSizeContainer;
-        console.log("rowCount" + this.state.rowCount);
-        console.log("columnCount" + this.state.columnCount);
-        console.log("pixSize" + this.state.pixSize);
+        console.log("rowCount: " + this.state.rowCount);
+        console.log("columnCount: " + this.state.columnCount);
+        console.log("pixSize: " + this.state.pixSize);
         const container = document.getElementById("choose_size_container");
         ReactDOM.unmountComponentAtNode(container);
   }
 
-  handleChange(e){
+  handleChange(){
     //  ReactDOM.unmountComponentAtNode
       // elem.s.rowCount = document.getElementById("input-for-rows").value;
       // elem.s.columnCount = document.getElementById("input-for-columns").value;
       // elem.s.pixSize = document.getElementById("input-for-pixel-size").value;
       this.setState({
-        rowCount: e.target.value,
-        columnCount: e.target.value,
-        pixSize: e.target.value
+        rowCount: document.getElementById("input-for-rows").value,
+        columnCount: document.getElementById("input-for-columns").value,
+        pixSize: document.getElementById("input-for-pixel-size").value
       });
-      alert("works");
   }
 
   componentWillMount(){
     // console.log(this.state.rowCount);
   }
-
 
   render() {
     console.log("render");
@@ -58,27 +56,28 @@ class ChooseSize extends React.Component {
           <form className="choose-size__form" >
             <label className = "choose-size__form__label">columns</label>
             <label className = "choose-size__form__label">rows</label>
-            <input onChange={this.handleChange.bind(this)} type="text" value = {this.state.columnCount} defaultValue={20} id="input-for-columns" className = "choose-size__form__input" />
-            <input onChange={this.handleChange.bind(this)} type="text" value = {this.state.rowCount} defaultValue={20} id="input-for-rows" className = "choose-size__form__input" />
+            <input onChange={this.handleChange} type="text" value = {this.state.columnCount} defaultValue={20} id="input-for-columns" className = "choose-size__form__input" />
+            <input onChange={this.handleChange} type="text" value = {this.state.rowCount} defaultValue={20} id="input-for-rows" className = "choose-size__form__input" />
             <label className = "choose-size__form__label">Pixel Size</label>
-            <button onClick={this.handleClick.bind(this)} id="create_grid" type="button" className = "choose-size__form__button">Create Grid</button>
-            <input onChange={this.handleChange.bind(this)} type="text" value = {this.state.pixSize} defaultValue={20} id="input-for-pixel-size" className = "choose-size__form__input" />
+            <button onClick={this.handleClick} id="create_grid" type="button" className = "choose-size__form__button">Create Grid</button>
+            <input onChange={this.handleChange} type="text" value = {this.state.pixSize} defaultValue={20} id="input-for-pixel-size" className = "choose-size__form__input" />
           </form>
         </div>
           )
-     }
+   }
+
    componentDidMount(){
-     console.log("did mount");
+
    }
 
    componentWillUnmount(){
      ReactDOM.render(<ControlPanel/>, document.getElementById("header-container"));
-     ReactDOM.render(<CodeBox/>, document.getElementById("code_box_container"));
 
      //need to put new elements that should be rendered here
    }
 }
 
 ReactDOM.render(<ChooseSize/>, document.getElementById("choose_size_container"));
+// ReactDOM.render({ ChooseSize.state.showResults ? <CodeBox/> : null }, document.getElementById("code_box_container"));
 
 export default ChooseSize;
