@@ -40,7 +40,8 @@
     "babel-plugin-transform-runtime": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "imagemin-pngquant": "^4.1.0",
-    "json-loader": "^0.5.4"
+    "json-loader": "^0.5.4",
+    "react-redux": "^4.2.1"
   },
   "eslintConfig": {
     "parser": "babel-eslint",

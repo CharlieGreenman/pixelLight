@@ -1,7 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { connect } from "react-redux";
 import elem from "../_elem.js";
 import $ from "jquery";
+import {initApp} from "../actions/init-grid.js";
 import ControlPanel from "../components/control-panel.js";
 import CodeBox from "../components/code-box.js";
 require("../../scss/core.scss");
@@ -28,6 +30,7 @@ class ChooseSize extends React.Component {
         console.log("rowCount: " + this.state.rowCount);
         console.log("columnCount: " + this.state.columnCount);
         console.log("pixSize: " + this.state.pixSize);
+        this.props.onInitGrid(init);
         const container = document.getElementById("choose_size_container");
         ReactDOM.unmountComponentAtNode(container);
   }
@@ -76,8 +79,8 @@ class ChooseSize extends React.Component {
      //need to put new elements that should be rendered here
    }
 }
-
-ReactDOM.render(<ChooseSize/>, document.getElementById("choose_size_container"));
+// dispatch(addTodo(text));
+ReactDOM.render(<ChooseSize oninitGrid = {init => dispatch(initApp(init))}  />, document.getElementById("choose_size_container"));
 // ReactDOM.render({ ChooseSize.state.showResults ? <CodeBox/> : null }, document.getElementById("code_box_container"));
 
 export default ChooseSize;
