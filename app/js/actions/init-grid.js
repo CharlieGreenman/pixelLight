@@ -1,3 +1,4 @@
+import { combineReducers } from "redux";
 import * as types from "../constants/ActionTypes";
 //initial state for grid input value
 let nextGridId = 0;
@@ -9,7 +10,12 @@ export function initApp(init) {
     type: types.INIT_APP,
     init
   };
+  console.log("works");
 }
+
+const pixelLight = combineReducers({
+    initApp
+});
 
 // export function initEnvironment() {
 //   //trying to fully understand why we would return dispatch in this instance

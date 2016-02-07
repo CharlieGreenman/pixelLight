@@ -1,6 +1,8 @@
-import React from "react";
+import { connect, Provider } from "react-redux";
+import {createStore, applyMiddleware} from "redux";
+import React, { Component, PropTypes } from "react"
 import ReactDOM from "react-dom";
-import { connect } from "react-redux";
+
 import elem from "../_elem.js";
 import $ from "jquery";
 import {initApp} from "../actions/init-grid.js";
@@ -25,12 +27,13 @@ class ChooseSize extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleClick(){
+  handleClick(e){
         // this.refs.chooseSizeContainer;
         console.log("rowCount: " + this.state.rowCount);
         console.log("columnCount: " + this.state.columnCount);
         console.log("pixSize: " + this.state.pixSize);
-        this.props.onInitGrid(init);
+        //this init is supposedly not defined
+        this.props.onInitGrid;
         const container = document.getElementById("choose_size_container");
         ReactDOM.unmountComponentAtNode(container);
   }
@@ -62,7 +65,7 @@ class ChooseSize extends React.Component {
             <input onChange={this.handleChange} type="text" value = {this.state.columnCount} defaultValue={20} id="input-for-columns" className = "choose-size__form__input" />
             <input onChange={this.handleChange} type="text" value = {this.state.rowCount} defaultValue={20} id="input-for-rows" className = "choose-size__form__input" />
             <label className = "choose-size__form__label">Pixel Size</label>
-            <button onClick={this.handleClick} id="create_grid" type="button" className = "choose-size__form__button">Create Grid</button>
+            <button onClick={(e) => this.handleClick(e)} id="create_grid" type="button" className = "choose-size__form__button">Create Grid</button>
             <input onChange={this.handleChange} type="text" value = {this.state.pixSize} defaultValue={20} id="input-for-pixel-size" className = "choose-size__form__input" />
           </form>
         </div>
@@ -80,7 +83,8 @@ class ChooseSize extends React.Component {
    }
 }
 // dispatch(addTodo(text));
-ReactDOM.render(<ChooseSize oninitGrid = {init => dispatch(initApp(init))}  />, document.getElementById("choose_size_container"));
+ReactDOM.render(<ChooseSize onInitGrid = {init => dispatch(initApp(init))}  />, document.getElementById("choose_size_container"));
+
 // ReactDOM.render({ ChooseSize.state.showResults ? <CodeBox/> : null }, document.getElementById("code_box_container"));
 
 export default ChooseSize;
