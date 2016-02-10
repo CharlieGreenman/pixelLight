@@ -19,6 +19,7 @@ import elem from "./_elem.js";
 import ReactDOM from "react-dom";
 import chooseSize from "./components/choose-size.js";
 import reducer from "./reducers/reducer";
+import Container from "./containers/App.js";
 
 
 var s, x, y, z,

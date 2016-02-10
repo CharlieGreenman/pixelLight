@@ -5,7 +5,7 @@ import { Provider } from "react-redux"
 import App from "./containers/App"
 import todoApp from "./reducers"
 
-let store = createStore(todoApp)
+let store = createStore(pixelLight)
 
 let rootElement = document.getElementById("drawing_container")
 render(
