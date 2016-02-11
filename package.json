@@ -41,7 +41,8 @@
     "babel-preset-react": "^6.3.13",
     "imagemin-pngquant": "^4.1.0",
     "json-loader": "^0.5.4",
-    "react-redux": "^4.2.1"
+    "react-redux": "^4.2.1",
+    "redux-thunk": "^1.0.3"
   },
   "eslintConfig": {
     "parser": "babel-eslint",

@@ -4,7 +4,11 @@ import ChooseSize from "../components/choose-size";
 
 console.log("containe file puller in");
 
-class App extends Component {
+class App extends React.Component {
+  constructor(props){
+    super(props)
+  }
+  
   render() {
     return(
       <div>

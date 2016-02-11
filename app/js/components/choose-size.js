@@ -10,7 +10,6 @@ import ControlPanel from "../components/control-panel.js";
 import CodeBox from "../components/code-box.js";
 require("../../scss/core.scss");
 
-
 class ChooseSize extends React.Component {
 
   constructor(props){
