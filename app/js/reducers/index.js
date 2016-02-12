@@ -1,7 +1,7 @@
-import playlists from "../reducers/reducer";
+import {InitGrid} from "../reducers/reducer";
 
 const rootReducer = combineReducers({
-    playlists
+    InitGrid
 });
 
 export default rootReducer;

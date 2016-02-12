@@ -3,5 +3,10 @@ import * as types from "../constants/ActionTypes";
 
 console.log(types.INIT_APP);
 
+export function InitGrid() {
+    return dispatch => {
+      console.log("dispatch went through");
+    };
+  }
 
 export default reducer;
