@@ -6,11 +6,11 @@ let nextGridId = 0;
 // here we are just defining what it is
 // and where things should be
 export function InitGrid() {
+  console.log("action triggered");
     return dispatch => {
       type: types.INIT_APP,
       init
     };
-    console.log("action works");
 }
 
 

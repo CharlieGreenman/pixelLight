@@ -1,3 +1,4 @@
+import {combineReducers} from "redux";
 import {InitGrid} from "../reducers/reducer";
 
 const rootReducer = combineReducers({

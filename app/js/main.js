@@ -7,8 +7,6 @@ import {Provider} from "react-redux";
 import App from "./containers/App";
 import configureStore from "./store/configureStore";
 
-// require("../styles/main.scss");
-
 const store = configureStore();
 
 ReactDOM.render(

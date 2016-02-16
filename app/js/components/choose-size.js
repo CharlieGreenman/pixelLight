@@ -5,7 +5,7 @@ import ReactDOM from "react-dom";
 
 import elem from "../_elem.js";
 import $ from "jquery";
-import {initApp} from "../actions/init-grid.js";
+import {InitGrid} from "../actions/init-grid";
 import ControlPanel from "../components/control-panel.js";
 import CodeBox from "../components/code-box.js";
 require("../../scss/core.scss");
@@ -27,14 +27,15 @@ class ChooseSize extends React.Component {
   }
 
   handleClick(e){
+        const {dispatch} = this.props;
         // this.refs.chooseSizeContainer;
         console.log("rowCount: " + this.state.rowCount);
         console.log("columnCount: " + this.state.columnCount);
         console.log("pixSize: " + this.state.pixSize);
         //this init is supposedly not defined
-        this.props.onInitGrid;
-        const container = document.getElementById("choose_size_container");
-        ReactDOM.unmountComponentAtNode(container);
+        dispatch(InitGrid());
+        // const container = document.getElementById("choose_size_container");
+        // ReactDOM.unmountComponentAtNode(container);
   }
 
   handleChange(){
@@ -54,7 +55,6 @@ class ChooseSize extends React.Component {
   }
 
   render() {
-    console.log("render");
       return(
         <div className="choose-size" ref = "chooseSizeContainer">
           <h6 className="choose-size__header">Choose size of grid</h6>
@@ -82,7 +82,7 @@ class ChooseSize extends React.Component {
    }
 }
 // dispatch(addTodo(text));
-ReactDOM.render(<ChooseSize onInitGrid = {init => dispatch(initApp(init))}  />, document.getElementById("choose_size_container"));
+ReactDOM.render(<ChooseSize/>, document.getElementById("choose_size_container"));
 
 // ReactDOM.render({ ChooseSize.state.showResults ? <CodeBox/> : null }, document.getElementById("code_box_container"));
 
