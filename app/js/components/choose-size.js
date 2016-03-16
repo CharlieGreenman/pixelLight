@@ -1,6 +1,6 @@
-import { connect, Provider } from "react-redux";
-import {createStore, applyMiddleware} from "redux";
 import React, { Component, PropTypes } from "react"
+import { connect, Provider } from "react-redux";
+
 import ReactDOM from "react-dom";
 
 import elem from "../_elem.js";
@@ -12,8 +12,8 @@ require("../../scss/core.scss");
 
 class ChooseSize extends React.Component {
 
-  constructor(props){
-    super(props)
+  constructor(){
+    super();
     this.state = {
       isSelected: false,
       rowCount: "20",
