@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from "react";
 import {InitGrid} from "../actions/init-grid";
 import { connect } from "react-redux";
-import ChooseSize from "../components/choose-size";
+import ChooseSize from "../components/choose-size-of-grid";
 
 class App extends React.Component {
   constructor(){

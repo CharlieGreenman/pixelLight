@@ -81,9 +81,7 @@ class ChooseSize extends React.Component {
      //need to put new elements that should be rendered here
    }
 }
-// dispatch(addTodo(text));
-ReactDOM.render(<ChooseSize/>, document.getElementById("choose_size_container"));
 
-// ReactDOM.render({ ChooseSize.state.showResults ? <CodeBox/> : null }, document.getElementById("code_box_container"));
+ReactDOM.render(<ChooseSize/>, document.getElementById("choose_size_container"));
 
 export default ChooseSize;
