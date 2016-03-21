@@ -3,28 +3,12 @@ import {InitGrid} from "../actions/init-grid";
 import { connect } from "react-redux";
 import ChooseSize from "../components/choose-size-of-grid";
 
-class App extends React.Component {
-  constructor(){
-    super();
-
-  }
-
-  componentDidMount () {
-
-
-  }
-
-  render() {
+class App extends Component {
+  render(){
     return(
-      <div>
-        <ChooseSize />
-      </div>
-    )
+      <ChooseSize/>
+    );
   }
-}
-
-App.propTypes = {
-
 }
 
 export default App;

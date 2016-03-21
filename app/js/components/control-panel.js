@@ -8,13 +8,11 @@ class ControlPanel extends React.Component {
 
   render() {
     return (
-        <div id="background-color-picker" className="column large-12">
-          <h3>Background Color</h3>
-          <div className="large-12">
-            <label id="hex_label">Hex
-              <input id="background-hex-color" type="text" defaultValue="#191919" maxLength={7} className="large-12" />
-            </label>
-          </div>
+        <div className="color-picker" id="background-color-picker">
+          <h3 className = "color-picker__header">Background Color</h3>
+          <label className = "color-picker__label" id="hex_label">Hex</label>
+          <input className = "color-picker__color" id="background-hex-color" type="text" defaultValue="#191919" maxLength={7} className="large-12" />
+
           <div id="background_color_bar" className="large-12" />
           <div id="rgb-background" className="large-12">
             <div className="large-4 column no-padding">
@@ -35,7 +33,7 @@ class ControlPanel extends React.Component {
           </div>
 
         <div id="color-picker" className="column large-12">
-          <h3>Pixel Color</h3>
+          <h3 className = "color-picker__header">Pixel Color</h3>
           <div className="large-12">
             <label id="hex_label">Hex
               <input id="pix-hex-color" type="text" defaultValue="#000" maxLength={7} className="large-12" />

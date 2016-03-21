@@ -3,27 +3,11 @@ import * as types from "../constants/ActionTypes";
 //initial state for grid input value
 let nextGridId = 0;
 
-// here we are just defining what it is
-// and where things should be
+//singular state for all three applications
+//change element so that element can be where it needs to be
 export function InitGrid(init) {
-  console.log("action triggered");
-    return dispatch => {
+  return {
       type: types.INIT_APP,
       init
-    };
+  };
 }
-
-
-//
-// const pixelLight = combineReducers({
-//     initApp
-// });
-
-// export function initEnvironment() {
-//   //trying to fully understand why we would return dispatch in this instance
-//     return dispatch => {
-//
-//       //down here we are defining what should happen to the pure function
-//       dispatch(initApp(App));
-//     }
-// }

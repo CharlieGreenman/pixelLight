@@ -12,8 +12,8 @@ require("../../scss/core.scss");
 
 class ChooseSize extends React.Component {
 
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       isSelected: false,
       rowCount: "20",
@@ -24,6 +24,7 @@ class ChooseSize extends React.Component {
     //allows us to simply call this.handleClick to call the handleClick function
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.renderForm = this.renderForm.bind(this);
   }
 
   handleClick(e){
@@ -54,7 +55,10 @@ class ChooseSize extends React.Component {
     // console.log(this.state.rowCount);
   }
 
-  render() {
+  renderForm(){
+    const{environment} = this.props;
+    console.log(environment);
+    if(environment.init === false){
       return(
         <div className="choose-size" ref = "chooseSizeContainer">
           <h6 className="choose-size__header">Choose size of grid</h6>
@@ -69,19 +73,24 @@ class ChooseSize extends React.Component {
           </form>
         </div>
           )
-   }
+    }
+  }
 
-   componentDidMount(){
-
-   }
-
-   componentWillUnmount(){
-     ReactDOM.render(<ControlPanel/>, document.getElementById("header-container"));
-
-     //need to put new elements that should be rendered here
+  render() {
+    const{environment, dispatch} = this.props;
+    return(
+      <div>
+          {this.renderForm()}
+      </div>
+    )
    }
 }
 
-ReactDOM.render(<ChooseSize/>, document.getElementById("choose_size_container"));
+function mapStateToProps(state) {
+  const {environment} = state;
+  return{
+    environment
+  }
+}
 
-export default ChooseSize;
+export default connect(mapStateToProps)(ChooseSize);

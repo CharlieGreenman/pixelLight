@@ -2,6 +2,7 @@
 #header-container {
   display: block;
   position: fixed;
+  text-align: center;
   width: 200px;
   height: 100%;
   right: 0;
@@ -14,10 +15,20 @@
     font-family: 'Reenie Beanie', cursive;
     margin: 0;
   }
-  label, input{
-    font-size: 1.5rem;
-    text-align: center;
-    background: black;
+  input{
+    font-sixe: 1.5rem;
+  }
+}
+
+.color-picker{
+  &__header{
+    font-size: 25px;
+  }
+  &__label{
+    color: yellow;
+  }
+  &_input{
+    font-size: 15px;
   }
 }
 
@@ -55,9 +66,6 @@
   display: block;
   color: black;
   margin-top: .5rem;
-  label{
-    color: #999999;
-  }
   input{
     border: none;
     padding: 0;
@@ -65,5 +73,6 @@
     box-shadow: none;
     color: white;
     text-align: center;
+    font-size: 1.5rem;
   }
 }
