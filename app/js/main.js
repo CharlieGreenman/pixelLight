@@ -13,5 +13,5 @@ ReactDOM.render(
     <Provider store={store}>
         <App />
     </Provider>,
-    document.getElementById("choose_size_container")
+    document.getElementById("container_div")
 );

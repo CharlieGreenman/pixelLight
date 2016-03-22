@@ -29,30 +29,15 @@ class ChooseSize extends React.Component {
 
   handleClick(e){
         const {dispatch} = this.props;
-        // this.refs.chooseSizeContainer;
-        console.log("rowCount: " + this.state.rowCount);
-        console.log("columnCount: " + this.state.columnCount);
-        console.log("pixSize: " + this.state.pixSize);
-        //this init is supposedly not defined
         dispatch(InitGrid());
-        // const container = document.getElementById("choose_size_container");
-        // ReactDOM.unmountComponentAtNode(container);
   }
 
   handleChange(){
-    //  ReactDOM.unmountComponentAtNode
-      // elem.s.rowCount = document.getElementById("input-for-rows").value;
-      // elem.s.columnCount = document.getElementById("input-for-columns").value;
-      // elem.s.pixSize = document.getElementById("input-for-pixel-size").value;
       this.setState({
         rowCount: document.getElementById("input-for-rows").value,
         columnCount: document.getElementById("input-for-columns").value,
         pixSize: document.getElementById("input-for-pixel-size").value
       });
-  }
-
-  componentWillMount(){
-    // console.log(this.state.rowCount);
   }
 
   renderForm(){

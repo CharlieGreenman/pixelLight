@@ -8,7 +8,7 @@ class CodeBox extends React.Component {
 
   render() {
     return (
-        <div id="code_box" className="css_box column large-12">
+      <div id="code_box" className="css_box">
           <div className="row">
             <div id="css_toggle" className="column large-6 code_toggle"><span>CSS</span></div>
             <div id="sass_toggle" className="column large-6 code_toggle"><span>SASS</span></div>
@@ -17,7 +17,7 @@ class CodeBox extends React.Component {
             <div id="code_box_border" className="column left large-offset-1 large-10" />
           </div>
           <p id="inner_code_box">box-shadow:</p>
-        </div>
+      </div>
     );
   }
 }
