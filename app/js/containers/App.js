@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import ChooseSize from "../components/choose-size-of-grid";
 import ControlPanel from "../components/control-panel";
 import CodeBox from "../components/code-box";
+import Grid from "../components/grid";
 
 class App extends Component {
   render(){
@@ -16,6 +17,9 @@ class App extends Component {
           </div>
           <div id="code_box_container">
             <CodeBox/>
+          </div>
+          <div>
+            <Grid />
           </div>
         </div>
       )
