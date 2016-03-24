@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from "react"
-import { connect, Provider } from "react-redux";
-
 import ReactDOM from "react-dom";
+
+import { connect, Provider } from "react-redux";
+import {reduxForm} from "redux-form";
 
 import elem from "../_elem.js";
 import $ from "jquery";
@@ -41,17 +42,17 @@ class ChooseSize extends React.Component {
   }
 
   renderForm(){
-    const{environment} = this.props;
+    const {environment, fields: {columnCount, rowCount, email}, handleSubmit} = this.props;
     console.log(environment);
     if(environment.init === false){
       return(
         <div className="choose-size" ref = "chooseSizeContainer">
           <h6 className="choose-size__header">Choose size of grid</h6>
-          <form className="choose-size__form" >
+          <form onSubmit ={handleSubmit} className="choose-size__form" >
             <label className = "choose-size__form__label">columns</label>
             <label className = "choose-size__form__label">rows</label>
-            <input onChange={this.handleChange} type="text" value = {this.state.columnCount} defaultValue={20} id="input-for-columns" className = "choose-size__form__input" />
-            <input onChange={this.handleChange} type="text" value = {this.state.rowCount} defaultValue={20} id="input-for-rows" className = "choose-size__form__input" />
+            <input onChange={this.handleChange} type="text" value = {this.state.columnCount} defaultValue={20} id="input-for-columns" className = "choose-size__form__input" {...columnCount}/>
+            <input onChange={this.handleChange} type="text" value = {this.state.rowCount} defaultValue={20} id="input-for-rows" className = "choose-size__form__input" {...rowCount} />
             <label className = "choose-size__form__label">Pixel Size</label>
             <button onClick={(e) => this.handleClick(e)} id="create_grid" type="button" className = "choose-size__form__button">Create Grid</button>
             <input onChange={this.handleChange} type="text" value = {this.state.pixSize} defaultValue={20} id="input-for-pixel-size" className = "choose-size__form__input" />
@@ -71,10 +72,16 @@ class ChooseSize extends React.Component {
    }
 }
 
+ChooseSize = reduxForm({ // <----- THIS IS THE IMPORTANT PART!
+  form: "chooseSize",                           // a unique name for this form
+  fields: ["columnCount", "rowCount", "pixSize"] // all the fields in your form
+})(ChooseSize);
+
 function mapStateToProps(state) {
-  const {environment} = state;
+  const {environment, form} = state;
   return{
-    environment
+    environment,
+    form
   }
 }
 
