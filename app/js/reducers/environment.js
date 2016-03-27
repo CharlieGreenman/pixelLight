@@ -1,7 +1,7 @@
 import * as types from "../constants/ActionTypes";
 
 const initialState = {
-    init: false
+    init:         false
 };
 
 export default function environment(state = initialState, action) {
@@ -14,15 +14,3 @@ export default function environment(state = initialState, action) {
       return state;
   }
 }
-
-// export default function environment(state = initialState, action) {
-//    switch(action.type) {
-//       case types.HIDE:
-//       case types.SHOW:
-//           return Object.assign({}, state, {
-//               show: action.show
-//           });
-//       default:
-//           return state;
-//     }
-//  }
