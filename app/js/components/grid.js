@@ -1,4 +1,5 @@
 import React from "react";
+import { connect, Provider } from "react-redux";
 import ReactDOM from "react-dom";
 require("../../scss/core.scss");
 
@@ -16,22 +17,18 @@ class Grid extends React.Component {
   }
 
   createGrid(){
-      for(var r = 0; r < elem.s.columnCount; r++) {
-          for(var i = 0; i < elem.s.rowCount; i++) {
+    let ctx = ReactDOM.findDOMNode(this).getContext("2d");
+    const{settings} = this.props;
+      for(var r = 0; r < settings.column.column; r++) {
+          for(var i = 0; i < settings.row.row; i++) {
               ctx.strokeStyle = "#262626";
-              ctx.strokeRect(r * elem.s.pixSize, i * elem.s.pixSize, elem.s.pixSize, elem.s.pixSize);
-              ctx.fillStyle = elem.el.backgroundHexColor.value;
-              ctx.fillRect(r * elem.s.pixSize + 1, i * elem.s.pixSize + 1, elem.s.pixSize - 2, elem.s.pixSize - 2);
+              ctx.strokeRect(r * settings.pixel.pixel, i * settings.pixel.pixel, settings.pixel.pixel, settings.pixel.pixel);
+              // ctx.fillStyle = elem.el.backgroundHexColor.value;
+              ctx.fillStyle = "black";
+              ctx.fillRect(r * settings.pixel.pixel + 1, i * settings.pixel.pixel + 1, settings.pixel.pixel - 2, settings.pixel.pixel - 2);
           }
       }
   }
-
-  // updatedSettings(){
-  //   var rowCount = document.getElementById("input-for-rows").value;
-  //   var columnCount = document.getElementById("input-for-columns").value;
-  //   var pixSize = document.getElementById("input-for-pixel-size").value;
-  // }
-
 
   render() {
       return(
@@ -40,4 +37,12 @@ class Grid extends React.Component {
   }
 }
 
-export default Grid;
+function mapStateToProps(state) {
+  const {environment, settings} = state;
+  return{
+    settings,
+    environment
+  }
+}
+
+export default connect(mapStateToProps)(Grid);

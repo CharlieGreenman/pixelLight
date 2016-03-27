@@ -4,10 +4,7 @@ import { connect, Provider } from "react-redux";
 import ReactDOM from "react-dom";
 
 import elem from "../_elem.js";
-import $ from "jquery";
 import {ColumnCount, RowCount, PixelSize, InitGrid} from "../actions/init-grid";
-import ControlPanel from "../components/control-panel.js";
-import CodeBox from "../components/code-box.js";
 require("../../scss/core.scss");
 
 class ChooseSize extends React.Component {
@@ -45,8 +42,6 @@ class ChooseSize extends React.Component {
 
   renderForm(){
     const{environment, dispatch} = this.props;
-    console.log(environment);
-    if(!environment.init){
       return(
         <div className="choose-size" ref = "chooseSizeContainer">
           <h6 className="choose-size__header">Choose size of grid</h6>
@@ -61,7 +56,6 @@ class ChooseSize extends React.Component {
           </form>
         </div>
           )
-    }
   }
 
   render() {
