@@ -9,7 +9,7 @@ import CodeBox from "../components/code-box";
 class App extends Component {
   render(){
     const{environment} = this.props;
-    if(environment.init === true){
+    if(environment.init){
       return(
         <div>
           <div id="header-container">
