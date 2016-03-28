@@ -1,24 +1,24 @@
 import * as types from "../constants/ActionTypes";
 
-const formSettings = {
+const settings = {
     rowCount: 20,
     columnCount: 20,
     pixelCount: 20
 };
 
-export default function formSettings(state = formSettings, action) {
+export default function formSettings(state = settings, action) {
   switch(action.type) {
   case types.COLUMN_COUNT:
       return Object.assign({}, state, {
-          count: count
+          columnCount: action.columnCount
       });
   case types.ROW_COUNT:
       return Object.assign({}, state, {
-          count: count
+          rowCount: action.rowCount
       });
   case types.PIXEL_COUNT:
       return Object.assign({}, state, {
-          count: count
+          pixelCount: action.pixelCount
       });
   default:
       return state;

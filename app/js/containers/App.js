@@ -18,9 +18,7 @@ class App extends Component {
           <div id="code_box_container">
             <CodeBox/>
           </div>
-          <div>
-            <Grid />
-          </div>
+
         </div>
       )
     }

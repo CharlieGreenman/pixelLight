@@ -6,6 +6,7 @@ import ReactDOM from "react-dom";
 import elem from "../_elem.js";
 import $ from "jquery";
 import {InitGrid} from "../actions/init-grid";
+import {columnCount, rowCount, pixelCount} from "../actions/form-settings";
 import ControlPanel from "../components/control-panel.js";
 import CodeBox from "../components/code-box.js";
 require("../../scss/core.scss");
@@ -30,6 +31,9 @@ class ChooseSize extends React.Component {
   handleClick(e){
         const {dispatch} = this.props;
         dispatch(InitGrid());
+        dispatch(columnCount(this.state.columnCount));
+        dispatch(rowCount(this.state.rowCount));
+        dispatch(pixelCount(this.state.pixSize));
   }
 
   handleChange(){
@@ -43,7 +47,6 @@ class ChooseSize extends React.Component {
   renderForm(){
     const{environment} = this.props;
     console.log(environment);
-    if(environment.init === false){
       return(
         <div className="choose-size" ref = "chooseSizeContainer">
           <h6 className="choose-size__header">Choose size of grid</h6>
@@ -58,7 +61,6 @@ class ChooseSize extends React.Component {
           </form>
         </div>
           )
-    }
   }
 
   render() {
@@ -72,9 +74,10 @@ class ChooseSize extends React.Component {
 }
 
 function mapStateToProps(state) {
-  const {environment} = state;
+  const {environment, formSettings} = state;
   return{
-    environment
+    environment,
+    formSettings
   }
 }
 
