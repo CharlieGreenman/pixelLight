@@ -4,11 +4,15 @@ import { connect, Provider } from "react-redux";
 import ReactDOM from "react-dom";
 
 import elem from "../_elem.js";
+<<<<<<< HEAD
 import $ from "jquery";
 import {InitGrid} from "../actions/init-grid";
 import {columnCount, rowCount, pixelCount} from "../actions/form-settings";
 import ControlPanel from "../components/control-panel.js";
 import CodeBox from "../components/code-box.js";
+=======
+import {ColumnCount, RowCount, PixelSize, InitGrid} from "../actions/init-grid";
+>>>>>>> refactor
 require("../../scss/core.scss");
 
 class ChooseSize extends React.Component {
@@ -31,9 +35,15 @@ class ChooseSize extends React.Component {
   handleClick(e){
         const {dispatch} = this.props;
         dispatch(InitGrid());
+<<<<<<< HEAD
         dispatch(columnCount(this.state.columnCount));
         dispatch(rowCount(this.state.rowCount));
         dispatch(pixelCount(this.state.pixSize));
+=======
+        dispatch(ColumnCount(this.state.columnCount));
+        dispatch(RowCount(this.state.rowCount));
+        dispatch(PixelSize(this.state.pixSize));
+>>>>>>> refactor
   }
 
   handleChange(){
@@ -45,8 +55,12 @@ class ChooseSize extends React.Component {
   }
 
   renderForm(){
+<<<<<<< HEAD
     const{environment} = this.props;
     console.log(environment);
+=======
+    const{environment, dispatch} = this.props;
+>>>>>>> refactor
       return(
         <div className="choose-size" ref = "chooseSizeContainer">
           <h6 className="choose-size__header">Choose size of grid</h6>

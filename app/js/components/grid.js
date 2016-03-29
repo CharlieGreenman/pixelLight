@@ -1,26 +1,30 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { connect, Provider } from "react-redux";
+import ReactDOM from "react-dom";
 
 class Grid extends React.Component {
   constructor(props){
-    super(props);
-    // var ctx = this.getDOMNode().getContext("2d");
+    super(props)
+    this.createGrid = this.createGrid.bind(this);
+    this.updatedSettings = this.createGrid.bind(this);
   }
 
-  componentDidMount() {
-    var ctx = this.getDOMNode().getContext("2d");
+  componentDidMount(){
+    let ctx = ReactDOM.findDOMNode(this).getContext("2d");
+    this.updatedSettings();
+    this.createGrid();
   }
 
-  //create grid and create boxes
-  createGridIllustrator(){
-      //module for creating a grid
-      for(var r = 0; r < elem.s.columnCount; r++) {
-          for(var i = 0; i < elem.s.rowCount; i++) {
+  createGrid(){
+    let ctx = ReactDOM.findDOMNode(this).getContext("2d");
+    const{settings} = this.props;
+      for(var r = 0; r < settings.column.column; r++) {
+          for(var i = 0; i < settings.row.row; i++) {
               ctx.strokeStyle = "#262626";
-              ctx.strokeRect(r * elem.s.pixSize, i * elem.s.pixSize, elem.s.pixSize, elem.s.pixSize);
-              ctx.fillStyle = elem.el.backgroundHexColor.value;
-              ctx.fillRect(r * elem.s.pixSize + 1, i * elem.s.pixSize + 1, elem.s.pixSize - 2, elem.s.pixSize - 2);
+              ctx.strokeRect(r * settings.pixel.pixel, i * settings.pixel.pixel, settings.pixel.pixel, settings.pixel.pixel);
+              // ctx.fillStyle = elem.el.backgroundHexColor.value;
+              ctx.fillStyle = "black";
+              ctx.fillRect(r * settings.pixel.pixel + 1, i * settings.pixel.pixel + 1, settings.pixel.pixel - 2, settings.pixel.pixel - 2);
           }
       }
   }
@@ -32,11 +36,11 @@ class Grid extends React.Component {
   }
 }
 
-
 function mapStateToProps(state) {
-  const {environment, formSettings} = state;
+  const {environment, settings} = state;
   return{
-    formSettings
+    settings,
+    environment
   }
 }
 

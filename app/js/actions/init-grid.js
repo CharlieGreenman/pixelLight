@@ -11,3 +11,28 @@ export function InitGrid(init) {
       init
   };
 }
+
+//three input fields for form
+//columncount
+export function ColumnCount(column) {
+  return {
+      type: types.COLUMN_COUNT,
+      column
+  };
+}
+
+//rowcount
+export function RowCount(row) {
+  return {
+      type: types.ROW_COUNT,
+      row
+  };
+}
+
+//rowcount
+export function PixelSize(pixel) {
+  return {
+      type: types.PIXEL_SIZE,
+      pixel
+  };
+}
