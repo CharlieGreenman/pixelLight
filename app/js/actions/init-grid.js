@@ -17,7 +17,7 @@ export function InitGrid(init) {
 export function ColumnCount(column) {
   return {
       type: types.COLUMN_COUNT,
-      column
+      count: column
   };
 }
 
@@ -25,7 +25,7 @@ export function ColumnCount(column) {
 export function RowCount(row) {
   return {
       type: types.ROW_COUNT,
-      row
+      count: row
   };
 }
 
@@ -33,6 +33,6 @@ export function RowCount(row) {
 export function PixelSize(pixel) {
   return {
       type: types.PIXEL_SIZE,
-      pixel
+      count: pixel
   };
 }
