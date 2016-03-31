@@ -58,8 +58,9 @@ class ColorPicker extends React.Component {
               </div>
             </div>
           </div>
+        </div>
         )
       }
 }
 
-export default connect(mapStateToProps)(ColorPicker);
+export default connect()(ColorPicker);

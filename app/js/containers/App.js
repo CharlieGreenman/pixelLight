@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from "react";
 import {InitGrid} from "../actions/init-grid";
 import { connect } from "react-redux";
 import ChooseSize from "../components/choose-size-of-grid";
-import ControlPanel from "../components/control-panel";
+import ControlPanel from "../containers/ControlPanel";
 import CodeBox from "../components/code-box";
 import Grid from "../components/grid";
 

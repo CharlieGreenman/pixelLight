@@ -22,11 +22,4 @@ class ToggleView extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
-  const {environment} = state;
-  return{
-    environment
-  }
-}
-
-export default connect(mapStateToProps)(ToggleView);
+export default connect()(ToggleView);
