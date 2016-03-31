@@ -23,12 +23,32 @@
 .color-picker{
   &__header{
     font-size: 25px;
+
   }
   &__label{
     color: yellow;
   }
   &_input{
     font-size: 15px;
+  }
+  &__row{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    &__column{
+      width: 33%;
+      display: flex;
+      flex-direction: column;
+      &__label{
+         order: 1;
+         width: 50%;
+         color: white;
+      }
+      &__input{
+         order: 2;
+         width: 50%;
+      }
+    }
   }
 }
 
@@ -71,7 +91,9 @@
     padding: 0;
     margin: 0;
     box-shadow: none;
+    background: none;
     color: white;
+    font-family: 'Reenie Beanie', cursive;
     text-align: center;
     font-size: 1.5rem;
   }
