@@ -59,7 +59,6 @@ class ChooseSize extends React.Component {
   }
 
   render() {
-    const{environment, dispatch} = this.props;
     return(
       <div>
           {this.renderForm()}
