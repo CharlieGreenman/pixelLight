@@ -68,11 +68,4 @@ class ChooseSize extends React.Component {
    }
 }
 
-function mapStateToProps(state) {
-  const {environment} = state;
-  return{
-    environment
-  }
-}
-
-export default connect(mapStateToProps)(ChooseSize);
+export default ChooseSize;

@@ -3,6 +3,7 @@ import {InitGrid} from "../actions/init-grid";
 import { connect } from "react-redux";
 import ChooseSize from "../components/choose-size-of-grid";
 import ControlPanel from "../containers/ControlPanel";
+import ChooseSizeContainer from "../containers/ChooseSizeContainer";
 import CodeBox from "../components/code-box";
 import Grid from "../components/grid";
 
@@ -26,7 +27,7 @@ class App extends Component {
     }
     return(
         <div id ="choose_size_container">
-          <ChooseSize />
+          <ChooseSizeContainer />
         </div>
     )
   }
