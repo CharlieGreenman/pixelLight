@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { connect, Provider } from "react-redux";
 import classNames from "classnames";
+import {BackgroundColor, PixelColor} from "../actions/control-panel";
 
 class ColorPickerColumn extends React.Component{
   render(){
@@ -26,10 +27,14 @@ class ColorPicker extends React.Component {
   }
 
   handleBackgroundColorChange(e){
+    const {dispatch} = this.props;
     this.setState({backgroundHex: e.target.value});
+    dispatch(BackgroundColor(this.state.backgroundHex));
   }
   handlePixelColorChange(e){
+    const {dispatch} = this.props;
     this.setState({pixelHex: e.target.value});
+    dispatch(PixelColor(this.state.pixelHex));
   }
 
   render() {
@@ -59,7 +64,7 @@ class ColorPicker extends React.Component {
               <ColorPickerColumn letter = "B" inputClass = "backgroundRgb" inputId = "background-blue" />
             </div>
           </div>
-        </div>  
+        </div>
         )
       }
 }

@@ -7,11 +7,19 @@ class ControlPanel extends Component {
   render() {
     return(
       <div>
-        <ColorPicker/>
+        <ColorPicker {...this.props}/>
         <ToggleView/>
       </div>
     )
   }
 }
 
-export default connect()(ControlPanel);
+function mapStateToProps(state) {
+  const {colorPicker} = state;
+  return{
+    colorPicker
+  }
+}
+
+
+export default connect(mapStateToProps)(ControlPanel);
