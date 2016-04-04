@@ -8,6 +8,15 @@ export function BackgroundColor(color){
     }
 }
 
+export function BackgroundColorRGB(r,g,b){
+    return{
+        type: types.BACKGROUND_COLOR,
+        red: r,
+        green: g,
+        blue: b
+    }
+}
+
 export function PixelColor(color){
     return{
         type: types.PIXEL_COLOR,
