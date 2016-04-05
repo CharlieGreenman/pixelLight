@@ -46,11 +46,10 @@ class ColorPicker extends React.Component {
 
   handlePixelColorChange(e){
     const {dispatch} = this.props;
-    this.setState({pixelHex: e.target.value});
-    dispatch(PixelColor(this.state.pixelHex));
+    this.setState({pixelHex: e.target.value}, function(){
+        dispatch(PixelColor(this.state.pixelHex));
+    });
   }
-
-
 
   render() {
       return (

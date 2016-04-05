@@ -20,9 +20,9 @@ export default function colorPicker(state = colors, action) {
       });
   case types.BACKGROUND_RGB_COLOR:
       return Object.assign({}, state, {
-          red: action.red,
-          green: action.green,
-          blue: action.blue,
+          red: action.red || state.red,
+          green: action.green || state.green,
+          blue: action.blue || state.blue,
       });
   default:
       return state;
