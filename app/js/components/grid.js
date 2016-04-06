@@ -42,7 +42,7 @@ class Grid extends React.Component {
       ctx.fillStyle = pixelHex;
       //offsetY does not have a synthetic react event
       //http://stackoverflow.com/questions/31519758/reacts-mouseevent-doesnt-have-offsetx-offsety
-      var imgData = ctx.getImageData(Math.floor(e.nativeEvent.offsetX / pixelCount) * pixelCount + 1,
+      let imgData = ctx.getImageData(Math.floor(e.nativeEvent.offsetX / pixelCount) * pixelCount + 1,
           Math.floor(e.nativeEvent.offsetY / pixelCount) * pixelCount + 1,
           pixelCount - 2, pixelCount - 2);
 
@@ -85,9 +85,12 @@ function mapStateToProps(state) {
     columnCount: settings.column.count,
     pixelCount: parseFloat(settings.pixel.count),
     pixelHex: colorPicker.pixel.pixelColor,
-    backgroundRed: colorPicker.red,
-    backgroundGreen: colorPicker.green,
-    backgroundBlue: colorPicker.blue,
+    backgroundRed: colorPicker.backgroundRed,
+    backgroundGreen: colorPicker.backgroundGreen,
+    backgroundBlue: colorPicker.backgroundBlue,
+    pixelRed: colorPicker.pixelRed,
+    pixelGreen: colorPicker.pixelGreen,
+    pixelBlue: colorPicker.pixelBlue,
     settings,
     environment
   }

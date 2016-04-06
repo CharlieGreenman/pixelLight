@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { connect, Provider } from "react-redux";
 import classNames from "classnames";
-import {BackgroundColor, BackgroundColorRGB, PixelColor} from "../actions/control-panel";
+import {BackgroundColor, BackgroundColorRGB, PixelColor, PixelColorRGB} from "../actions/control-panel";
 
 class ColorPickerColumn extends React.Component{
   render(){
@@ -25,6 +25,7 @@ class ColorPicker extends React.Component {
     this.handleBackgroundColorChange    = this.handleBackgroundColorChange.bind(this);
     this.handleBackgroundRGBColorChange = this.handleBackgroundRGBColorChange.bind(this);
     this.handlePixelColorChange         = this.handlePixelColorChange.bind(this);
+    this.handlePixelRGBColorChange      = this.handlePixelRGBColorChange.bind(this);
   }
 
   handleBackgroundColorChange(e){
@@ -37,10 +38,20 @@ class ColorPicker extends React.Component {
     //http://stackoverflow.com/questions/21029999/react-js-identifying-different-inputs-with-one-onchange-handler
     var change = {};
     change[name] = e.target.value;
-    console.log("change: " + change);
     //http://stackoverflow.com/questions/30782948/why-calling-react-setstate-method-doesnt-mutate-the-state-immediately
     this.setState(change, function(){
-        dispatch(BackgroundColorRGB(this.state.red, this.state.green, this.state.blue));
+        dispatch(BackgroundColorRGB(this.state.backgroundRed, this.state.backgroundGreen, this.state.backgroundBlue));
+    });
+  }
+
+  handlePixelRGBColorChange(name, e){
+    const {dispatch} = this.props;
+    //http://stackoverflow.com/questions/21029999/react-js-identifying-different-inputs-with-one-onchange-handler
+    var pixelChange = {};
+    pixelChange[name] = e.target.value;
+    //http://stackoverflow.com/questions/30782948/why-calling-react-setstate-method-doesnt-mutate-the-state-immediately
+    this.setState(pixelChange, function(){
+        dispatch(PixelColorRGB(this.state.red, this.state.green, this.state.blue));
     });
   }
 
@@ -60,9 +71,9 @@ class ColorPicker extends React.Component {
             <input className = "color-picker__color" id="background-hex-color" type="text" defaultValue={this.state.backgroundHex}  onChange={this.handleBackgroundColorChange} maxLength={7} className="large-12" />
             <div id="background_color_bar" className="color-picker__color-bar" />
             <div id="rgb-background" className="color-picker__row">
-              <ColorPickerColumn letter = "R" state={this.state.red} inputClass = "backgroundRgb" id = "background-red" onChange={this.handleBackgroundRGBColorChange.bind(this, "red")}/>
-              <ColorPickerColumn letter = "G" inputClass = "backgroundRgb" id = "background-green" onChange={this.handleBackgroundRGBColorChange.bind(this, "green")} />
-              <ColorPickerColumn letter = "B" inputClass = "backgroundRgb" id = "background-blue" onChange={this.handleBackgroundRGBColorChange.bind(this, "blue")} />
+              <ColorPickerColumn letter = "R" inputClass = "backgroundRgb" id = "background-red" onChange={this.handleBackgroundRGBColorChange.bind(this, "backgroundRed")}/>
+              <ColorPickerColumn letter = "G" inputClass = "backgroundRgb" id = "background-green" onChange={this.handleBackgroundRGBColorChange.bind(this, "backgroundGreen")} />
+              <ColorPickerColumn letter = "B" inputClass = "backgroundRgb" id = "background-blue" onChange={this.handleBackgroundRGBColorChange.bind(this, "backgroundBlue")} />
             </div>
           </div>
 
@@ -72,9 +83,9 @@ class ColorPicker extends React.Component {
             <input id="pix-hex-color" type="text" defaultValue={this.state.pixelHex} onChange={this.handlePixelColorChange} maxLength={7} className = "color-picker__color" />
             <div id="color_bar" className="large-12" />
             <div id="rgb" className="color-picker__row">
-              <ColorPickerColumn letter = "R" inputClass = "backgroundRgb" id = "background-red" />
-              <ColorPickerColumn letter = "G" inputClass = "backgroundRgb" id = "background-green" />
-              <ColorPickerColumn letter = "B" inputClass = "backgroundRgb" id = "background-blue" />
+              <ColorPickerColumn letter = "R" inputClass = "backgroundRgb" id = "background-red" onChange={this.handlePixelRGBColorChange.bind(this, "red")}/>
+              <ColorPickerColumn letter = "G" inputClass = "backgroundRgb" id = "background-green" onChange={this.handlePixelRGBColorChange.bind(this, "blue")}/>
+              <ColorPickerColumn letter = "B" inputClass = "backgroundRgb" id = "background-blue" onChange={this.handlePixelRGBColorChange.bind(this, "green")}/>
             </div>
           </div>
         </div>
