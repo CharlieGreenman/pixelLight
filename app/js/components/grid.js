@@ -8,6 +8,7 @@ class Grid extends React.Component {
     super(props)
     this.createGrid = this.createGrid.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    // this.updateGridColor = this.updateGridColor.bind(this);
   }
 
   componentDidMount(){
@@ -18,20 +19,21 @@ class Grid extends React.Component {
 
   createGrid(){
     let ctx = ReactDOM.findDOMNode(this).getContext("2d");
-    const{columnCount, rowCount, pixelCount, } = this.props;
+    const{columnCount, rowCount, pixelCount, backgroundHex } = this.props;
       for(var r = 0; r < columnCount; r++) {
           for(var i = 0; i < rowCount; i++) {
               ctx.strokeStyle = "#262626";
               //conisder including utility function to work off of values
               ctx.strokeRect(r * pixelCount, i * pixelCount, pixelCount, pixelCount);
               // ctx.fillStyle = elem.el.backgroundHexColor.value;
-              ctx.fillStyle = "black";
+              ctx.fillStyle = backgroundHex;
               ctx.fillRect(r * pixelCount + 1, i * pixelCount + 1, pixelCount - 2, pixelCount - 2);
           }
       }
   }
 
   handleClick(e){
+      // this.updateGridColor();
       const{columnCount, rowCount, pixelCount, pixelHex, backgroundRed, backgroundGreen, backgroundBlue } = this.props;
       let ctx = ReactDOM.findDOMNode(this).getContext("2d");
       // clrPckr.pickBackgroundHexColor();
@@ -42,34 +44,63 @@ class Grid extends React.Component {
       ctx.fillStyle = pixelHex;
       //offsetY does not have a synthetic react event
       //http://stackoverflow.com/questions/31519758/reacts-mouseevent-doesnt-have-offsetx-offsety
-      let imgData = ctx.getImageData(Math.floor(e.nativeEvent.offsetX / pixelCount) * pixelCount + 1,
-          Math.floor(e.nativeEvent.offsetY / pixelCount) * pixelCount + 1,
-          pixelCount - 2, pixelCount - 2);
+      // function param(pixel){
+      //   reuMath.floor(e.nativeEvent.offsetX / pixel) * pixelCount + 1,
+      //       Math.floor(e.nativeEvent.offsetY / pixelCount) * pixelCount + 1,
+      //       pixelCount - 2, pixelCount - 2
+      // }
+      function getPixelImgData(pixelSize){
+        return ctx.getImageData(Math.floor(e.nativeEvent.offsetX / pixelSize) * pixelSize + 1,
+            Math.floor(e.nativeEvent.offsetY / pixelSize) * pixelSize + 1,
+            pixelSize - 2, pixelSize - 2);
+      }
+
+      function clearPixel(pixelSize){
+        return ctx.clearRect(Math.floor(e.nativeEvent.offsetX / pixelSize) * pixelSize + 1,
+            Math.floor(e.nativeEvent.offsetY / pixelSize) * pixelSize + 1,
+            pixelSize - 2, pixelSize - 2);
+      }
+      function fillPixel(pixelSize){
+        return ctx.fillRect(Math.floor(e.nativeEvent.offsetX / pixelSize) * pixelSize + 1,
+            Math.floor(e.nativeEvent.offsetY / pixelSize) * pixelSize + 1,
+            pixelSize - 2, pixelSize - 2);
+      }
+
+      let imgData = getPixelImgData(pixelCount);
 
       if(imgData.data[0] !== parseFloat(backgroundRed) && imgData.data[1] !== parseFloat(backgroundGreen) && imgData.data[2] !== parseFloat(backgroundBlue)){
           console.log('imgData properly being called');
           ctx.fillStyle = `rgba(${backgroundRed}, ${backgroundGreen}, ${backgroundBlue}, 1)`;
-          ctx.clearRect(Math.floor(e.nativeEvent.offsetX / pixelCount) * pixelCount + 1,
-              Math.floor(e.nativeEvent.offsetY / pixelCount) * pixelCount + 1,
-              pixelCount - 2, pixelCount - 2);
-          ctx.fillRect(Math.floor(e.nativeEvent.offsetX / pixelCount) * pixelCount + 1,
-              Math.floor(e.nativeEvent.offsetY / pixelCount) * pixelCount + 1,
-              //accomodate for 2 px border
-              //need to put in a variable down the line
-              pixelCount - 2, pixelCount - 2);
+          clearPixel(pixelCount);
+          fillPixel(pixelCount);
           ctx.fillStyle = `rgba(${backgroundRed}, ${backgroundGreen}, ${backgroundBlue}, 1)`;
           //elem.s.storeValues.indexOf([xVal, yVal, elem.el.hexColor.value]).pop();
           //this return false is causing wonky behavior, should look into it
           return false;
       }
 
-      ctx.fillRect(Math.floor(e.nativeEvent.offsetX / pixelCount) * pixelCount + 1,
-          Math.floor(e.nativeEvent.offsetY / pixelCount) * pixelCount + 1,
-          //accomodate for 2 px border
-          //need to put in a variable down the line
-          pixelCount - 2, pixelCount - 2);
+      fillPixel(pixelCount);
 
   }
+
+  // updateGridColor() {
+  //   let ctx = ReactDOM.findDOMNode(this).getContext("2d");
+  //   const{columnCount, rowCount, pixelCount, backgroundRed, backgroundGreen, backgroundBlue, backgroundHex} = this.props;
+  //     for(let x = 0; x < columnCount; x++) {
+  //         for(let y = 0; y < rowCount; y++) {
+  //             ctx.strokeStyle = `${backgroundRed + 44}. ${backgroundGreen + 44}. ${backgroundBlue + 44}`;
+  //             ctx.strokeRect(x * pixelCount, y * pixelCount, pixelCount, pixelCount);
+  //             ctx.fillStyle = backgroundHex;
+  //             ctx.fillRect(x * pixelCount + 1, y * pixelCount + 1, pixelCount - 2, pixelCount - 2);
+  //         }
+  //     }
+  //
+  //     // for(let x = 0; x < elem.s.storeValues.length; x++){
+  //     //     ctx.fillStyle = elem.s.storeValues[x][2];
+  //     //     ctx.fillRect(parseFloat(elem.s.storeValues[x][0]) + 1, parseFloat(elem.s.storeValues[x][1]) + 1, elem.s.pixSize - 2, elem.s.pixSize - 2);
+  //     // }
+  //
+  // }
 
   render() {
       return(
@@ -85,6 +116,7 @@ function mapStateToProps(state) {
     columnCount: settings.column.count,
     pixelCount: parseFloat(settings.pixel.count),
     pixelHex: colorPicker.pixel.pixelColor,
+    backgroundHex: colorPicker.backgroundHex,
     backgroundRed: colorPicker.backgroundRed,
     backgroundGreen: colorPicker.backgroundGreen,
     backgroundBlue: colorPicker.backgroundBlue,

@@ -4,7 +4,7 @@ import * as types from "../constants/ActionTypes";
 export function BackgroundColor(color){
     return{
         type: types.BACKGROUND_COLOR,
-        backgroundColor: color
+        backgroundHex: color
     }
 }
 

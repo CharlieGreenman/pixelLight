@@ -1,11 +1,11 @@
 import * as types from "../constants/ActionTypes";
 
 const colors = {
-    background: "#191919",
-    pixel: "#000000",
+    backgroundHex: "#191919",
     backgroundRed: "25",
     backgroundGreen: "25",
     backgroundBlue: "25",
+    pixel: "#000000",
     red: "25",
     green: "25",
     blue: "25"
@@ -15,7 +15,7 @@ export default function colorPicker(state = colors, action) {
   switch(action.type) {
   case types.BACKGROUND_COLOR:
       return Object.assign({}, state, {
-          background: action
+          backgroundHex: action.backgroundHex || state.backgroundHex
       });
   case types.PIXEL_COLOR:
       return Object.assign({}, state, {
