@@ -104,7 +104,7 @@ class Grid extends React.Component {
 
   render() {
       return(
-           <canvas onClick={this.handleClick} width={500} height={500} id='canvasGrid' className='allow-handle-click' />
+           <canvas onClick={this.handleClick} width={500} height={500} id='canvasGrid' ref="canvasGrid"  className='allow-handle-click' />
           )
   }
 }

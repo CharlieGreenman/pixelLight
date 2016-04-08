@@ -2,7 +2,6 @@ import React, {Component, PropTypes} from "react";
 import {connect} from "react-redux";
 import BackgroundColorPicker from "../components/color-picker/background-color-picker";
 import PixelColorPicker from "../components/color-picker/pixel-color-picker";
-import ColorPicker from "../components/color-picker";
 import ToggleView from "../components/toggle-view";
 
 class ControlPanel extends Component {
@@ -18,9 +17,16 @@ class ControlPanel extends Component {
 }
 
 function mapStateToProps(state) {
-  const {colorPicker} = state;
+  const {colorPicker, settings} = state;
   return{
-    colorPicker
+    colorPicker,
+    backgroundHex: colorPicker.backgroundHex,
+    backgroundRed: colorPicker.backgroundRed,
+    backgroundGreen: colorPicker.backgroundGreen,
+    backgroundBlue: colorPicker.backgroundBlue,
+    rowCount: settings.row.count,
+    columnCount: settings.column.count,
+    pixelCount: parseFloat(settings.pixel.count)
   }
 }
 
