@@ -3,7 +3,6 @@ import { connect, Provider } from "react-redux";
 
 import ReactDOM from "react-dom";
 
-import elem from "../_elem.js";
 import {ColumnCount, RowCount, PixelSize, InitGrid} from "../actions/init-grid";
 require("../../scss/core.scss");
 

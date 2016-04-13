@@ -5,7 +5,7 @@ const colors = {
     backgroundRed: "25",
     backgroundGreen: "25",
     backgroundBlue: "25",
-    pixel: "#000000",
+    pixelHex: "#000000",
     red: "25",
     green: "25",
     blue: "25"
@@ -19,7 +19,7 @@ export default function colorPicker(state = colors, action) {
       });
   case types.PIXEL_COLOR:
       return Object.assign({}, state, {
-          pixel: action
+          pixelHex: action.pixelHex || state.pixelHex
       });
   case types.BACKGROUND_RGB_COLOR:
       return Object.assign({}, state, {

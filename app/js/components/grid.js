@@ -115,7 +115,7 @@ function mapStateToProps(state) {
     rowCount: settings.row.count,
     columnCount: settings.column.count,
     pixelCount: parseFloat(settings.pixel.count),
-    pixelHex: colorPicker.pixel.pixelColor,
+    pixelHex: colorPicker.pixelHex,
     backgroundHex: colorPicker.backgroundHex,
     backgroundRed: colorPicker.backgroundRed,
     backgroundGreen: colorPicker.backgroundGreen,

@@ -38,6 +38,7 @@ class BackgroundColorPicker extends React.Component {
   }
 
   updateGridBackground() {
+    //need to come up with a more sophisticated way of targeting canvas element
     let ctx = document.getElementById("canvasGrid").getContext("2d");
     const{columnCount, rowCount, pixelCount, backgroundRed, backgroundGreen, backgroundBlue, backgroundHex} = this.props;
       for(let x = 0; x < columnCount; x++) {

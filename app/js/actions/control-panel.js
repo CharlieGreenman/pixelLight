@@ -20,7 +20,7 @@ export function BackgroundColorRGB(r,g,b){
 export function PixelColor(color){
     return{
         type: types.PIXEL_COLOR,
-        pixelColor: color
+        pixelHex: color
     }
 }
 
