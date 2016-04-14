@@ -33,6 +33,9 @@ module.exports = {
                 }
             }
         ],
+        postLoaders: [
+          { loader: "transform?brfs" }
+        ],
         resolve: {
             extensions: ['', '.js', '.jsx']
         }

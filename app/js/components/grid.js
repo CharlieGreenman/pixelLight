@@ -1,6 +1,8 @@
 import React from "react";
 import { connect, Provider } from "react-redux";
 import ReactDOM from "react-dom";
+import ReactCanvas from "react-canvas";
+
 require("../../scss/core.scss");
 
 class Grid extends React.Component {
