@@ -8,6 +8,7 @@ require('es6-promise').polyfill();
 open("http://localhost:8080/");
 
 module.exports = {
+
     entry: [
         //'webpack/hot/dev-server',
         'webpack-dev-server/client?http://localhost:8080',
@@ -24,10 +25,12 @@ module.exports = {
         preLoaders: [
             {test: /\.js$/, loader: "eslint-loader",  exclude: /node_modules/ }
         ],
+        //https://github.com/Flipboard/react-canvas/issues/102
         loaders: [
             {test: /\.scss$/,loaders: ["style", "css", "autoprefixer-loader", "sass"]},
             {test: /\.jade/, loader: "jade" },
-            {test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel',
+            // { test: /\.js$/, loader: 'jsx-loader!transform/cacheable?envify' },
+            {test: /\.js?$/, exclude: /node_modules/, loader: 'babel',
                 query: {
                     presets: ['es2015', 'react']
                 }
@@ -37,7 +40,10 @@ module.exports = {
           { loader: "transform?brfs" }
         ],
         resolve: {
-            extensions: ['', '.js', '.jsx']
+            extensions: ['', '.js', '.jsx'],
+            alias: {
+              'react-canvas': 'lib/ReactCanvas.js'
+            }
         }
     },
     eslint: {
