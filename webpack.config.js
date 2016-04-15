@@ -8,7 +8,6 @@ require('es6-promise').polyfill();
 open("http://localhost:8080/");
 
 module.exports = {
-
     entry: [
         //'webpack/hot/dev-server',
         'webpack-dev-server/client?http://localhost:8080',

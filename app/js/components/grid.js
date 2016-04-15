@@ -2,6 +2,9 @@ import React from "react";
 import { connect, Provider } from "react-redux";
 import ReactDOM from "react-dom";
 import ReactCanvas from "react-canvas";
+//
+
+var Surface = ReactCanvas.Surface;
 
 require("../../scss/core.scss");
 
@@ -18,6 +21,7 @@ class Grid extends React.Component {
 
     this.createGrid();
   }
+
 
   createGrid(){
     let ctx = ReactDOM.findDOMNode(this).getContext("2d");
@@ -106,7 +110,8 @@ class Grid extends React.Component {
 
   render() {
       return(
-           <canvas onClick={this.handleClick} width={500} height={500} id='canvasGrid' ref="canvasGrid"  className='allow-handle-click' />
+           <Surface top={0} left={500} id='canvasGrid' width={500} height={500} onClick={console.log('works')}>
+           </Surface>
           )
   }
 }
