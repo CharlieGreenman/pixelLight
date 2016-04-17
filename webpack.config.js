@@ -28,21 +28,14 @@ module.exports = {
         loaders: [
             {test: /\.scss$/,loaders: ["style", "css", "autoprefixer-loader", "sass"]},
             {test: /\.jade/, loader: "jade" },
-            // { test: /\.js$/, loader: 'jsx-loader!transform/cacheable?envify' },
             {test: /\.js?$/, exclude: /node_modules/, loader: 'babel',
                 query: {
                     presets: ['es2015', 'react']
                 }
             }
         ],
-        postLoaders: [
-          { loader: "transform?brfs" }
-        ],
         resolve: {
-            extensions: ['', '.js', '.jsx'],
-            alias: {
-              'react-canvas': 'lib/ReactCanvas.js'
-            }
+            extensions: ['', '.js', '.jsx']
         }
     },
     eslint: {

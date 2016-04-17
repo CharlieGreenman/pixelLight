@@ -1,7 +1,7 @@
 import React from "react";
 import { connect, Provider } from "react-redux";
 import ReactDOM from "react-dom";
-import {Surface, Gradient} from "react-canvas";
+import {Layer, Rect, Stage, Group} from 'react-konva';
 
 require("../../scss/core.scss");
 
@@ -107,9 +107,16 @@ class Grid extends React.Component {
 
   render() {
       return(
-           <Surface top={0} left={500} className='allow-handle-click' id='canvasGrid' width={500} height={500} onClick={this.handleClick} >
-              <Gradient color = 'black'> </Gradient>
-           </Surface>
+        <Stage id='canvasGrid'>
+          <Layer >
+            <Rect x={0} y={500} width={500} height={500} className='allow-handle-click' id={'canvasGrid'}
+                  shadowBlur={10}
+                  onClick={this.handleClick}
+              />
+          </Layer>
+        </Stage>
+
+
           )
   }
 }
