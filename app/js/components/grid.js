@@ -1,10 +1,7 @@
 import React from "react";
 import { connect, Provider } from "react-redux";
 import ReactDOM from "react-dom";
-import ReactCanvas from "react-canvas";
-//
-
-var Surface = ReactCanvas.Surface;
+import {Surface, Gradient} from "react-canvas";
 
 require("../../scss/core.scss");
 
@@ -110,7 +107,8 @@ class Grid extends React.Component {
 
   render() {
       return(
-           <Surface top={0} left={500} id='canvasGrid' width={500} height={500} onClick={console.log('works')}>
+           <Surface top={0} left={500} className='allow-handle-click' id='canvasGrid' width={500} height={500} onClick={this.handleClick} >
+              <Gradient color = 'black'> </Gradient>
            </Surface>
           )
   }
