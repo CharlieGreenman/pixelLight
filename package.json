@@ -44,9 +44,7 @@
     "classnames": "^2.2.3",
     "es6-promise": "^3.1.2",
     "imagemin-pngquant": "^4.1.0",
-    "json-loader": "^0.5.4",
-    "konva": "^0.12.3",
-    "react-konva": "^0.6.3"
+    "json-loader": "^0.5.4"
   },
   "eslintConfig": {
     "parser": "babel-eslint",

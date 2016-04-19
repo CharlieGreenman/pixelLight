@@ -1,7 +1,7 @@
 import React from "react";
 import { connect, Provider } from "react-redux";
 import ReactDOM from "react-dom";
-import {Layer, Rect, Stage, Group} from 'react-konva';
+import {Group, Shape, Surface, Transform} from 'react-art';
 
 require("../../scss/core.scss");
 
@@ -106,15 +106,11 @@ class Grid extends React.Component {
   // }
 
   render() {
+    const {rowCount, columnCount} = this.props;
       return(
-        <Stage id='canvasGrid'>
-          <Layer >
-            <Rect x={0} y={500} width={500} height={500} className='allow-handle-click' id={'canvasGrid'}
-                  shadowBlur={10}
-                  onClick={this.handleClick}
-              />
-          </Layer>
-        </Stage>
+        <Surface width={rowCount * rowCount} height={columnCount * columnCount} onClick={this.handleClick}>
+
+        </Surface>
 
 
           )
