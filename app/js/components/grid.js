@@ -37,7 +37,7 @@ class Grid extends React.Component {
 
   handleClick(e){
       // this.updateGridColor();
-      const{columnCount, rowCount, pixelCount, pixelHex, backgroundRed, backgroundGreen, backgroundBlue } = this.props;
+      const{columnCount, rowCount, pixelCount, pixelHex, pixelRed, pixelGreen, pixelBlue, backgroundRed, backgroundGreen, backgroundBlue } = this.props;
       let ctx = ReactDOM.findDOMNode(this).getContext("2d");
       // clrPckr.pickBackgroundHexColor();
       // console.log(`rgba(${backgroundRed}, ${backgroundGreen}, ${backgroundBlue}, 1)`);
@@ -73,10 +73,10 @@ class Grid extends React.Component {
 
       if(imgData.data[0] !== parseFloat(backgroundRed) && imgData.data[1] !== parseFloat(backgroundGreen) && imgData.data[2] !== parseFloat(backgroundBlue)){
           console.log('imgData properly being called');
-          ctx.fillStyle = `rgba(${backgroundRed}, ${backgroundGreen}, ${backgroundBlue}, 1)`;
+          ctx.fillStyle = `rgba(${pixelRed}, ${pixelGreen}, ${pixelBlue}, 1)`;
           clearPixel(pixelCount);
           fillPixel(pixelCount);
-          ctx.fillStyle = `rgba(${backgroundRed}, ${backgroundGreen}, ${backgroundBlue}, 1)`;
+          ctx.fillStyle = `rgba(${pixelRed}, ${pixelGreen}, ${pixelBlue}, 1)`;
           //elem.s.storeValues.indexOf([xVal, yVal, elem.el.hexColor.value]).pop();
           //this return false is causing wonky behavior, should look into it
           return false;
@@ -86,33 +86,29 @@ class Grid extends React.Component {
 
   }
 
-  // updateGridColor() {
-  //   let ctx = ReactDOM.findDOMNode(this).getContext("2d");
-  //   const{columnCount, rowCount, pixelCount, backgroundRed, backgroundGreen, backgroundBlue, backgroundHex} = this.props;
-  //     for(let x = 0; x < columnCount; x++) {
-  //         for(let y = 0; y < rowCount; y++) {
-  //             ctx.strokeStyle = `${backgroundRed + 44}. ${backgroundGreen + 44}. ${backgroundBlue + 44}`;
-  //             ctx.strokeRect(x * pixelCount, y * pixelCount, pixelCount, pixelCount);
-  //             ctx.fillStyle = backgroundHex;
-  //             ctx.fillRect(x * pixelCount + 1, y * pixelCount + 1, pixelCount - 2, pixelCount - 2);
-  //         }
-  //     }
-  //
-  //     // for(let x = 0; x < elem.s.storeValues.length; x++){
-  //     //     ctx.fillStyle = elem.s.storeValues[x][2];
-  //     //     ctx.fillRect(parseFloat(elem.s.storeValues[x][0]) + 1, parseFloat(elem.s.storeValues[x][1]) + 1, elem.s.pixSize - 2, elem.s.pixSize - 2);
-  //     // }
-  //
-  // }
+  updateGridColor() {
+    let ctx = ReactDOM.findDOMNode(this).getContext("2d");
+    const{columnCount, rowCount, pixelCount, backgroundRed, backgroundGreen, backgroundBlue, backgroundHex} = this.props;
+      for(let x = 0; x < columnCount; x++) {
+          for(let y = 0; y < rowCount; y++) {
+              ctx.strokeStyle = `${backgroundRed + 44}. ${backgroundGreen + 44}. ${backgroundBlue + 44}`;
+              ctx.strokeRect(x * pixelCount, y * pixelCount, pixelCount, pixelCount);
+              ctx.fillStyle = 'rgba(backgroundRed, backgroundGreen, backgroundBlue, 1)';
+              ctx.fillRect(x * pixelCount + 1, y * pixelCount + 1, pixelCount - 2, pixelCount - 2);
+          }
+      }
+
+      // for(let x = 0; x < elem.s.storeValues.length; x++){
+      //     ctx.fillStyle = elem.s.storeValues[x][2];
+      //     ctx.fillRect(parseFloat(elem.s.storeValues[x][0]) + 1, parseFloat(elem.s.storeValues[x][1]) + 1, elem.s.pixSize - 2, elem.s.pixSize - 2);
+      // }
+
+  }
 
   render() {
     const {rowCount, columnCount} = this.props;
       return(
-        <Surface width={rowCount * rowCount} height={columnCount * columnCount} onClick={this.handleClick}>
-
-        </Surface>
-
-
+        <canvas onClick={this.handleClick} width={rowCount * rowCount} height={columnCount * columnCount} id='canvasGrid' ref="canvasGrid"  className='allow-handle-click' />
           )
   }
 }
