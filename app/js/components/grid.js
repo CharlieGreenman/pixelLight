@@ -1,6 +1,7 @@
 import React from "react";
 import { connect, Provider } from "react-redux";
 import ReactDOM from "react-dom";
+import {getPixelImgData, clearPixel, fillPixel} from "./grid/grid-utils";
 import {Group, Shape, Surface, Transform} from 'react-art';
 
 require("../../scss/core.scss");
@@ -52,37 +53,17 @@ class Grid extends React.Component {
       //       Math.floor(e.nativeEvent.offsetY / pixelCount) * pixelCount + 1,
       //       pixelCount - 2, pixelCount - 2
       // }
-      function getPixelImgData(pixelSize){
-        return ctx.getImageData(Math.floor(e.nativeEvent.offsetX / pixelSize) * pixelSize + 1,
-            Math.floor(e.nativeEvent.offsetY / pixelSize) * pixelSize + 1,
-            pixelSize - 2, pixelSize - 2);
-      }
-
-      function clearPixel(pixelSize){
-        return ctx.clearRect(Math.floor(e.nativeEvent.offsetX / pixelSize) * pixelSize + 1,
-            Math.floor(e.nativeEvent.offsetY / pixelSize) * pixelSize + 1,
-            pixelSize - 2, pixelSize - 2);
-      }
-      function fillPixel(pixelSize){
-        return ctx.fillRect(Math.floor(e.nativeEvent.offsetX / pixelSize) * pixelSize + 1,
-            Math.floor(e.nativeEvent.offsetY / pixelSize) * pixelSize + 1,
-            pixelSize - 2, pixelSize - 2);
-      }
-
-      let imgData = getPixelImgData(pixelCount);
+      let imgData = getPixelImgData(e, ctx, pixelCount);
 
       if(imgData.data[0] !== parseFloat(backgroundRed) && imgData.data[1] !== parseFloat(backgroundGreen) && imgData.data[2] !== parseFloat(backgroundBlue)){
           console.log('imgData properly being called');
-          ctx.fillStyle = `rgba(${pixelRed}, ${pixelGreen}, ${pixelBlue}, 1)`;
-          clearPixel(pixelCount);
-          fillPixel(pixelCount);
-          ctx.fillStyle = `rgba(${pixelRed}, ${pixelGreen}, ${pixelBlue}, 1)`;
-          //elem.s.storeValues.indexOf([xVal, yVal, elem.el.hexColor.value]).pop();
-          //this return false is causing wonky behavior, should look into it
+          ctx.fillStyle = `rgba(${backgroundRed}, ${backgroundGreen}, ${backgroundBlue}, 1)`;
+          clearPixel(e, ctx, pixelCount);
+          fillPixel(e, ctx, pixelCount);
           return false;
       }
 
-      fillPixel(pixelCount);
+      fillPixel(e, ctx, pixelCount);
 
   }
 
