@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import ChooseSize from "../components/choose-size-of-grid";
 import ControlPanel from "../containers/ControlPanel";
 import ChooseSizeContainer from "../containers/ChooseSizeContainer";
-import CodeBox from "../components/code-box";
+import CodeBox from "../components/code-box/code-box";
 import Grid from "../components/grid";
 
 class App extends Component {

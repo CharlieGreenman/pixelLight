@@ -1,7 +1,7 @@
 import React from "react";
 import { connect, Provider } from "react-redux";
 import ReactDOM from "react-dom";
-import {getPixelImgData, clearPixel, fillPixel} from "./grid/grid-utils";
+import {getPixelImgData, clearPixel, createPixel} from "./grid/grid-utils";
 import {Group, Shape, Surface, Transform} from 'react-art';
 
 require("../../scss/core.scss");
@@ -27,9 +27,7 @@ class Grid extends React.Component {
       for(var r = 0; r < columnCount; r++) {
           for(var i = 0; i < rowCount; i++) {
               ctx.strokeStyle = "#262626";
-              //conisder including utility function to work off of values
               ctx.strokeRect(r * pixelCount, i * pixelCount, pixelCount, pixelCount);
-              // ctx.fillStyle = elem.el.backgroundHexColor.value;
               ctx.fillStyle = backgroundHex;
               ctx.fillRect(r * pixelCount + 1, i * pixelCount + 1, pixelCount - 2, pixelCount - 2);
           }
@@ -40,35 +38,27 @@ class Grid extends React.Component {
       // this.updateGridColor();
       const{columnCount, rowCount, pixelCount, pixelHex, pixelRed, pixelGreen, pixelBlue, backgroundRed, backgroundGreen, backgroundBlue } = this.props;
       let ctx = ReactDOM.findDOMNode(this).getContext("2d");
-      // clrPckr.pickBackgroundHexColor();
-      // console.log(`rgba(${backgroundRed}, ${backgroundGreen}, ${backgroundBlue}, 1)`);
-      e = e || window.event;
-      var xVal = Math.floor(e.offsetX === undefined ? e.layerX : e.offsetX / pixelCount) * pixelCount;
-      var yVal = Math.floor(e.offsetY === undefined ? e.layerY : e.offsetY / pixelCount) * pixelCount;
-      ctx.fillStyle = pixelHex;
-      //offsetY does not have a synthetic react event
-      //http://stackoverflow.com/questions/31519758/reacts-mouseevent-doesnt-have-offsetx-offsety
-      // function param(pixel){
-      //   reuMath.floor(e.nativeEvent.offsetX / pixel) * pixelCount + 1,
-      //       Math.floor(e.nativeEvent.offsetY / pixelCount) * pixelCount + 1,
-      //       pixelCount - 2, pixelCount - 2
-      // }
       let imgData = getPixelImgData(e, ctx, pixelCount);
 
-      if(imgData.data[0] !== parseFloat(backgroundRed) && imgData.data[1] !== parseFloat(backgroundGreen) && imgData.data[2] !== parseFloat(backgroundBlue)){
-          console.log('imgData properly being called');
+      e = e || window.event;
+      ctx.fillStyle = pixelHex;
+
+      if(imgData.data[0] !== parseFloat(backgroundRed)
+         && imgData.data[1] !== parseFloat(backgroundGreen)
+         && imgData.data[2] !== parseFloat(backgroundBlue)
+        ){
           ctx.fillStyle = `rgba(${backgroundRed}, ${backgroundGreen}, ${backgroundBlue}, 1)`;
           clearPixel(e, ctx, pixelCount);
-          fillPixel(e, ctx, pixelCount);
+          createPixel(e, ctx, pixelCount);
           return false;
       }
 
-      fillPixel(e, ctx, pixelCount);
+      createPixel(e, ctx, pixelCount);
 
   }
 
   updateGridColor() {
-    let ctx = ReactDOM.findDOMNode(this).getContext("2d");
+
     const{columnCount, rowCount, pixelCount, backgroundRed, backgroundGreen, backgroundBlue, backgroundHex} = this.props;
       for(let x = 0; x < columnCount; x++) {
           for(let y = 0; y < rowCount; y++) {
@@ -90,7 +80,7 @@ class Grid extends React.Component {
     const {rowCount, columnCount} = this.props;
       return(
         <canvas onClick={this.handleClick} width={rowCount * rowCount} height={columnCount * columnCount} id='canvasGrid' ref="canvasGrid"  className='allow-handle-click' />
-          )
+      )
   }
 }
 
