@@ -26,7 +26,11 @@ module.exports = {
         ],
         //https://github.com/Flipboard/react-canvas/issues/102
         loaders: [
-            {test: /\.scss$/,loaders: ["style", "css", "autoprefixer-loader", "sass"]},
+            {test: /\.scss$/,loaders: [
+              "style",
+               "css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]",
+               "autoprefixer-loader",
+               "sass"]},
             {test: /\.jade/, loader: "jade" },
             {test: /\.js?$/, exclude: /node_modules/, loader: 'babel',
                 query: {

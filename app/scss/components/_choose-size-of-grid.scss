@@ -1,4 +1,28 @@
-.choose-size{
+//BACKGROUND COLORS
+$dark-background-color: #262626;
+$medium-background-color: #333333;
+$light-background-color: #3e4649;
+
+$dark-color: rgba(255, 255, 255, 0.3);
+$medium-color: rgba(255, 255, 255, 0.5) ;
+$light-color: rgba(255, 255, 255, 0.8);
+
+$opacity-background-one: rgba(255, 255, 255, 0.1);
+$opacity-two: rgba(255, 255, 255, 0.3);
+$opacity-three: rgba(255, 255, 255, 0.5);
+$opacity-four: rgba(255, 255, 255, 0.7);
+$opacity-five: rgba(255, 255, 255, 0.8);
+
+$code-height: 30px;
+$code-width: 56px;
+
+//CODE BOX COLORS
+$css_color: #1572b6;
+$sass_color: #CF649A;
+$less_color: #1d365d;
+$js_color: #F0DB4F;
+
+.chooseSize{
   width: 300px;
   display: flex;
   flex-direction: column;

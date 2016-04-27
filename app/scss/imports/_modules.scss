@@ -12,6 +12,17 @@
 //
 //
 
+/*
+####################
+###### VARS #######   // different sass variables such as colors, fonts, and media queries
+####################
+*/
+
+
+
+
+
+
 
 //1. header
 
@@ -47,13 +58,13 @@ label#hex_label{
   margin: 0 auto;
   margin-top: 40px;
   text-align: center;
-  background: $medium-background-color;
+  // background: $medium-background-color;
   font-family: 'Reenie Beanie', cursive;
   max-width: 300px;
 }
 
 #choose_size_header{
-  background: $dark-background-color;
+  // background: $dark-background-color;
   color: $light-color;
   font-family: 'Reenie Beanie', cursive;
   font-weight: 700;
