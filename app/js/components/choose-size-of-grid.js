@@ -44,15 +44,15 @@ class ChooseSize extends React.Component {
     const{environment, dispatch} = this.props;
       return(
         <div className={styles.chooseSize} ref = "chooseSizeContainer">
-          <h6 className="choose-size__header">Choose size of grid</h6>
-          <form className="choose-size__form" >
-            <label className = "choose-size__form__label">columns</label>
-            <label className = "choose-size__form__label">rows</label>
-            <input onChange={this.handleChange} type="text" value = {this.state.columnCount} defaultValue={20} id="input-for-columns" className = "choose-size__form__input" />
-            <input onChange={this.handleChange} type="text" value = {this.state.rowCount} defaultValue={20} id="input-for-rows" className = "choose-size__form__input" />
-            <label className = "choose-size__form__label">Pixel Size</label>
-            <button onClick={(e) => this.handleClick(e)} id="create_grid" type="button" className = "choose-size__form__button">Create Grid</button>
-            <input onChange={this.handleChange} type="text" value = {this.state.pixSize} defaultValue={20} id="input-for-pixel-size" className = "choose-size__form__input" />
+          <h6 className={styles.header}>Choose size of grid</h6>
+          <form className={styles.form} >
+            <label className = {styles.label}>columns</label>
+            <label className = {styles.label}>rows</label>
+            <input className = {styles.input} onChange={this.handleChange} type="text" value = {this.state.columnCount} defaultValue={20} id="input-for-columns"  />
+            <input className = {styles.input} onChange={this.handleChange} type="text" value = {this.state.rowCount} defaultValue={20} id="input-for-rows"  />
+            <label className = {styles.label}>Pixel Size</label>
+            <button className = {styles.button} onClick={(e) => this.handleClick(e)} id="create_grid" type="button" >Create Grid</button>
+            <input className = {styles.input} onChange={this.handleChange} type="text" value = {this.state.pixSize} defaultValue={20} id="input-for-pixel-size"  />
           </form>
         </div>
           )
