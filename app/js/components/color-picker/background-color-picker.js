@@ -5,6 +5,9 @@ import {BackgroundColor, BackgroundColorRGB} from "../../actions/control-panel";
 import ColorPickerColumn from "../../components/color-picker/color-picker-column";
 import Grid from "../../components/grid";
 
+import CSSModules from 'react-css-modules';
+import styles from "../../../scss/components/visual-settings-control-panel.scss";
+
 class BackgroundColorPicker extends React.Component {
 
   constructor(props){
@@ -58,10 +61,10 @@ class BackgroundColorPicker extends React.Component {
   render() {
       return (
         <div>
-          <div className="color-picker" id="background-color-picker">
-            <h3 className = "color-picker__header">Background Color</h3>
-            <label className = "color-picker__label" id="hex_label">Hex</label>
-            <input className = "color-picker__color" id="background-hex-color" type="text" defaultValue={this.state.backgroundHex}  onChange={this.handleBackgroundColorChange} maxLength={7} className="large-12" />
+          <div styleName="color-picker">
+            <h3 styleName="header">Background Color</h3>
+            <label styleName="label" id="hex_label">Hex</label>
+            <input styleName='color-input' type="text" defaultValue={this.state.backgroundHex}  onChange={this.handleBackgroundColorChange} maxLength={7} />
             <div id="background_color_bar" className="color-picker__color-bar" />
             <div id="rgb-background" className="color-picker__row">
               <ColorPickerColumn letter = "R" inputClass = "backgroundRgb" id = "background-red" onChange={this.handleBackgroundRGBColorChange.bind(this, "backgroundRed")}/>
@@ -75,4 +78,4 @@ class BackgroundColorPicker extends React.Component {
       }
 }
 
-export default connect()(BackgroundColorPicker);
+export default connect()(CSSModules(BackgroundColorPicker, styles));

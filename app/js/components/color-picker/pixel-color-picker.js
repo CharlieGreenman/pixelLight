@@ -3,6 +3,10 @@ import { connect} from "react-redux";
 import { PixelColor, PixelColorRGB} from "../../actions/control-panel";
 import ColorPickerColumn from "../../components/color-picker/color-picker-column";
 
+import CSSModules from 'react-css-modules';
+import styles from "../../../scss/components/visual-settings-control-panel.scss";
+
+
 class PixelColorPicker extends React.Component {
   constructor(props){
     super(props);
@@ -34,12 +38,12 @@ class PixelColorPicker extends React.Component {
   render() {
       return (
         <div>
-          <div id="color-picker" className="column large-12">
-            <h3 className = "color-picker__header">Pixel Color</h3>
-            <label id="hex_label" className = "color-picker__header" >Hex</label>
+          <div styleName='color-picker'>
+            <h3 styleName='header'>Pixel Color</h3>
+            <label styleName='header' id="hex_label">Hex</label>
             <input id="pix-hex-color" type="text" defaultValue={this.state.pixelHex} onChange={this.handlePixelColorChange} maxLength={7} className = "color-picker__color" />
-            <div id="color_bar" className="large-12" />
-            <div id="rgb" className="color-picker__row">
+            <div id="color_bar" />
+            <div styleName='row' id="rgb" >
               <ColorPickerColumn letter = "R" inputClass = "backgroundRgb" id = "background-red" onChange={this.handlePixelRGBColorChange.bind(this, "red")}/>
               <ColorPickerColumn letter = "G" inputClass = "backgroundRgb" id = "background-green" onChange={this.handlePixelRGBColorChange.bind(this, "blue")}/>
               <ColorPickerColumn letter = "B" inputClass = "backgroundRgb" id = "background-blue" onChange={this.handlePixelRGBColorChange.bind(this, "green")}/>
@@ -50,4 +54,4 @@ class PixelColorPicker extends React.Component {
       }
 }
 
-export default connect()(PixelColorPicker);
+export default connect()(CSSModules(PixelColorPicker, styles));

@@ -4,8 +4,9 @@ import { connect, Provider } from "react-redux";
 import ReactDOM from "react-dom";
 
 import {ColumnCount, RowCount, PixelSize, InitGrid} from "../actions/init-grid";
-// require("../../scss/core.scss");
-import styles from "../../scss/components/_choose-size-of-grid.scss";
+
+import CSSModules from 'react-css-modules';
+import styles from "../../scss/components/choose-size-of-grid.scss";
 
 class ChooseSize extends React.Component {
 
@@ -43,16 +44,16 @@ class ChooseSize extends React.Component {
   renderForm(){
     const{environment, dispatch} = this.props;
       return(
-        <div className={styles.chooseSize} ref = "chooseSizeContainer">
-          <h6 className={styles.header}>Choose size of grid</h6>
-          <form className={styles.form} >
-            <label className = {styles.label}>columns</label>
-            <label className = {styles.label}>rows</label>
-            <input className = {styles.input} onChange={this.handleChange} type="text" value = {this.state.columnCount} defaultValue={20} id="input-for-columns"  />
-            <input className = {styles.input} onChange={this.handleChange} type="text" value = {this.state.rowCount} defaultValue={20} id="input-for-rows"  />
-            <label className = {styles.label}>Pixel Size</label>
+        <div styleName='choose-size' ref = "chooseSizeContainer">
+          <h6 styleName='header' >Choose size of grid</h6>
+          <form styleName='form'>
+            <label styleName='label'>columns</label>
+            <label styleName='label'>rows</label>
+            <input styleName='input' onChange={this.handleChange} type="text" value = {this.state.columnCount} defaultValue={20} id="input-for-columns"  />
+            <input styleName='input' onChange={this.handleChange} type="text" value = {this.state.rowCount} defaultValue={20} id="input-for-rows"  />
+            <label styleName='label'>Pixel Size</label>
             <button className = {styles.button} onClick={(e) => this.handleClick(e)} id="create_grid" type="button" >Create Grid</button>
-            <input className = {styles.input} onChange={this.handleChange} type="text" value = {this.state.pixSize} defaultValue={20} id="input-for-pixel-size"  />
+            <input styleName='input' onChange={this.handleChange} type="text" value = {this.state.pixSize} defaultValue={20} id="input-for-pixel-size"  />
           </form>
         </div>
           )
@@ -67,4 +68,4 @@ class ChooseSize extends React.Component {
    }
 }
 
-export default ChooseSize;
+export default CSSModules(ChooseSize, styles);

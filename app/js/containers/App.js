@@ -7,13 +7,17 @@ import ChooseSizeContainer from "../containers/ChooseSizeContainer";
 import CodeBox from "../components/code-box/code-box";
 import Grid from "../components/grid";
 
+import CSSModules from 'react-css-modules';
+import styles from "../../scss/components/visual-settings-control-panel.scss";
+
+
 class App extends Component {
   render(){
     const{environment} = this.props;
     if(environment.init){
       return(
         <div>
-          <div id="header-container">
+          <div styleName='header-container'>
             <ControlPanel />
           </div>
           <div id="code_box_container">
@@ -40,4 +44,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(CSSModules(App,styles));

@@ -22,7 +22,7 @@ $sass_color: #CF649A;
 $less_color: #1d365d;
 $js_color: #F0DB4F;
 
-.chooseSize{
+.choose-size{
   width: 300px;
   display: flex;
   flex-direction: column;
@@ -44,8 +44,7 @@ $js_color: #F0DB4F;
   font-size: 20px;
   text-transform: uppercase;
 }
-  // justify-content: center;
-  // align-items: center;
+  
 .form{
   display: flex;
   flex-direction: row;
@@ -94,6 +93,7 @@ $js_color: #F0DB4F;
 
 .button{
   flex-basis: 50%;
+  height: 60px;
   background: #F2A030;
   font-family: 'Reenie Beanie', cursive;
   font-size: 20px;
