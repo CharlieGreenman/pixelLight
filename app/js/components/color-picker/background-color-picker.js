@@ -6,7 +6,7 @@ import ColorPickerColumn from "../../components/color-picker/color-picker-column
 import Grid from "../../components/grid";
 
 import CSSModules from 'react-css-modules';
-import styles from "../../../scss/components/visual-settings-control-panel.scss";
+import styles from "../../../scss/visual-settings-control-panel.scss";
 
 class BackgroundColorPicker extends React.Component {
 
@@ -63,7 +63,7 @@ class BackgroundColorPicker extends React.Component {
         <div>
           <div styleName="color-picker">
             <h3 styleName="header">Background Color</h3>
-            <label styleName="label" id="hex_label">Hex</label>
+            <label styleName="label-yellow" id="hex_label">Hex</label>
             <input styleName='color-input' type="text" defaultValue={this.state.backgroundHex}  onChange={this.handleBackgroundColorChange} maxLength={7} />
             <div id="background_color_bar" className="color-picker__color-bar" />
             <div id="rgb-background" className="color-picker__row">

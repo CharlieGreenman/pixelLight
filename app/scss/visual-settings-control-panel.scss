@@ -20,9 +20,27 @@
 }
 
 .label{
-  // color: yellow;
   order: 1;
-  color: white;
+}
+
+.label-yellow{
+  composes: label;
+  composes: theme-yellow from "./_theme-colors.scss";
+}
+
+.label-red{
+  composes: label;
+  composes: theme-red from "./_theme-colors.scss";
+}
+
+.label-green{
+  composes: label;
+  composes: theme-green from "./_theme-colors.scss";
+}
+
+.label-blue{
+  composes: label;
+  composes: theme-blue from "./_theme-colors.scss";
 }
 
 .input{

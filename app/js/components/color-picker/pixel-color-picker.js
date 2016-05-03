@@ -4,7 +4,7 @@ import { PixelColor, PixelColorRGB} from "../../actions/control-panel";
 import ColorPickerColumn from "../../components/color-picker/color-picker-column";
 
 import CSSModules from 'react-css-modules';
-import styles from "../../../scss/components/visual-settings-control-panel.scss";
+import styles from "../../../scss/visual-settings-control-panel.scss";
 
 
 class PixelColorPicker extends React.Component {
@@ -44,9 +44,9 @@ class PixelColorPicker extends React.Component {
             <input id="pix-hex-color" type="text" defaultValue={this.state.pixelHex} onChange={this.handlePixelColorChange} maxLength={7} className = "color-picker__color" />
             <div id="color_bar" />
             <div styleName='row' id="rgb" >
-              <ColorPickerColumn letter = "R" inputClass = "backgroundRgb" id = "background-red" onChange={this.handlePixelRGBColorChange.bind(this, "red")}/>
-              <ColorPickerColumn letter = "G" inputClass = "backgroundRgb" id = "background-green" onChange={this.handlePixelRGBColorChange.bind(this, "blue")}/>
-              <ColorPickerColumn letter = "B" inputClass = "backgroundRgb" id = "background-blue" onChange={this.handlePixelRGBColorChange.bind(this, "green")}/>
+              <ColorPickerColumn letter = "R" styleName="label-red" id = "background-red" onChange={this.handlePixelRGBColorChange.bind(this, "red")}/>
+              <ColorPickerColumn letter = "G" styleName="label-green" id = "background-green" onChange={this.handlePixelRGBColorChange.bind(this, "blue")}/>
+              <ColorPickerColumn letter = "B" styleName="label-blue" id = "background-blue" onChange={this.handlePixelRGBColorChange.bind(this, "green")}/>
             </div>
           </div>
         </div>

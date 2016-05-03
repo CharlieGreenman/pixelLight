@@ -8,7 +8,7 @@ import CodeBox from "../components/code-box/code-box";
 import Grid from "../components/grid";
 
 import CSSModules from 'react-css-modules';
-import styles from "../../scss/components/visual-settings-control-panel.scss";
+import styles from "../../scss/visual-settings-control-panel.scss";
 
 
 class App extends Component {

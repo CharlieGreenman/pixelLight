@@ -44,7 +44,7 @@ $js_color: #F0DB4F;
   font-size: 20px;
   text-transform: uppercase;
 }
-  
+
 .form{
   display: flex;
   flex-direction: row;
@@ -69,6 +69,18 @@ $js_color: #F0DB4F;
   }
 }
 
+.label--red{
+  
+}
+
+.label--blue{
+
+}
+
+.label--green{
+
+}
+
 .input{
   background: $dark-background-color;
   color: $medium-color;
@@ -89,6 +101,19 @@ $js_color: #F0DB4F;
     background: #BF975F;
     margin-top: -30px;
   }
+}
+
+
+.input--red{
+
+}
+
+.input--blue{
+
+}
+
+.input--green{
+
 }
 
 .button{
