@@ -12,27 +12,10 @@
 //
 //
 
-/*
-####################
-###### VARS #######   // different sass variables such as colors, fonts, and media queries
-####################
-*/
-
-
-
-
-
-
-
 //1. header
 
 textarea:focus, input:focus{
   outline: 0;
-}
-
-.color-button-styling{
-  width: 88%;
-  margin-left: 6%;
 }
 
 #control_view{
@@ -289,15 +272,9 @@ pre{
 }
 
 //letters for the control panel
-.letter{
-  border-radius: 50%;
-  border: 1px solid white;
-  padding: 5px;
-}
 
-.desc_text{
-  margin-left: 10px;
-}
+
+
 
 //github button
 #github-button{

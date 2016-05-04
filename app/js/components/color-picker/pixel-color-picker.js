@@ -41,12 +41,12 @@ class PixelColorPicker extends React.Component {
           <div styleName='color-picker'>
             <h3 styleName='header'>Pixel Color</h3>
             <label styleName='header' id="hex_label">Hex</label>
-            <input id="pix-hex-color" type="text" defaultValue={this.state.pixelHex} onChange={this.handlePixelColorChange} maxLength={7} className = "color-picker__color" />
+            <input styleName='color-input' id="pix-hex-color" type="text" defaultValue={this.state.pixelHex} onChange={this.handlePixelColorChange} maxLength={7} />
             <div id="color_bar" />
             <div styleName='row' id="rgb" >
-              <ColorPickerColumn letter = "R" styleName="label-red" id = "background-red" onChange={this.handlePixelRGBColorChange.bind(this, "red")}/>
-              <ColorPickerColumn letter = "G" styleName="label-green" id = "background-green" onChange={this.handlePixelRGBColorChange.bind(this, "blue")}/>
-              <ColorPickerColumn letter = "B" styleName="label-blue" id = "background-blue" onChange={this.handlePixelRGBColorChange.bind(this, "green")}/>
+              <ColorPickerColumn letter = "R" id = "background-red" onChange={this.handlePixelRGBColorChange.bind(this, "red")}/>
+              <ColorPickerColumn letter = "G" id = "background-green" onChange={this.handlePixelRGBColorChange.bind(this, "blue")}/>
+              <ColorPickerColumn letter = "B" id = "background-blue" onChange={this.handlePixelRGBColorChange.bind(this, "green")}/>
             </div>
           </div>
         </div>

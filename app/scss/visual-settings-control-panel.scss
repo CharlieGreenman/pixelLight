@@ -1,3 +1,11 @@
+.row{
+  display: flex;
+}
+
+.column{
+  width: calc(100%/3);
+}
+
 //header-container
 .header-container {
   display: block;
@@ -14,6 +22,7 @@
 }
 
 .header{
+  color: white;
   font-family: 'Reenie Beanie', cursive;
   margin: 0;
   font-size: 25px;
@@ -21,6 +30,7 @@
 
 .label{
   order: 1;
+  color: white;
 }
 
 .label-yellow{
@@ -28,50 +38,57 @@
   composes: theme-yellow from "./_theme-colors.scss";
 }
 
-.label-red{
-  composes: label;
-  composes: theme-red from "./_theme-colors.scss";
-}
-
-.label-green{
-  composes: label;
-  composes: theme-green from "./_theme-colors.scss";
-}
-
-.label-blue{
-  composes: label;
-  composes: theme-blue from "./_theme-colors.scss";
-}
-
 .input{
-  font-size: 15px;
+  color: white;
   order: 2;
+  width: 100%;
+  font-size: 15px;
+  background: none;
+  border: none;
+  text-align: center;
 }
 
-.row{
-  display: flex;
-}
-
-
-.reset-button, .view-button, .draw-button{
+.reset-button, .view-button{
   background: #000;
   text-align: center;
   color: white;
   cursor: pointer;
 }
 
-.view-button{
-  margin-top: 0;
-  border-bottom: 1px solid white;
+.color-button-styling{
+  cursor: pointer;
+  width: 88%;
+  margin-left: 6%;
 }
 
-.view-button, .draw-button{
+.button{
+  background: #000;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+}
+
+.button-enhancers{
   cursor: pointer;
   height: 35px;
   line-height: 35px;
 }
 
+.view-button{
+  margin-top: 0;
+  border-bottom: 1px solid white;
+  composes: button;
+  composes: button-enhancers;
+}
+
+.draw-button{
+  composes: button;
+  composes: color-button-styling;
+  composes: button-enhancers;
+}
+
 .reset-button{
+  composes: color-button-styling;
   height: 50px;
   line-height: 50px;
   color: #FF4A00;
@@ -101,3 +118,15 @@
   margin-top: .5rem;
 
 }
+
+.letter{
+  border-radius: 50%;
+  border: 1px solid white;
+  padding: 5px;
+}
+
+.desc_text{
+  margin-left: 10px;
+}
+
+//to be moved to own file soon

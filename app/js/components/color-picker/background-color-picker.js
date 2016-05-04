@@ -63,10 +63,10 @@ class BackgroundColorPicker extends React.Component {
         <div>
           <div styleName="color-picker">
             <h3 styleName="header">Background Color</h3>
-            <label styleName="label-yellow" id="hex_label">Hex</label>
+            <label sstyleName='header' id="hex_label">Hex</label>
             <input styleName='color-input' type="text" defaultValue={this.state.backgroundHex}  onChange={this.handleBackgroundColorChange} maxLength={7} />
             <div id="background_color_bar" className="color-picker__color-bar" />
-            <div id="rgb-background" className="color-picker__row">
+            <div id="rgb-background" styleName='row'>
               <ColorPickerColumn letter = "R" inputClass = "backgroundRgb" id = "background-red" onChange={this.handleBackgroundRGBColorChange.bind(this, "backgroundRed")}/>
               <ColorPickerColumn letter = "G" inputClass = "backgroundRgb" id = "background-green" onChange={this.handleBackgroundRGBColorChange.bind(this, "backgroundGreen")} />
               <ColorPickerColumn letter = "B" inputClass = "backgroundRgb" id = "background-blue" onChange={this.handleBackgroundRGBColorChange.bind(this, "backgroundBlue")} />
