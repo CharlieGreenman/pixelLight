@@ -8,7 +8,7 @@ import CodeBox from "../components/code-box/code-box";
 import Grid from "../components/grid";
 
 import CSSModules from 'react-css-modules';
-import styles from "../../scss/visual-settings-control-panel.scss";
+import styles from "../../scss/_code-box.scss";
 
 
 class App extends Component {
@@ -17,10 +17,8 @@ class App extends Component {
     if(environment.init){
       return(
         <div>
-          <div styleName='header-container'>
             <ControlPanel />
-          </div>
-          <div id="code_box_container">
+          <div styleName='code_box_container'>
             <CodeBox/>
           </div>
           <div>

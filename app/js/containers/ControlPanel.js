@@ -4,10 +4,13 @@ import BackgroundColorPicker from "../components/color-picker/background-color-p
 import PixelColorPicker from "../components/color-picker/pixel-color-picker";
 import ToggleView from "../components/toggle-view";
 
+import CSSModules from 'react-css-modules';
+import styles from "../../scss/visual-settings-control-panel.scss";
+
 class ControlPanel extends Component {
   render() {
     return(
-      <div>
+      <div styleName='header-container'>
         <BackgroundColorPicker {...this.props}/>
         <PixelColorPicker {...this.props}/>
         <ToggleView/>
@@ -31,4 +34,4 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapStateToProps)(ControlPanel);
+export default connect(mapStateToProps)(CSSModules(ControlPanel,styles));

@@ -1,5 +1,5 @@
 //4. Code Box
-#code_box_container{
+.code_box_container{
   display: block;
   position: fixed;
   width: 230px;
@@ -8,4 +8,6 @@
   left: 0;
   right: 0;
   transition: 1s;
+  background: black;
+  color: white;
 }
