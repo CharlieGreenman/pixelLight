@@ -4,7 +4,8 @@ import ReactDOM from "react-dom";
 import {getPixelImgData, clearPixel, createPixel} from "./grid/grid-utils";
 import {Group, Shape, Surface, Transform} from 'react-art';
 
-require("../../scss/core.scss");
+import CSSModules from 'react-css-modules';
+import styles from "../../scss/grid.scss";
 
 class Grid extends React.Component {
   constructor(props){
@@ -19,7 +20,6 @@ class Grid extends React.Component {
 
     this.createGrid();
   }
-
 
   createGrid(){
     let ctx = ReactDOM.findDOMNode(this).getContext("2d");
@@ -79,7 +79,7 @@ class Grid extends React.Component {
   render() {
     const {rowCount, columnCount} = this.props;
       return(
-        <canvas onClick={this.handleClick} width={rowCount * rowCount} height={columnCount * columnCount} id='canvasGrid' ref="canvasGrid"  className='allow-handle-click' />
+        <canvas styleName='canvasGrid' onClick={this.handleClick} width={rowCount * rowCount} height={columnCount * columnCount} ref="canvasGrid" />
       )
   }
 }
@@ -103,4 +103,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(Grid);
+export default connect(mapStateToProps)(CSSModules(Grid, styles));

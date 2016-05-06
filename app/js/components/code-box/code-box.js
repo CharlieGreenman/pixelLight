@@ -1,6 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import CSSModules from 'react-css-modules';
+import styles from "../../../scss/grid.scss";
+
+
+
 class CodeBox extends React.Component {
   constructor(){
     super();
@@ -8,13 +13,13 @@ class CodeBox extends React.Component {
 
   render() {
     return (
-      <div id="code_box" className="css_box">
+      <div styleName="code_box">
           <div className="row">
-            <div id="css_toggle" className="code_toggle"><span>CSS</span></div>
-            <div id="sass_toggle" className="code_toggle"><span>SASS</span></div>
-            <div id="less_toggle" className="code_toggle"><span>LESS</span></div>
-            <div id="js_toggle" className="code_toggle"><span>JS</span></div>
-            <div id="code_box_border" className="" />
+            <div styleName="css_toggle"><span>CSS</span></div>
+            <div styleName="sass_toggle"><span>SASS</span></div>
+            <div styleName="less_toggle"><span>LESS</span></div>
+            <div styleName="js_toggle"><span>JS</span></div>
+            <div styleName="code_box_border" />
           </div>
           <p id="inner_code_box">box-shadow:</p>
       </div>
@@ -22,4 +27,4 @@ class CodeBox extends React.Component {
   }
 }
 
-export default CodeBox;
+export default CSSModules(CodeBox,styles);
