@@ -19,7 +19,3 @@ export function createPixel(e, ctx, pixelSize){
       Math.floor(e.nativeEvent.offsetY / pixelSize) * pixelSize + 1,
       pixelSize - 2, pixelSize - 2);
 }
-
-export function setFillStyle(){
-  
-}

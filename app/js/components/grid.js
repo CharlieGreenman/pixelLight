@@ -1,8 +1,8 @@
 import React from "react";
 import { connect, Provider } from "react-redux";
 import ReactDOM from "react-dom";
-import {getPixelImgData, clearPixel, createPixel} from "./grid/grid-utils";
-import {Group, Shape, Surface, Transform} from 'react-art';
+
+import {getPixelImgData, clearPixel, createPixel} from "../utils/grid-utils";
 
 import CSSModules from 'react-css-modules';
 import styles from "../../scss/grid.scss";
@@ -17,7 +17,6 @@ class Grid extends React.Component {
 
   componentDidMount(){
     let ctx = ReactDOM.findDOMNode(this).getContext("2d");
-
     this.createGrid();
   }
 
@@ -57,7 +56,7 @@ class Grid extends React.Component {
 
   }
 
-  updateGridColor() {
+  updateGridColor(){
 
     const{columnCount, rowCount, pixelCount, backgroundRed, backgroundGreen, backgroundBlue, backgroundHex} = this.props;
       for(let x = 0; x < columnCount; x++) {
@@ -73,13 +72,13 @@ class Grid extends React.Component {
       //     ctx.fillStyle = elem.s.storeValues[x][2];
       //     ctx.fillRect(parseFloat(elem.s.storeValues[x][0]) + 1, parseFloat(elem.s.storeValues[x][1]) + 1, elem.s.pixSize - 2, elem.s.pixSize - 2);
       // }
-
   }
+
 
   render() {
     const {rowCount, columnCount} = this.props;
       return(
-        <canvas styleName='canvasGrid' onClick={this.handleClick} width={rowCount * rowCount} height={columnCount * columnCount} ref="canvasGrid" />
+        <canvas styleName='canvasGrid' id='canvasGrid' onClick={this.handleClick} width={rowCount * rowCount} height={columnCount * columnCount} ref="canvasGrid" />
       )
   }
 }

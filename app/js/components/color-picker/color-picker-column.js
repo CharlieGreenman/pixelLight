@@ -11,7 +11,7 @@ class ColorPickerColumn extends React.Component{
     return(
       <div styleName="column">
           <label styleName="label">{this.props.letter}</label>
-          <input styleName="input" dispatch={this.props.dispatch} id={this.props.id} onChange={this.props.onChange} type="text" maxLength={3} defaultValue={25} />
+          <input styleName="input" dispatch={this.props.dispatch} id={this.props.id} onChange={this.props.onChange} type="text" maxLength={3} defaultValue={25} value={this.props.value} />
       </div>
     )
   }

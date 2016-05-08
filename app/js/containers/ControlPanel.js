@@ -27,6 +27,10 @@ function mapStateToProps(state) {
     backgroundRed: colorPicker.backgroundRed,
     backgroundGreen: colorPicker.backgroundGreen,
     backgroundBlue: colorPicker.backgroundBlue,
+    pixelHex: colorPicker.pixelHex,
+    pixelRed: colorPicker.pixelRed,
+    pixelGreen: colorPicker.pixelGreen,
+    pixelBlue: colorPicker.pixelBlue,
     rowCount: settings.row.count,
     columnCount: settings.column.count,
     pixelCount: parseFloat(settings.pixel.count)

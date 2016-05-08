@@ -20,14 +20,6 @@ class BackgroundColorPicker extends React.Component {
     this.updateGridBackground           = this.updateGridBackground.bind(this);
   }
 
-  handleBackgroundColorChange(e){
-    const {dispatch} = this.props;
-    this.setState({backgroundHex: e.target.value}, function(){
-      dispatch(BackgroundColor(this.state.backgroundHex));
-    });
-    this.updateGridBackground();
-
-  }
   handleBackgroundRGBColorChange(name, e){
     const {dispatch} = this.props;
     //http://stackoverflow.com/questions/21029999/react-js-identifying-different-inputs-with-one-onchange-handler
@@ -38,6 +30,15 @@ class BackgroundColorPicker extends React.Component {
         dispatch(BackgroundColorRGB(this.state.backgroundRed, this.state.backgroundGreen, this.state.backgroundBlue));
     });
     this.updateGridBackground();
+  }
+
+  handleBackgroundColorChange(e){
+    const {dispatch} = this.props;
+    this.setState({backgroundHex: e.target.value}, function(){
+      dispatch(BackgroundColor(this.state.backgroundHex));
+    });
+    this.updateGridBackground();
+
   }
 
   updateGridBackground() {
