@@ -36,6 +36,11 @@ module.exports = {
                 query: {
                     presets: ['es2015', 'react']
                 }
+            },
+            {
+              test: /(\.js)$/,
+              loader: 'cssx-loader',
+              exclude: /node_modules/
             }
         ],
         resolve: {

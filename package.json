@@ -42,12 +42,15 @@
     "babel-plugin-transform-runtime": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "classnames": "^2.2.3",
+    "cssx": "^5.0.0",
+    "cssx-loader": "^5.0.0",
     "es6-promise": "^3.1.2",
     "extract-text-webpack-plugin": "^1.0.1",
     "imagemin-pngquant": "^4.1.0",
     "json-loader": "^0.5.4",
     "postcss-loader": "^0.8.2",
-    "react-css-modules": "^3.7.6"
+    "react-css-modules": "^3.7.6",
+    "react-cssx": "^1.0.3"
   },
   "eslintConfig": {
     "parser": "babel-eslint",
