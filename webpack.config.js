@@ -38,7 +38,7 @@ module.exports = {
                 }
             },
             {
-              test: /(\.js)$/,
+              test: /(\.js|\.jsx)$/,
               loader: 'cssx-loader',
               exclude: /node_modules/
             }

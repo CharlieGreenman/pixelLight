@@ -1,4 +1,5 @@
 import React from "react";
+import CSSX from 'react-cssx';
 import { connect} from "react-redux";
 import { PixelColor, PixelColorRGB} from "../../actions/control-panel";
 import ColorPickerColumn from "../../components/color-picker/color-picker-column";
@@ -7,7 +8,6 @@ import{hexToRgb, rgbToHex} from "../../utils/colorUtils.js";
 
 import CSSModules from 'react-css-modules';
 import styles from "../../../scss/visual-settings-control-panel.scss";
-
 
 class PixelColorPicker extends React.Component {
   constructor(props){
@@ -30,7 +30,6 @@ class PixelColorPicker extends React.Component {
         dispatch(PixelColor(rgbToHex(parseFloat(this.state.red), parseFloat(this.state.green), parseFloat(this.state.blue))));
     });
   }
-
   handlePixelColorChange(e){
     const {dispatch} = this.props;
     this.setState({pixelHex: e.target.value}, function(){
@@ -47,7 +46,9 @@ class PixelColorPicker extends React.Component {
             <h3 styleName='header'>Pixel Color</h3>
             <label styleName='header' id="hex_label">Hex</label>
             <input styleName='color-input' id="pix-hex-color" type="text" defaultValue={this.state.pixelHex} onChange={this.handlePixelColorChange} value={this.props.pixelHex} maxLength={7} />
+            <CSSX styles={ this.styleColorBar('#F00') }>
             <div id="color_bar" />
+            </CSSX>
             <div styleName='row' id="rgb" >
               <ColorPickerColumn letter = "R" id = "background-red" onChange={this.handlePixelRGBColorChange.bind(this, "red")} value={this.props.pixelRed} />
               <ColorPickerColumn letter = "G" id = "background-green" onChange={this.handlePixelRGBColorChange.bind(this, "green")} value={this.props.pixelGreen} />
@@ -57,6 +58,16 @@ class PixelColorPicker extends React.Component {
         </div>
         )
       }
+  styleColorBar(color) {
+   return (
+     <style>
+       #color_bar {
+         height: 1px;
+         background: {{ color }};
+       }
+     </style>
+   )
+ }
 }
 
 export default connect()(CSSModules(PixelColorPicker, styles));
