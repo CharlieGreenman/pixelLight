@@ -35,6 +35,7 @@ class PixelColorPicker extends React.Component {
     this.setState({pixelHex: e.target.value}, function(){
         dispatch(PixelColor(this.state.pixelHex));
         dispatch(PixelColorRGB(hexToRgb(this.state.pixelHex).r, hexToRgb(this.state.pixelHex).g, hexToRgb(this.state.pixelHex).b));
+        styleColorBar(this.state.pixelHex);
     });
   }
 
@@ -46,7 +47,7 @@ class PixelColorPicker extends React.Component {
             <h3 styleName='header'>Pixel Color</h3>
             <label styleName='header' id="hex_label">Hex</label>
             <input styleName='color-input' id="pix-hex-color" type="text" defaultValue={this.state.pixelHex} onChange={this.handlePixelColorChange} value={this.props.pixelHex} maxLength={7} />
-            <CSSX styles={ this.styleColorBar('#F00') }>
+            <CSSX styles={ this.styleColorBar(this.state.pixelHex) }>
             <div id="color_bar" />
             </CSSX>
             <div styleName='row' id="rgb" >
@@ -62,7 +63,7 @@ class PixelColorPicker extends React.Component {
    return (
      <style>
        #color_bar {
-         height: 1px;
+         height: 6px;
          background: {{ color }};
        }
      </style>

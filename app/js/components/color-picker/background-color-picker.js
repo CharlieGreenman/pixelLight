@@ -1,4 +1,5 @@
 import React from "react";
+import CSSX from 'react-cssx';
 import { connect} from "react-redux";
 import {BackgroundColor, BackgroundColorRGB} from "../../actions/control-panel";
 import ColorPickerColumn from "../../components/color-picker/color-picker-column";
@@ -68,7 +69,9 @@ class BackgroundColorPicker extends React.Component {
             <h3 styleName="header">Background Color</h3>
             <label sstyleName='header' id="hex_label">Hex</label>
             <input styleName='color-input' type="text" defaultValue={this.state.backgroundHex}  onChange={this.handleBackgroundColorChange} value={this.props.backgroundHex} maxLength={7} />
-            <div id="background_color_bar" className="color-picker__color-bar" />
+            <CSSX styles={ this.styleColorBar(this.state.backgroundHex) }>
+            <div id="color_bar" />
+            </CSSX>
             <div id="rgb-background" styleName='row'>
               <ColorPickerColumn letter = "R" inputClass = "backgroundRgb" id = "background-red" onChange={this.handleBackgroundRGBColorChange.bind(this, "backgroundRed")} value={this.props.backgroundRed} />
               <ColorPickerColumn letter = "G" inputClass = "backgroundRgb" id = "background-green" onChange={this.handleBackgroundRGBColorChange.bind(this, "backgroundGreen")} value={this.props.backgroundGreen} />
@@ -79,6 +82,16 @@ class BackgroundColorPicker extends React.Component {
 
         )
       }
+  styleColorBar(color) {
+   return (
+     <style>
+       #color_bar {
+         height: 6px;
+         background: {{ color }};
+       }
+     </style>
+   )
+ }
 }
 
 export default connect()(CSSModules(BackgroundColorPicker, styles));
