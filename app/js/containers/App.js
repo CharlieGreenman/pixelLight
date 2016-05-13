@@ -5,7 +5,7 @@ import ChooseSize from "../components/choose-size-of-grid";
 import ControlPanel from "../containers/ControlPanel";
 import ChooseSizeContainer from "../containers/ChooseSizeContainer";
 import CodeBox from "../components/code-box/code-box";
-import Grid from "../components/grid";
+import Grid from "../containers/Grid";
 
 import CSSModules from 'react-css-modules';
 import styles from "../../scss/_code-box.scss";

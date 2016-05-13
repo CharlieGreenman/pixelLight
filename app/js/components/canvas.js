@@ -7,7 +7,7 @@ import {getPixelImgData, clearPixel, createPixel} from "../utils/grid-utils";
 import CSSModules from 'react-css-modules';
 import styles from "../../scss/grid.scss";
 
-class Grid extends React.Component {
+class Canvas extends React.Component {
   constructor(props){
     super(props)
     this.createGrid = this.createGrid.bind(this);
@@ -83,23 +83,4 @@ class Grid extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
-  const {environment, settings, colorPicker} = state;
-  return{
-    rowCount: settings.row.count,
-    columnCount: settings.column.count,
-    pixelCount: parseFloat(settings.pixel.count),
-    pixelHex: colorPicker.pixelHex,
-    backgroundHex: colorPicker.backgroundHex,
-    backgroundRed: colorPicker.backgroundRed,
-    backgroundGreen: colorPicker.backgroundGreen,
-    backgroundBlue: colorPicker.backgroundBlue,
-    pixelRed: colorPicker.pixelRed,
-    pixelGreen: colorPicker.pixelGreen,
-    pixelBlue: colorPicker.pixelBlue,
-    settings,
-    environment
-  }
-}
-
-export default connect(mapStateToProps)(CSSModules(Grid, styles));
+export default CSSModules(Canvas, styles);
