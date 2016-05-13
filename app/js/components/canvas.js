@@ -2,6 +2,8 @@ import React from "react";
 import { connect, Provider } from "react-redux";
 import ReactDOM from "react-dom";
 
+import {GridClicked} from "../actions/canvas";
+
 import {getPixelImgData, clearPixel, createPixel} from "../utils/grid-utils";
 
 import CSSModules from 'react-css-modules';
@@ -35,7 +37,7 @@ class Canvas extends React.Component {
 
   handleClick(e){
       // this.updateGridColor();
-      const{columnCount, rowCount, pixelCount, pixelHex, pixelRed, pixelGreen, pixelBlue, backgroundRed, backgroundGreen, backgroundBlue } = this.props;
+      const{dispatch, columnCount, rowCount, pixelCount, pixelHex, pixelRed, pixelGreen, pixelBlue, backgroundRed, backgroundGreen, backgroundBlue } = this.props;
       let ctx = ReactDOM.findDOMNode(this).getContext("2d");
       let imgData = getPixelImgData(e, ctx, pixelCount);
 
@@ -53,6 +55,12 @@ class Canvas extends React.Component {
       }
 
       createPixel(e, ctx, pixelCount);
+
+      dispatch(GridClicked());
+
+  }
+
+  getCoordinates(e){
 
   }
 
@@ -73,6 +81,7 @@ class Canvas extends React.Component {
       //     ctx.fillRect(parseFloat(elem.s.storeValues[x][0]) + 1, parseFloat(elem.s.storeValues[x][1]) + 1, elem.s.pixSize - 2, elem.s.pixSize - 2);
       // }
   }
+
 
 
   render() {

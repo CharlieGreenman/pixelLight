@@ -21,7 +21,7 @@ var clrPckr = {
         elem.el.headerContainer.style.boxShadow = "0 0 0 10px " + elem.el.hexColor.value +  " inset";
 
     },
-    pickBackgroundHexColor: () => {
+    pickBackgroundHexColor: () =>{
         var newHexValue = elem.el.backgroundHexColor.value;
 
         document.body.style.background = newHexValue;
