@@ -37,8 +37,8 @@ class Canvas extends React.Component {
 
   handleClick(e){
       e = e || window.event;
-      var xVal = Math.floor(e.offsetX / elem.s.pixSize) * elem.s.pixSize;
-      var yVal = Math.floor(e.offsetY / elem.s.pixSize) * elem.s.pixSize;
+      var xVal = Math.floor(e.nativeEvent.offsetX / pixelCount) * pixelCount;
+      var yVal = Math.floor(e.nativeEvent.offsetY / pixelCount) * pixelCount;
       // this.updateGridColor();
       const{dispatch, columnCount, rowCount, pixelCount, pixelHex, pixelRed, pixelGreen, pixelBlue, backgroundRed, backgroundGreen, backgroundBlue } = this.props;
       let ctx = ReactDOM.findDOMNode(this).getContext("2d");
