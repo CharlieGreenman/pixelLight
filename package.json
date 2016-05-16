@@ -25,10 +25,10 @@
     "node-sass": "^3.4.2",
     "open": "0.0.5",
     "path": "^0.12.7",
-    "react": "^0.14.3",
+    "react": "^15.0.2",
     "react-redux": "^4.4.0",
     "redux-thunk": "^1.0.3",
-    "react-dom": "^0.14.0",
+    "react-dom": "^15.0.2",
     "redux": "^3.3.1",
     "redux-loader": "^0.4.2",
     "sass-loader": "^3.1.2",
@@ -40,6 +40,7 @@
   "dependencies": {
     "babel-eslint": "^4.1.6",
     "babel-plugin-transform-runtime": "^6.3.13",
+    "babel-polyfill": "^6.8.0",
     "babel-preset-react": "^6.5.0",
     "classnames": "^2.2.3",
     "cssx": "^5.0.0",
@@ -50,7 +51,8 @@
     "json-loader": "^0.5.4",
     "postcss-loader": "^0.8.2",
     "react-css-modules": "^3.7.6",
-    "react-cssx": "^1.1.1"
+    "react-cssx": "^1.1.1",
+    "react-konva": "^0.6.7"
   },
   "eslintConfig": {
     "parser": "babel-eslint",

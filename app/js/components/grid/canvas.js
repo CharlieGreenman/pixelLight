@@ -1,29 +1,30 @@
 import React from "react";
-import { connect, Provider } from "react-redux";
 import ReactDOM from "react-dom";
 
-import {GridClicked} from "../actions/canvas";
+import {GridClicked} from "../../actions/canvas";
 
-import {getPixelImgData, clearPixel, createPixel} from "../utils/grid-utils";
+import {Layer, Rect, Stage, Group} from 'react-konva';
+
+import {getPixelImgData, clearPixel, createPixel} from "../../utils/grid-utils";
 
 import CSSModules from 'react-css-modules';
-import styles from "../../scss/grid.scss";
+import styles from "../../../scss/grid.scss";
+
+import FillRect from './rect.js';
 
 class Canvas extends React.Component {
   constructor(props){
-    super(props)
+    super(props);
     this.createGrid = this.createGrid.bind(this);
     this.handleClick = this.handleClick.bind(this);
     // this.updateGridColor = this.updateGridColor.bind(this);
   }
 
   componentDidMount(){
-    let ctx = ReactDOM.findDOMNode(this).getContext("2d");
-    this.createGrid();
+    // this.createGrid();
   }
 
   createGrid(){
-    let ctx = ReactDOM.findDOMNode(this).getContext("2d");
     const{columnCount, rowCount, pixelCount, backgroundHex } = this.props;
       for(var r = 0; r < columnCount; r++) {
           for(var i = 0; i < rowCount; i++) {
@@ -36,21 +37,25 @@ class Canvas extends React.Component {
   }
 
   handleClick(e){
+      const{dispatch, columnCount, rowCount, pixelCount, pixelHex, pixelRed, pixelGreen, pixelBlue, backgroundRed, backgroundGreen, backgroundBlue } = this.props;
       e = e || window.event;
+
       var xVal = Math.floor(e.nativeEvent.offsetX / pixelCount) * pixelCount;
       var yVal = Math.floor(e.nativeEvent.offsetY / pixelCount) * pixelCount;
+      dispatch(GridClicked(xVal, yVal));
+
       // this.updateGridColor();
-      const{dispatch, columnCount, rowCount, pixelCount, pixelHex, pixelRed, pixelGreen, pixelBlue, backgroundRed, backgroundGreen, backgroundBlue } = this.props;
-      let ctx = ReactDOM.findDOMNode(this).getContext("2d");
+
+
       let imgData = getPixelImgData(e, ctx, pixelCount);
 
-      ctx.fillStyle = pixelHex;
+      // ctx.fillStyle = pixelHex;
 
       if(imgData.data[0] !== parseFloat(backgroundRed)
          && imgData.data[1] !== parseFloat(backgroundGreen)
          && imgData.data[2] !== parseFloat(backgroundBlue)
         ){
-          ctx.fillStyle = `rgba(${backgroundRed}, ${backgroundGreen}, ${backgroundBlue}, 1)`;
+          // ctx.fillStyle = `rgba(${backgroundRed}, ${backgroundGreen}, ${backgroundBlue}, 1)`;
           clearPixel(e, ctx, pixelCount);
           createPixel(e, ctx, pixelCount);
           return false;
@@ -58,25 +63,19 @@ class Canvas extends React.Component {
 
       createPixel(e, ctx, pixelCount);
 
-      dispatch(GridClicked(xVal, yVal));
-
-  }
-
-  getCoordinates(e){
-
   }
 
   updateGridColor(){
 
-    const{columnCount, rowCount, pixelCount, backgroundRed, backgroundGreen, backgroundBlue, backgroundHex} = this.props;
-      for(let x = 0; x < columnCount; x++) {
-          for(let y = 0; y < rowCount; y++) {
-              ctx.strokeStyle = `${backgroundRed + 44}. ${backgroundGreen + 44}. ${backgroundBlue + 44}`;
-              ctx.strokeRect(x * pixelCount, y * pixelCount, pixelCount, pixelCount);
-              ctx.fillStyle = 'rgba(backgroundRed, backgroundGreen, backgroundBlue, 1)';
-              ctx.fillRect(x * pixelCount + 1, y * pixelCount + 1, pixelCount - 2, pixelCount - 2);
-          }
-      }
+    // const{columnCount, rowCount, pixelCount, backgroundRed, backgroundGreen, backgroundBlue, backgroundHex} = this.props;
+    //   for(let x = 0; x < columnCount; x++) {
+    //       for(let y = 0; y < rowCount; y++) {
+    //           ctx.strokeStyle = `${backgroundRed + 44}. ${backgroundGreen + 44}. ${backgroundBlue + 44}`;
+    //           ctx.strokeRect(x * pixelCount, y * pixelCount, pixelCount, pixelCount);
+    //           ctx.fillStyle = 'rgba(backgroundRed, backgroundGreen, backgroundBlue, 1)';
+    //           ctx.fillRect(x * pixelCount + 1, y * pixelCount + 1, pixelCount - 2, pixelCount - 2);
+    //       }
+    //   }
 
       // for(let x = 0; x < elem.s.storeValues.length; x++){
       //     ctx.fillStyle = elem.s.storeValues[x][2];
@@ -89,7 +88,9 @@ class Canvas extends React.Component {
   render() {
     const {rowCount, columnCount} = this.props;
       return(
-        <canvas styleName='canvasGrid' id='canvasGrid' onClick={this.handleClick} width={rowCount * rowCount} height={columnCount * columnCount} ref="canvasGrid" />
+        <Stage styleName='canvasGrid' width={rowCount * rowCount} height={columnCount * columnCount} ref='canvasGrid' onClick={this.handleClick} >
+        <FillRect />
+        </Stage>
       )
   }
 }

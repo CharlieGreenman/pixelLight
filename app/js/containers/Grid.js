@@ -1,7 +1,7 @@
 import React from "react";
 import { connect, Provider } from "react-redux";
 
-import Canvas from "../components/canvas";
+import Canvas from "../components/grid/canvas";
 
 class Grid extends React.Component {
   render(){
