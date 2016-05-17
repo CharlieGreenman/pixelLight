@@ -1,6 +1,7 @@
 import React from "react";
 import CSSX from 'react-cssx';
 import { connect} from "react-redux";
+
 import { PixelColor, PixelColorRGB} from "../../actions/control-panel";
 import ColorPickerColumn from "../../components/color-picker/color-picker-column";
 
@@ -51,7 +52,7 @@ class PixelColorPicker extends React.Component {
             <label styleName='header' id="hex_label">Hex</label>
             <input styleName='color-input' id="pix-hex-color" type="text" defaultValue={this.state.pixelHex} onChange={this.handlePixelColorChange} value={this.props.pixelHex} maxLength={7} />
             <CSSX styles={ this.styleColorBar(this.props.pixelHex) }>
-            <div className="color_bar" />
+            <div className='color_bar' styleName="color_bar" />
             </CSSX>
             <div styleName='row' id="rgb" >
               <ColorPickerColumn letter = "R" id = "background-red" onChange={this.handlePixelRGBColorChange.bind(this, "red")} value={this.props.pixelRed} />
