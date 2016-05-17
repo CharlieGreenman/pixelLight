@@ -11,6 +11,7 @@ import CSSModules from 'react-css-modules';
 import styles from "../../../scss/grid.scss";
 
 import FillRect from './rect.js';
+import GridMesh from './line-mesh.js';
 
 class Canvas extends React.Component {
   constructor(props){
@@ -92,6 +93,7 @@ class Canvas extends React.Component {
         <CSSX styles={ this.styleCanvasBackground(backgroundHex) }>
         <Stage className='canvasGrid' styleName='canvasGrid' width={rowCount * rowCount} height={columnCount * columnCount} ref='canvasGrid' onClick={this.handleClick} >
         <FillRect />
+        <GridMesh />
         </Stage>
         </CSSX>
       )
