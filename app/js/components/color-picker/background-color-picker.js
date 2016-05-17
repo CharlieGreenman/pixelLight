@@ -50,16 +50,16 @@ class BackgroundColorPicker extends React.Component {
 
   updateGridBackground() {
     //need to come up with a more sophisticated way of targeting canvas element
-    let ctx = document.getElementById("canvasGrid").getContext("2d");
-    const{columnCount, rowCount, pixelCount, backgroundRed, backgroundGreen, backgroundBlue, backgroundHex} = this.props;
-      for(let x = 0; x < columnCount; x++) {
-          for(let y = 0; y < rowCount; y++) {
-              ctx.strokeStyle = `${backgroundRed + 44}. ${backgroundGreen + 44}. ${backgroundBlue + 44}`;
-              ctx.strokeRect(x * pixelCount, y * pixelCount, pixelCount, pixelCount);
-              ctx.fillStyle = backgroundHex;
-              ctx.fillRect(x * pixelCount + 1, y * pixelCount + 1, pixelCount - 2, pixelCount - 2);
-          }
-      }
+    // let ctx = document.getElementById("canvasGrid").getContext("2d");
+    // const{columnCount, rowCount, pixelCount, backgroundRed, backgroundGreen, backgroundBlue, backgroundHex} = this.props;
+    //   for(let x = 0; x < columnCount; x++) {
+    //       for(let y = 0; y < rowCount; y++) {
+    //           ctx.strokeStyle = `${backgroundRed + 44}. ${backgroundGreen + 44}. ${backgroundBlue + 44}`;
+    //           ctx.strokeRect(x * pixelCount, y * pixelCount, pixelCount, pixelCount);
+    //           ctx.fillStyle = backgroundHex;
+    //           ctx.fillRect(x * pixelCount + 1, y * pixelCount + 1, pixelCount - 2, pixelCount - 2);
+    //       }
+    //   }
       // for(let x = 0; x < elem.s.storeValues.length; x++){
       //     ctx.fillStyle = elem.s.storeValues[x][2];
       //     ctx.fillRect(parseFloat(elem.s.storeValues[x][0]) + 1, parseFloat(elem.s.storeValues[x][1]) + 1, elem.s.pixSize - 2, elem.s.pixSize - 2);

@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import CSSX from 'react-cssx';
 
 import {GridClicked} from "../../actions/canvas";
 
@@ -18,6 +18,7 @@ class Canvas extends React.Component {
     this.createGrid = this.createGrid.bind(this);
     this.handleClick = this.handleClick.bind(this);
     // this.updateGridColor = this.updateGridColor.bind(this);
+    this.styleCanvasBackground = this.styleCanvasBackground.bind(this);
   }
 
   componentDidMount(){
@@ -86,13 +87,24 @@ class Canvas extends React.Component {
 
 
   render() {
-    const {rowCount, columnCount} = this.props;
+      const{backgroundHex, rowCount, columnCount} = this.props;
       return(
-        <Stage styleName='canvasGrid' width={rowCount * rowCount} height={columnCount * columnCount} ref='canvasGrid' onClick={this.handleClick} >
+        <CSSX styles={ this.styleCanvasBackground(backgroundHex) }>
+        <Stage className='canvasGrid' styleName='canvasGrid' width={rowCount * rowCount} height={columnCount * columnCount} ref='canvasGrid' onClick={this.handleClick} >
         <FillRect />
         </Stage>
+        </CSSX>
       )
   }
+  styleCanvasBackground(color) {
+   return (
+     <style>
+       .canvasGrid {
+         background: {{color}};
+       }
+     </style>
+   )
+ }
 }
 
 export default CSSModules(Canvas, styles);
