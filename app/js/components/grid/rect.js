@@ -30,7 +30,7 @@ class FillRect extends React.Component {
       return(
         <Layer>
           <Rect
-              x={2} y={3} width={20} height={20}
+              x={0} y={0} width={20} height={20}
               fill="black"
               onClick={this.handleClick}
               ref="fillRect"

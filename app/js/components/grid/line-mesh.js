@@ -13,16 +13,39 @@ class GridMesh extends React.Component {
     }
 
     render(){
-      return(
-        <Layer>
-          <Line
-            points={[73, 70, 340, 23, 450, 60, 500, 20]}
+      const{columnCount, rowCount, pixelCount} = this.props;
+      let columns = [];
+      let rows = [];
+      
+      for (var i=0; i < columnCount; i++) {
+          columns.push(
+            <Line
+            points={[0, i * columnCount, columnCount * columnCount, i * columnCount]}
+            key={i}
             stroke= 'black'
             strokeWidth='1'
             ref="gridMesh"
-          />
+            />
+          );
+      }
+      for (var i=0; i < rowCount; i++) {
+          rows.push(
+            <Line
+            points={[i * rowCount, 0, i * rowCount, rowCount * rowCount]}
+            key={i}
+            stroke= 'black'
+            strokeWidth='1'
+            ref="gridMesh"
+            />
+          );
+      }
+      return(
+        <Layer>
+        {columns}
+        {rows}
         </Layer>
       )
+
     }
 }
 

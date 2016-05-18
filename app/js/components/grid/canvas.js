@@ -92,8 +92,8 @@ class Canvas extends React.Component {
       return(
         <CSSX styles={ this.styleCanvasBackground(backgroundHex) }>
         <Stage className='canvasGrid' styleName='canvasGrid' width={rowCount * rowCount} height={columnCount * columnCount} ref='canvasGrid' onClick={this.handleClick} >
-        <FillRect />
-        <GridMesh />
+        <FillRect {...this.props}/>
+        <GridMesh {...this.props}/>
         </Stage>
         </CSSX>
       )
