@@ -10,34 +10,34 @@ import styles from "../../../scss/grid.scss";
 class FillRect extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      showRect: true
+    }
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(e){
-    const{dispatch, pixelCount, backgroundRed, backgroundGreen, backgroundBlue } = this.props;
-    e = e || window.event;
-    var xVal = Math.floor(e.nativeEvent.offsetX / pixelCount) * pixelCount;
-    var yVal = Math.floor(e.nativeEvent.offsetY / pixelCount) * pixelCount;
-    dispatch(GridClicked(xVal, yVal));
-
-    // ctx.fillStyle = `rgba(${backgroundRed}, ${backgroundGreen}, ${backgroundBlue}, 1)`;
-    clearPixel(e, ctx, pixelCount);
-    createPixel(e, ctx, pixelCount);
+    this.setState({ showRect: false });
   }
 
   render() {
-    const {columnCount, rowCount, pixelHex} = this.props;
+    const {columnCount, rowCount, pixelHex, pixelCount} = this.props;
+    if(this.state.showRect){
       return(
         <Layer>
           <Rect
-              x={0} y={0} width={20} height={20}
+              x={0} y={0} width={pixelCount} height={pixelCount}
               fill="black"
               onClick={this.handleClick}
               ref="fillRect"
           />
         </Layer>
       )
-
+    }
+    return(
+      <Layer>
+      </Layer>
+    )
   }
 }
 

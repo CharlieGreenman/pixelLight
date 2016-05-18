@@ -67,26 +67,6 @@ class Canvas extends React.Component {
 
   }
 
-  updateGridColor(){
-
-    // const{columnCount, rowCount, pixelCount, backgroundRed, backgroundGreen, backgroundBlue, backgroundHex} = this.props;
-    //   for(let x = 0; x < columnCount; x++) {
-    //       for(let y = 0; y < rowCount; y++) {
-    //           ctx.strokeStyle = `${backgroundRed + 44}. ${backgroundGreen + 44}. ${backgroundBlue + 44}`;
-    //           ctx.strokeRect(x * pixelCount, y * pixelCount, pixelCount, pixelCount);
-    //           ctx.fillStyle = 'rgba(backgroundRed, backgroundGreen, backgroundBlue, 1)';
-    //           ctx.fillRect(x * pixelCount + 1, y * pixelCount + 1, pixelCount - 2, pixelCount - 2);
-    //       }
-    //   }
-
-      // for(let x = 0; x < elem.s.storeValues.length; x++){
-      //     ctx.fillStyle = elem.s.storeValues[x][2];
-      //     ctx.fillRect(parseFloat(elem.s.storeValues[x][0]) + 1, parseFloat(elem.s.storeValues[x][1]) + 1, elem.s.pixSize - 2, elem.s.pixSize - 2);
-      // }
-  }
-
-
-
   render() {
       const{backgroundHex, rowCount, columnCount} = this.props;
       return(
