@@ -24,33 +24,24 @@ class FillRect extends React.Component {
   render() {
     const {columnCount, rowCount, pixelHex, pixelCount, xPos, yPos} = this.props;
     let rect = [];
-    let counter = 0;
-    // for(let x = 0; x < columnCount; x++) {
-    //     for(let y = 0; y < rowCount; y++) {
-    //       counter++;
-    //       if(this.state.counter){
-            rect.push(<Rect
-                x={xPos} y={yPos} width={pixelCount} height={pixelCount}
-                fill="black"
-                ref="fillRect"
-                onClick={this.handleClick}
-                key={counter}
-                />
-            )
-    //       }
-    //     }
-    // }
 
-      return(
-        <Layer>
-        {rect}
-        </Layer>
+    xPos.map(function(value, idx){
+      rect.push(<Rect
+          x={xPos[idx]} y={yPos[idx]} width={pixelCount} height={pixelCount}
+          fill="black"
+          ref="fillRect"
+          // onClick={this.handleClick}
+          key={idx}
+          />
       )
+    });
 
-    // return(
-    //   <Layer>
-    //   </Layer>
-    // )
+    return(
+      <Layer>
+      {rect}
+      </Layer>
+    )
+
   }
 }
 
