@@ -17,27 +17,40 @@ class FillRect extends React.Component {
   }
 
   handleClick(e){
-    this.setState({ showRect: false });
+      console.log('works as expected');
+      console.log(this.refs.fillRect);
   }
 
   render() {
-    const {columnCount, rowCount, pixelHex, pixelCount} = this.props;
-    if(this.state.showRect){
+    const {columnCount, rowCount, pixelHex, pixelCount, xVal, yVal} = this.props;
+    let rect = [];
+    let counter = 0;
+    // for(let x = 0; x < columnCount; x++) {
+    //     for(let y = 0; y < rowCount; y++) {
+    //       counter++;
+    //       if(this.state.counter){
+            rect.push(<Rect
+                x={xVal} y={yVal} width={pixelCount} height={pixelCount}
+                fill="black"
+                ref="fillRect"
+                onClick={this.handleClick}
+                key={counter}
+                />
+            )
+    //       }
+    //     }
+    // }
+
       return(
         <Layer>
-          <Rect
-              x={0} y={0} width={pixelCount} height={pixelCount}
-              fill="black"
-              onClick={this.handleClick}
-              ref="fillRect"
-          />
+        {rect}
         </Layer>
       )
-    }
-    return(
-      <Layer>
-      </Layer>
-    )
+
+    // return(
+    //   <Layer>
+    //   </Layer>
+    // )
   }
 }
 
