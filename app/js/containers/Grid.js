@@ -12,7 +12,7 @@ class Grid extends React.Component {
 }
 
 function mapStateToProps(state) {
-  const {environment, settings, colorPicker} = state;
+  const {environment, settings, colorPicker, grid} = state;
   return{
     rowCount: settings.row.count,
     columnCount: settings.column.count,
@@ -25,6 +25,8 @@ function mapStateToProps(state) {
     pixelRed: colorPicker.pixelRed,
     pixelGreen: colorPicker.pixelGreen,
     pixelBlue: colorPicker.pixelBlue,
+    xPos: grid.xPos,
+    yPos: grid.yPos,
     settings,
     environment
   }

@@ -22,7 +22,7 @@ class FillRect extends React.Component {
   }
 
   render() {
-    const {columnCount, rowCount, pixelHex, pixelCount, xVal, yVal} = this.props;
+    const {columnCount, rowCount, pixelHex, pixelCount, xPos, yPos} = this.props;
     let rect = [];
     let counter = 0;
     // for(let x = 0; x < columnCount; x++) {
@@ -30,7 +30,7 @@ class FillRect extends React.Component {
     //       counter++;
     //       if(this.state.counter){
             rect.push(<Rect
-                x={xVal} y={yVal} width={pixelCount} height={pixelCount}
+                x={xPos} y={yPos} width={pixelCount} height={pixelCount}
                 fill="black"
                 ref="fillRect"
                 onClick={this.handleClick}
