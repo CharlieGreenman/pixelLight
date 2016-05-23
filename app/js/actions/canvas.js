@@ -8,3 +8,10 @@ export function GridClicked(xPos, yPos){
         yPos: yPos,
     }
 }
+
+export function FillRectClicked(idx){
+    return{
+        type: types.CANVAS_FILL_RECT_CLICKED,
+        idx: idx
+    }
+}
