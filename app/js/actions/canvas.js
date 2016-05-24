@@ -1,11 +1,12 @@
 import { combineReducers } from "redux";
 import * as types from "../constants/ActionTypes";
 
-export function GridClicked(xPos, yPos){
+export function GridClicked(xPos, yPos, pixelHex){
     return{
         type: types.CANVAS_GRID_CLICKED,
         xPos: xPos,
         yPos: yPos,
+        rectColor: pixelHex
     }
 }
 

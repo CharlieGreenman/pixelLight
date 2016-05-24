@@ -27,6 +27,7 @@ function mapStateToProps(state) {
     pixelBlue: colorPicker.pixelBlue,
     xPos: grid.xPos,
     yPos: grid.yPos,
+    rectColor: grid.rectColor,
     settings,
     environment
   }

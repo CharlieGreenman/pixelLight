@@ -21,13 +21,12 @@ class FillRect extends React.Component {
   }
 
   render() {
-    const {columnCount, rowCount, pixelHex, pixelCount, xPos, yPos} = this.props;
+    const {columnCount, rowCount, pixelHex, pixelCount, xPos, yPos, rectColor} = this.props;
     let rect = [];
-
     xPos.map(function(value, idx){
       rect.push(<Rect
           x={xPos[idx]} y={yPos[idx]} width={pixelCount} height={pixelCount}
-          fill={pixelHex}
+          fill={rectColor[idx]}
           onClick={this.handleClick}
           key={idx}
           />
