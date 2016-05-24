@@ -1,8 +1,4 @@
 //CODE BOX COLORS
-$css_color: #1572b6;
-$sass_color: #CF649A;
-$less_color: #1d365d;
-$js_color: #F0DB4F;
 
 $code-height: 30px;
 $code-width: 56px;
@@ -46,48 +42,4 @@ $code-width: 56px;
 .js_toggle{
   composes: code_toggle;
   background: #F0DB4F;
-}
-
-.code_box{
-  transition: .7s;
-  height: 100%;
-  background: black;
-  color: white;
-  box-shadow: 0 0 0 10px #f8f8ff inset;
-  padding-top: 0.9375rem;
-  padding-bottom: 0.9375rem;
-  overflow: scroll;
-  font-family: 'Caveat', cursive;
-  &.css_box{
-    box-shadow: 0 0 0 10px $css_color inset;
-  }
-  &.sass_box {
-    box-shadow: 0 0 0 10px $sass_color inset;
-  }
-  &.less_box {
-    box-shadow: 0 0 0 10px $less_color inset;
-  }
-  &.js_box {
-    box-shadow: 0 0 0 10px $js_color inset;
-  }
-
-}
-
-.code_box_border{
-  height: .1rem;
-  background: $css_color;
-  margin-top: 1rem;
-  transition: 1.5s;
-  &.css_border{
-    background: $css_color;
-  }
-  &.sass_border{
-    background: $sass_color;
-  }
-  &.less_border{
-    background: $less_color;
-  }
-  &.js_border{
-    background: $js_color;
-  }
 }

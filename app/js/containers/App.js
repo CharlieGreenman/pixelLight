@@ -4,12 +4,10 @@ import { connect } from "react-redux";
 import ChooseSize from "../components/choose-size-of-grid";
 import ControlPanel from "../containers/ControlPanel";
 import ChooseSizeContainer from "../containers/ChooseSizeContainer";
-import CodeBox from "../components/code-box/code-box";
+import CodeBox from "../containers/CodeBox";
 import Grid from "../containers/Grid";
 
 import CSSModules from 'react-css-modules';
-import styles from "../../scss/_code-box.scss";
-
 
 class App extends Component {
   render(){
@@ -18,7 +16,7 @@ class App extends Component {
       return(
         <div>
             <ControlPanel />
-          <div styleName='code_box_container'>
+          <div>
             <CodeBox/>
           </div>
           <div>
@@ -42,4 +40,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(CSSModules(App,styles));
+export default connect(mapStateToProps)(App);
