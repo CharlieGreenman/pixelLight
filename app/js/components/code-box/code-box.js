@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import CSSModules from 'react-css-modules';
-import styles from "../../../scss/grid.scss";
+import styles from "../../../scss/_code-box.scss";
 
 import {CurrView} from "../../actions/code-box";
 
@@ -15,10 +15,12 @@ class CodeBoxNav extends React.Component {
     }
   }
   handleClick(e){
+    const{dispatch} = this.props;
     this.setState({
         [e.target.id]: true
     });
     console.log('e.target.id: ' + e.target.id);
+    dispatch(CurrView(e.target.id));
   }
 
   render() {

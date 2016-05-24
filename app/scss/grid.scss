@@ -1,8 +1,5 @@
 //CODE BOX COLORS
 
-$code-height: 30px;
-$code-width: 56px;
-
 //3. Grid & canvas
 .canvasGrid{
   position: absolute;
@@ -11,35 +8,4 @@ $code-width: 56px;
   margin-top: -250px;
   margin-left: -250px;
   cursor: crosshair;
-}
-
-//5. Code Toggle
-.code_toggle{
-  height: $code-height;
-  color: white;
-  text-align: center;
-  line-height: $code-height;
-  transition: 1s;
-  cursor: pointer;
-}
-
-//different backgrounds for different buttons
-.css_toggle{
-  composes: code_toggle;
-  background: #1572b6;
-}
-
-.sass_toggle{
-  composes: code_toggle;
-  background: #CF649A;
-}
-
-.less_toggle{
-  composes: code_toggle;
-  background: #1d365d;
-}
-
-.js_toggle{
-  composes: code_toggle;
-  background: #F0DB4F;
 }

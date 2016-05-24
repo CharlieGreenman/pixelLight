@@ -11,7 +11,7 @@ class CodeBox extends Component {
     return(
       <div styleName='code_box_container'>
         <div styleName="code_box">
-          <CodeBoxNav />
+          <CodeBoxNav {...this.props}/>
         </div>
       </div>
     )
@@ -22,14 +22,7 @@ function mapStateToProps(state) {
   const {colorPicker, settings} = state;
   return{
     colorPicker,
-    backgroundHex: colorPicker.backgroundHex,
-    backgroundRed: colorPicker.backgroundRed,
-    backgroundGreen: colorPicker.backgroundGreen,
-    backgroundBlue: colorPicker.backgroundBlue,
-    pixelHex: colorPicker.pixelHex,
-    pixelRed: colorPicker.pixelRed,
-    pixelGreen: colorPicker.pixelGreen,
-    pixelBlue: colorPicker.pixelBlue,
+
     rowCount: settings.row.count,
     columnCount: settings.column.count,
     pixelCount: parseFloat(settings.pixel.count)
