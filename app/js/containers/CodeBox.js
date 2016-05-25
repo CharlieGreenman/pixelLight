@@ -21,7 +21,7 @@ class CodeBox extends Component {
 }
 
 function mapStateToProps(state) {
-  const {colorPicker, settings, codeBox} = state;
+  const {colorPicker, settings, codeBox, grid} = state;
   return{
     colorPicker,
     rowCount: settings.row.count,
@@ -31,6 +31,9 @@ function mapStateToProps(state) {
     lessView: codeBox.less,
     sassView: codeBox.sass,
     jsView: codeBox.js,
+    xPos: grid.xPos,
+    yPos: grid.yPos,
+    rectColor: grid.rectColor
   }
 }
 

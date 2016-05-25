@@ -18,16 +18,7 @@ class CodeBoxNav extends React.Component {
   }
   handleClick(e){
     const{dispatch} = this.props;
-    console.log('e.target.id: ' + e.target.id);
-    // let CurrView = new Function(
-    //   `return dispatch(${e.target.id}View(true))`
-    // )();
-    // this.setState{(
-    //   css: !css,
-    //   less: !this.state.less,
-    // )};
     dispatch(CurrView(e.target.id));
-
   }
 
   render() {

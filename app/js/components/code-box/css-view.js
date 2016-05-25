@@ -8,10 +8,20 @@ class CSSView extends React.Component {
     super();
   }
   render() {
-    const{dispatch, cssView} = this.props;
+    const{dispatch, cssView, pixelCount, xPos, yPos, rectColor} = this.props;
     if(cssView){
+      let cssCode = []
+      xPos.map(function(value, idx){
+        cssCode.push(
+          `${xPos[idx]}px ${yPos[idx]}px ${rectColor[idx]}, `
+        )
+      });
       return(
-        <p id="inner_code_box">{cssView}</p>
+        <p id="inner_code_box">
+          `box-shadow: `<br/>
+
+
+        {cssCode}</p>
       );
     }
     return(
