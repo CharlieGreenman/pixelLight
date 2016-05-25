@@ -6,10 +6,35 @@ const initialState = {
 
 export default function codeBox(state = initialState, action) {
   switch(action.type) {
-  case types.CANVAS_GRID_CLICKED:
+  case types.CODE_BOX_JS_VIEW:
     return Object.assign({}, state, {
-      view: action.view
+      js: action.view,
+      sass: false,
+      less: false,
+      css: false
     });
+  case types.CODE_BOX_SASS_VIEW:
+    return Object.assign({}, state, {
+      sass: action.view,
+      js: false,
+      less: false,
+      css: false
+    });
+  case types.CODE_BOX_LESS_VIEW:
+    return Object.assign({}, state, {
+      less: action.view,
+      js: false,
+      less: false,
+      css: false
+    });
+  case types.CODE_BOX_CSS_VIEW:
+    return Object.assign({}, state, {
+      css: action.view,
+      sass: false,
+      less: false,
+      js: false
+    });
+
   default:
       return state;
   }

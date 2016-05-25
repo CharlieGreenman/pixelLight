@@ -27,7 +27,10 @@ function mapStateToProps(state) {
     rowCount: settings.row.count,
     columnCount: settings.column.count,
     pixelCount: parseFloat(settings.pixel.count),
-    view: codeBox.view
+    cssView: codeBox.css,
+    lessView: codeBox.less,
+    sassView: codeBox.sass,
+    jsView: codeBox.js,
   }
 }
 

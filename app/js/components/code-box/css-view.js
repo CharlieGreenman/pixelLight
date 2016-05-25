@@ -8,11 +8,16 @@ class CSSView extends React.Component {
     super();
   }
   render() {
-    const{dispatch, view} = this.props;
-
+    const{dispatch, cssView} = this.props;
+    if(cssView){
       return(
-        <p id="inner_code_box">{view}</p>
+        <p id="inner_code_box">{cssView}</p>
       );
+    }
+    return(
+      <div></div>
+    )
+
   }
 }
 
