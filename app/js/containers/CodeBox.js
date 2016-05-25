@@ -5,6 +5,7 @@ import CSSModules from 'react-css-modules';
 import styles from "../../scss/_code-box.scss";
 
 import CodeBoxNav from "../components/code-box/code-box";
+import CSSView    from "../components/code-box/css-view";
 
 class CodeBox extends Component {
   render() {
@@ -12,6 +13,7 @@ class CodeBox extends Component {
       <div styleName='code_box_container'>
         <div styleName="code_box">
           <CodeBoxNav {...this.props}/>
+          <CSSView {...this.props} />
         </div>
       </div>
     )
@@ -19,13 +21,13 @@ class CodeBox extends Component {
 }
 
 function mapStateToProps(state) {
-  const {colorPicker, settings} = state;
+  const {colorPicker, settings, codeBox} = state;
   return{
     colorPicker,
-
     rowCount: settings.row.count,
     columnCount: settings.column.count,
-    pixelCount: parseFloat(settings.pixel.count)
+    pixelCount: parseFloat(settings.pixel.count),
+    view: codeBox.view
   }
 }
 

@@ -1,44 +1,44 @@
 import React from "react";
-import ReactDOM from "react-dom";
 
 import CSSModules from 'react-css-modules';
 import styles from "../../../scss/_code-box.scss";
 
-import {CurrView} from "../../actions/code-box";
+import {CurrView, cssView, lessView, sassView, jsView} from "../../actions/code-box";
 
 class CodeBoxNav extends React.Component {
   constructor(){
     super();
     this.handleClick = this.handleClick.bind(this);
     this.state = {
-      sass: false
+      css: true,
+      less: false,
+      sass: false,
+      js: false
     }
   }
   handleClick(e){
     const{dispatch} = this.props;
-    this.setState({
-        [e.target.id]: true
-    });
     console.log('e.target.id: ' + e.target.id);
+    // let CurrView = new Function(
+    //   `return dispatch(${e.target.id}View(true))`
+    // )();
+    // this.setState{(
+    //   css: !css,
+    //   less: !this.state.less,
+    // )};
     dispatch(CurrView(e.target.id));
+
   }
 
   render() {
-    if(this.state.sass){
-      return(
-        <p>sass</p>
-      );
-    }
+    const{dispatch} = this.props;
     return (
-      <div>
         <div className="row">
           <div styleName="css_toggle" id ="css" onClick={this.handleClick}><span>CSS</span></div>
           <div styleName="sass_toggle" id ="sass" onClick={this.handleClick}><span>SASS</span></div>
           <div styleName="less_toggle" id ="less" onClick={this.handleClick}><span>LESS</span></div>
           <div styleName="js_toggle" id ="js" onClick={this.handleClick}><span>JS</span></div>
         </div>
-        <p id="inner_code_box">box-shadow:</p>
-      </div>
     );
   }
 }
