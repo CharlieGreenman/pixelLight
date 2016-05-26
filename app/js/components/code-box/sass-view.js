@@ -46,7 +46,7 @@ class SASSView extends React.Component {
       }
       xPos.map(function(value, idx){
         boxShadowVar.push(
-          `$X${xPosSorted[idx] / pixelCount} $Y${yPosSorted[idx] / pixelCount} ${sassColorStore[idx]}, `
+          `$X${xPosSorted[idx] / pixelCount} $O${yPosSorted[idx] / pixelCount} ${sassColorStore[idx]}, `
         )
       });
 
