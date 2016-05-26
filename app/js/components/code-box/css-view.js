@@ -3,6 +3,8 @@ import React from "react";
 import CSSModules from 'react-css-modules';
 import styles from "../../../scss/_code-box.scss";
 
+import _ from "lodash";
+
 class CSSView extends React.Component {
   constructor(){
     super();
@@ -18,10 +20,10 @@ class CSSView extends React.Component {
       });
       return(
         <p id="inner_code_box">
-          `box-shadow: `<br/>
+          box-shadow:<br/>
 
 
-        {cssCode}</p>
+        {_.sortBy(cssCode)}</p>
       );
     }
     return(
