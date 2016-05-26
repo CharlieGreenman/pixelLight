@@ -12,19 +12,25 @@ class SASSView extends React.Component {
   render() {
     const{dispatch, sassView, pixelCount, columnCount, rowCount, xPos, yPos, rectColor} = this.props;
     if(sassView){
-      let colorStore   = _.uniq(rectColor);
-      let colorVar     = [];
-      let xVar         = [];
-      let yVar         = [];
-      let boxShadowVar = [];
-      let xPosSorted   = _.sortBy(xPos);
-      let yPosSorted   = _.sortBy(yPos);
-      // let xPosSorted   = _.sort(xPos);
+      let colorStore     = _.uniq(rectColor);
+      let xPosSorted     = _.sortBy(xPos);
+      let yPosSorted     = _.sortBy(yPos);
+      let sassColorStore = []
+      let colorVar       = [];
+      let xVar           = [];
+      let yVar           = [];
+      let boxShadowVar   = [];
+      let varRectColor   = [];
 
       colorStore.map(function(value,idx){
         colorVar.push(
           `$color-${idx}: ${value}; `
         )
+      });
+      rectColor.map(function(value,idx){
+         sassColorStore.push(
+           `$color-${colorStore.indexOf(value)}`
+         )
       });
       //x value array
       for(let x = 0; x < columnCount; x++){
@@ -38,10 +44,9 @@ class SASSView extends React.Component {
           `O${y}: $num*${y}; `
         )
       }
-      //
       xPos.map(function(value, idx){
         boxShadowVar.push(
-          `$X${xPosSorted[idx] / pixelCount} $Y${yPosSorted[idx] / pixelCount} ${rectColor[idx]}, `
+          `$X${xPosSorted[idx] / pixelCount} $Y${yPosSorted[idx] / pixelCount} ${sassColorStore[idx]}, `
         )
       });
 
