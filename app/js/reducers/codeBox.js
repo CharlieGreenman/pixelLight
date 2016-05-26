@@ -24,7 +24,7 @@ export default function codeBox(state = initialState, action) {
     return Object.assign({}, state, {
       less: action.view,
       js: false,
-      less: false,
+      sass: false,
       css: false
     });
   case types.CODE_BOX_CSS_VIEW:
