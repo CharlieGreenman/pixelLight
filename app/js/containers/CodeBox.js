@@ -6,6 +6,7 @@ import styles from "../../scss/_code-box.scss";
 
 import CodeBoxNav from "../components/code-box/code-box";
 import CSSView    from "../components/code-box/css-view";
+import SASSView    from "../components/code-box/sass-view";
 
 class CodeBox extends Component {
   render() {
@@ -14,6 +15,7 @@ class CodeBox extends Component {
         <div styleName="code_box">
           <CodeBoxNav {...this.props}/>
           <CSSView {...this.props} />
+          <SASSView {...this.props} />
         </div>
       </div>
     )
