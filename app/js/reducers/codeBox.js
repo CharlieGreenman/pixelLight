@@ -1,7 +1,7 @@
 import * as types from "../constants/ActionTypes";
 
 const initialState = {
-  view: 'css'
+  css: 'css'
 }
 
 export default function codeBox(state = initialState, action) {

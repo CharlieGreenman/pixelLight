@@ -15,7 +15,7 @@ class CSSView extends React.Component {
       let cssCode = []
       xPos.map(function(value, idx){
         cssCode.push(
-          `${xPos[idx]}px ${yPos[idx]}px ${rectColor[idx]}, `
+          `${xPos[idx]}px ${yPos[idx]}px ${rectColor[idx]}`
         )
       });
       return(

@@ -9,12 +9,6 @@ class CodeBoxNav extends React.Component {
   constructor(){
     super();
     this.handleClick = this.handleClick.bind(this);
-    this.state = {
-      css: true,
-      less: false,
-      sass: false,
-      js: false
-    }
   }
   handleClick(e){
     const{dispatch} = this.props;
