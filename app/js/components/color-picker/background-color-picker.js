@@ -34,7 +34,6 @@ class BackgroundColorPicker extends React.Component {
         dispatch(BackgroundColorRGB(this.state.backgroundRed, this.state.backgroundGreen, this.state.backgroundBlue));
         dispatch(BackgroundColor(rgbToHex(parseFloat(this.state.backgroundRed), parseFloat(this.state.backgroundGreen), parseFloat(this.state.backgroundBlue))));
     });
-    this.updateGridBackground();
   }
 
   handleBackgroundColorChange(e){
@@ -43,8 +42,6 @@ class BackgroundColorPicker extends React.Component {
       dispatch(BackgroundColor(this.state.backgroundHex));
       dispatch(BackgroundColorRGB(hexToRgb(this.state.backgroundHex).r, hexToRgb(this.state.backgroundHex).g, hexToRgb(this.state.backgroundHex).b));
     });
-    this.updateGridBackground();
-
   }
 
   render() {

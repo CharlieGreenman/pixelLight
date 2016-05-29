@@ -1,4 +1,3 @@
-import { combineReducers } from "redux";
 import * as types from "../constants/ActionTypes";
 
 export function BackgroundColor(color){
