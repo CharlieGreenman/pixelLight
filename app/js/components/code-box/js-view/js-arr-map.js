@@ -13,18 +13,15 @@ class JSArrMap extends React.Component {
 
     for (let x = 0; x < rowCount; x++) {
         let arrMap = [];
-
         for (let y = 0; y < columnCount; y++) {
             arrMap.push(0);
             xPos.map(function(value, idx, arr){
               if (x === (yPos[idx] / pixelCount) && y === (xPos[idx] / pixelCount)) {
-                console.log(`x value: ${x}`);
-                console.log(`arrMap[y]: ${y}`);
                 arrMap[y] = colorStore.indexOf(rectColor[idx]) + 1;
               }
             });
         }
-        twoDimensionalArray.push("[", arrMap, "]", <br />);
+        twoDimensionalArray.push("[", arrMap.join(","), "],", <br />);
 
     }
 
