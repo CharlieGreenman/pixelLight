@@ -6,7 +6,8 @@ export function GridClicked(xPos, yPos, pixelHex){
         type: types.CANVAS_GRID_CLICKED,
         xPos: xPos,
         yPos: yPos,
-        rectColor: pixelHex
+        rectColor: pixelHex,
+        rectData: [[xPos, yPos, pixelHex]]
     }
 }
 

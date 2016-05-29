@@ -5,25 +5,36 @@ import styles from "../../../scss/_code-box.scss";
 
 import _ from "lodash";
 
+import {compare} from '../../utils/code-box-utils';
+
 class CSSView extends React.Component {
   constructor(){
     super();
   }
   render() {
-    const{dispatch, cssView, pixelCount, xPos, yPos, rectColor} = this.props;
+    const{dispatch, cssView, pixelCount, rectData} = this.props;
+    let sortedRectData = rectData.sort(compare);
+
     if(cssView){
-      let cssCode = []
-      xPos.map(function(value, idx){
-        cssCode.push(
-          `${xPos[idx]}px ${yPos[idx]}px ${rectColor[idx]}`
-        )
+      let cssCode = [];
+
+      rectData.map(function(value, idx, arr){
+        if(idx === arr.length - 1){
+          cssCode.push(
+            `${sortedRectData[idx][0]}px ${sortedRectData[idx][1]}px ${sortedRectData[idx][2]};`
+          )
+        }
+        else{
+          cssCode.push(
+            `${sortedRectData[idx][0]}px ${sortedRectData[idx][1]}px ${sortedRectData[idx][2]}, `
+          )
+        }
       });
+
       return(
         <p id="inner_code_box">
           box-shadow:<br/>
-
-
-        {_.sortBy(cssCode)}</p>
+        {cssCode}</p>
       );
     }
     return(

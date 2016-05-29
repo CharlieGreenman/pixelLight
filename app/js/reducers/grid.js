@@ -3,7 +3,8 @@ import * as types from "../constants/ActionTypes";
 const initialState = {
     xPos: [],
     yPos: [],
-    rectColor: []
+    rectColor: [],
+    rectData: []
 };
 
 export default function grid(state = initialState, action) {
@@ -12,7 +13,8 @@ export default function grid(state = initialState, action) {
       return Object.assign({}, state, {
           xPos: state.xPos.concat(action.xPos),
           yPos: state.yPos.concat(action.yPos),
-          rectColor: state.rectColor.concat(action.rectColor)
+          rectColor: state.rectColor.concat(action.rectColor),
+          rectData: state.rectData.concat(action.rectData)
       });
     case types.CANVAS_FILL_RECT_CLICKED:
       return Object.assign({}, state, {
@@ -24,6 +26,9 @@ export default function grid(state = initialState, action) {
           ],
           rectColor: [...state.rectColor.slice(0, action.idx),
                       ...state.rectColor.slice(action.idx + 1)
+          ],
+          rectData: [...state.rectData.slice(0, action.idx),
+                      ...state.rectData.slice(action.idx + 1)
           ]
       });
     default:

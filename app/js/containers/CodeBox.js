@@ -39,7 +39,8 @@ function mapStateToProps(state) {
     jsView: codeBox.js,
     xPos: grid.xPos,
     yPos: grid.yPos,
-    rectColor: grid.rectColor
+    rectColor: grid.rectColor,
+    rectData: grid.rectData
   }
 }
 
