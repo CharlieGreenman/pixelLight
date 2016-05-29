@@ -12,7 +12,7 @@ class Grid extends React.Component {
 }
 
 function mapStateToProps(state) {
-  const {environment, settings, colorPicker, grid} = state;
+  const {environment, settings, colorPicker, grid, toggleView} = state;
   return{
     rowCount: settings.row.count,
     columnCount: settings.column.count,
@@ -28,6 +28,8 @@ function mapStateToProps(state) {
     xPos: grid.xPos,
     yPos: grid.yPos,
     rectColor: grid.rectColor,
+    drawMode: toggleView.draw,
+    viewMode: toggleView.view,
     settings,
     environment
   }

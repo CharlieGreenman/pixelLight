@@ -13,10 +13,10 @@ class GridMesh extends React.Component {
     }
 
     render(){
-      const{columnCount, rowCount, pixelCount} = this.props;
+      const{columnCount, rowCount, pixelCount, drawMode, viewMode} = this.props;
       let columns = [];
       let rows = [];
-      
+
       for (var i=0; i < columnCount; i++) {
           columns.push(
             <Line
@@ -39,13 +39,21 @@ class GridMesh extends React.Component {
             />
           );
       }
-      return(
-        <Layer>
-        {columns}
-        {rows}
-        </Layer>
-      )
-
+      console.log(`drawMode: ${drawMode}`);
+      if(drawMode){
+        return(
+          <Layer>
+          {columns}
+          {rows}
+          </Layer>
+        )
+      }
+      else{
+        return(
+          <Layer>
+          </Layer>
+        )
+      }
     }
 }
 
