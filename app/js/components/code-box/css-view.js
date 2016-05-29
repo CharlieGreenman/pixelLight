@@ -14,10 +14,10 @@ class CSSView extends React.Component {
   render() {
     const{dispatch, cssView, pixelCount, rectData} = this.props;
     let sortedRectData = rectData.sort(compare);
+    let cssCode = [];
 
     if(cssView){
-      let cssCode = [];
-
+      
       rectData.map(function(value, idx, arr){
         if(idx === arr.length - 1){
           cssCode.push(
