@@ -8,25 +8,28 @@ class JSArrMap extends React.Component {
   }
   render(){
     const{rowCount, columnCount, pixelCount, xPos, yPos, rectColor} = this.props;
+    let twoDimensionalArray = [];
     let colorStore     = _.uniq(rectColor);
-    let arrMap = [];
+
     for (let x = 0; x < rowCount; x++) {
-        arrMap.push([]);
-    }
-    for (let x = 0; x < rowCount; x++) {
+        let arrMap = [];
+
         for (let y = 0; y < columnCount; y++) {
-            arrMap[y].push(0);
-            for (let z = 0; z < xPos; z++) {
-                //tells us value needs to be changed
-                if (x === parseFloat(xPos[z] / pixelCount) && y === parseFloat(yPos[z] / pixelCount)) {
-                    //tells us what it should be changed to
-                    arrMap[y][x] = elem.s.storeColors.indexOf(rectColor[z]) + 1;
-                }
-            }
+            arrMap.push(0);
+            xPos.map(function(value, idx, arr){
+              if (x === (yPos[idx] / pixelCount) && y === (xPos[idx] / pixelCount)) {
+                console.log(`x value: ${x}`);
+                console.log(`arrMap[y]: ${y}`);
+                arrMap[y] = colorStore.indexOf(rectColor[idx]) + 1;
+              }
+            });
         }
+        twoDimensionalArray.push("[", arrMap, "]", <br />);
+
     }
+
     return(
-      <div> {arrMap} </div>
+      <p>{twoDimensionalArray} </p>
     );
   }
 }
