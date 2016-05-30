@@ -13,11 +13,14 @@ class CSSView extends React.Component {
   }
   render() {
     const{dispatch, cssView, pixelCount, rectData} = this.props;
-    let sortedRectData = rectData.sort(compare);
+    // let sortedRectData = rectData.sort(compare);
+    let sortedRectData = rectData.slice(0);
+    // console.log(`sortedRectData: ${sortedRectData}`);
+    sortedRectData = sortedRectData.sort(compare);
     let cssCode = [];
 
     if(cssView){
-      
+
       rectData.map(function(value, idx, arr){
         if(idx === arr.length - 1){
           cssCode.push(
