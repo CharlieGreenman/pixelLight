@@ -6,7 +6,7 @@ import styles from "../../scss/_code-box.scss";
 
 import CodeBoxNav from "../components/code-box/code-box";
 import CSSView    from "../components/code-box/css-view";
-import SASSView    from "../components/code-box/sass-view";
+import SASSView    from "../components/code-box/sass-view/sass-view";
 import LESSView    from "../components/code-box/less-view";
 import JSView    from "../components/code-box/js-view/js-view";
 

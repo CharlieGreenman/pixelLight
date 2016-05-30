@@ -59,9 +59,7 @@ var cntrlView = {
                 grid.createGridIllustrator();
                 cntrlView.redoGrid();
             }
-
         }
-
     }
     };
 
