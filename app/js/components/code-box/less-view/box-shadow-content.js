@@ -24,25 +24,25 @@ class BoxShadowContent extends React.Component {
 
     colorStore.map(function(value,idx){
       colorVar.push(
-        `$color-${idx}: ${value}; `
+        `@color-${idx}: ${value}; `
       )
     });
 
     rectColor.map(function(value,idx){
        sassColorStore.push(
-         `$color-${colorStore.indexOf(value)}`
+         `@color-${colorStore.indexOf(value)}`
        )
     });
 
     sortedRectData.map(function(value, idx, arr){
       if(idx === arr.length - 1){
         boxShadowVar.push(
-          `$X${sortedRectData[idx][0] / pixelCount} $O${sortedRectData[idx][1] / pixelCount} ${sassColorStore[idx]};`
+          `@X${sortedRectData[idx][0] / pixelCount} @O${sortedRectData[idx][1] / pixelCount} ${sassColorStore[idx]};`
         )
       }
       else{
         boxShadowVar.push(
-          `$X${sortedRectData[idx][0] / pixelCount} $O${sortedRectData[idx][1] / pixelCount} ${sassColorStore[idx]}, `
+          `@X${sortedRectData[idx][0] / pixelCount} @O${sortedRectData[idx][1] / pixelCount} ${sassColorStore[idx]}, `
         )
       }
     });
