@@ -25,13 +25,7 @@ class ToggleView extends React.Component {
   }
   onKeyDown(e){
     if(e.keyCode === 71){
-      const{dispatch} = this.props;
-      this.setState({
-        draw: !this.state.draw,
-        view: !this.state.view
-      },function(){
-          dispatch(InitDrawMode(this.state.draw, this.state.view));
-      });
+      this.toggle();
     }
   }
   viewMode() {
@@ -66,7 +60,6 @@ class ToggleView extends React.Component {
     const{dispatch} = this.props;
     dispatch(ResetApp());
   }
-
   render() {
       return (
           <div id="control_view" className="column">
