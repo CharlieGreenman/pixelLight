@@ -1,26 +1,26 @@
 import * as types from "../constants/ActionTypes";
 
-export function InitViewMode(){
+export function InitViewMode(view, draw){
     return{
         type: types.INIT_VIEW_MODE,
-        view: true,
-        draw: false
+        view: view,
+        draw: draw
     }
 }
 
-export function InitDrawMode(){
+export function InitDrawMode(draw, view){
     return{
         type: types.INIT_DRAW_MODE,
-        draw: true,
-        view: false
+        draw: draw,
+        view: view
     }
 }
 
 export function ToggleGridView(draw, view){
     return{
         type: types.TOGGLE_GRID_VIEW,
-        draw: !draw,
-        view: !view
+        draw: draw,
+        view: view
     }
 }
 

@@ -14,13 +14,15 @@ class HandlePosition extends React.Component{
   }
 
   handleClick(e){
-    const{dispatch, pixelCount, pixelHex} = this.props;
+    const{dispatch, pixelCount, pixelHex, drawMode} = this.props;
     e = e || window.event;
 
     var xVal = Math.floor(e.evt.offsetX / pixelCount) * pixelCount;
     var yVal = Math.floor(e.evt.offsetY / pixelCount) * pixelCount;
+    if(drawMode){
+        dispatch(GridClicked(xVal, yVal, pixelHex));
+    }
 
-    dispatch(GridClicked(xVal, yVal, pixelHex));
   }
 
   render(){
