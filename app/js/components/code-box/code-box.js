@@ -18,11 +18,11 @@ class CodeBoxNav extends React.Component {
   render() {
     const{dispatch} = this.props;
     return (
-        <div className="row">
-          <div styleName="css_toggle" id ="css" onClick={this.handleClick}><span>CSS</span></div>
-          <div styleName="sass_toggle" id ="sass" onClick={this.handleClick}><span>SASS</span></div>
-          <div styleName="less_toggle" id ="less" onClick={this.handleClick}><span>LESS</span></div>
-          <div styleName="js_toggle" id ="js" onClick={this.handleClick}><span>JS</span></div>
+        <div>
+          <button styleName="css_toggle" id ="css" onClick={this.handleClick}>CSS</button>
+          <button styleName="sass_toggle" id ="sass" onClick={this.handleClick}>SASS</button>
+          <button styleName="less_toggle" id ="less" onClick={this.handleClick}>LESS</button>
+          <button styleName="js_toggle" id ="js" onClick={this.handleClick}>JS</button>
         </div>
     );
   }

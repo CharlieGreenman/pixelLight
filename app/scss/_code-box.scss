@@ -70,11 +70,15 @@ $code-width: 56px;
 //5. Code Toggle
 .code_toggle{
   height: $code-height;
+  width: 50%;
   color: white;
   text-align: center;
   line-height: $code-height;
   transition: 1s;
   cursor: pointer;
+  font-family: 'Reenie Beanie', cursive;
+  font-size: 18px;
+  border: 0;
 }
 
 //different backgrounds for different buttons
