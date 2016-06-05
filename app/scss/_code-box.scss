@@ -32,19 +32,19 @@ $code-width: 56px;
   padding-left: 0.9375rem;
   overflow: scroll;
   font-family: 'Caveat', cursive;
-  &.css_box{
-    box-shadow: 0 0 0 10px $css_color inset;
-  }
-  &.sass_box {
-    box-shadow: 0 0 0 10px $sass_color inset;
-  }
-  &.less_box {
-    box-shadow: 0 0 0 10px $less_color inset;
-  }
-  &.js_box {
-    box-shadow: 0 0 0 10px $js_color inset;
-  }
+}
 
+.css_box{
+  box-shadow: 0 0 0 10px $css_color inset;
+}
+.sass_box {
+  box-shadow: 0 0 0 10px $sass_color inset;
+}
+.less_box {
+  box-shadow: 0 0 0 10px $less_color inset;
+}
+.js_box {
+  box-shadow: 0 0 0 10px $js_color inset;
 }
 
 .code_box_border{
