@@ -34,16 +34,20 @@ $code-width: 56px;
   font-family: 'Caveat', cursive;
 }
 
-.css_box{
+.code_box--css{
+  composes: code_box;
   box-shadow: 0 0 0 10px $css_color inset;
 }
-.sass_box {
+.code_box--sass {
+  composes: code_box;
   box-shadow: 0 0 0 10px $sass_color inset;
 }
-.less_box {
+.code_box--less {
+  composes: code_box;
   box-shadow: 0 0 0 10px $less_color inset;
 }
-.js_box {
+.code_box--js {
+  composes: code_box;
   box-shadow: 0 0 0 10px $js_color inset;
 }
 
@@ -52,20 +56,24 @@ $code-width: 56px;
   background: $css_color;
   margin-top: 1rem;
   transition: 1.5s;
-  &.css_border{
-    background: $css_color;
-  }
-  &.sass_border{
-    background: $sass_color;
-  }
-  &.less_border{
-    background: $less_color;
-  }
-  &.js_border{
-    background: $js_color;
-  }
 }
 
+.code_box_border--css{
+  composes: code_box_border;
+  background: $css_color;
+}
+.code_box_border--sass{
+  composes: code_box_border;
+  background: $sass_color;
+}
+.code_box_border--less{
+  composes: code_box_border;
+  background: $less_color;
+}
+.code_box_border--js{
+  composes: code_box_border;
+  background: $js_color;
+}
 
 //5. Code Toggle
 .code_toggle{
@@ -82,22 +90,22 @@ $code-width: 56px;
 }
 
 //different backgrounds for different buttons
-.css_toggle{
+.code_toggle--css{
   composes: code_toggle;
   background: #1572b6;
 }
 
-.sass_toggle{
+.code_toggle--sass{
   composes: code_toggle;
   background: #CF649A;
 }
 
-.less_toggle{
+.code_toggle--less{
   composes: code_toggle;
   background: #1d365d;
 }
 
-.js_toggle{
+.code_toggle--js{
   composes: code_toggle;
   background: #F0DB4F;
 }

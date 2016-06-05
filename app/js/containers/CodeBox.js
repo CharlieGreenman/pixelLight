@@ -1,6 +1,8 @@
 import React, {Component, PropTypes} from "react";
+
 import {connect} from "react-redux";
 
+import CSSX from 'react-cssx';
 import CSSModules from 'react-css-modules';
 import styles from "../../scss/_code-box.scss";
 
@@ -12,18 +14,30 @@ import JSView    from "../components/code-box/js-view/js-view";
 
 class CodeBox extends Component {
   render() {
+    const{cssView, lessView, sassView, jsView} = this.props;
     return(
       <div styleName='code_box_container'>
-        <div styleName="code_box">
-          <CodeBoxNav {...this.props}/>
-          <CSSView {...this.props} />
-          <SASSView {...this.props} />
-          <LESSView {...this.props} />
-          <JSView {...this.props} />
-        </div>
+        {/*}<CSSX styles={ this.styleCodeBoxBorder() }>*/}
+          <div styleName="code_box--css">
+            <CodeBoxNav {...this.props}/>
+            <CSSView {...this.props} />
+            <SASSView {...this.props} />
+            <LESSView {...this.props} />
+            <JSView {...this.props} />
+          </div>
+       {/*  </CSSX> */}
       </div>
     )
   }
+  styleCodeBoxBorder(color) {
+   return (
+     <style>
+       .code-box-border {
+         background: {{color}};
+       }
+     </style>
+   )
+ }
 }
 
 function mapStateToProps(state) {

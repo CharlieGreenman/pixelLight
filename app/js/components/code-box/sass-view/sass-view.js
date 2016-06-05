@@ -19,8 +19,8 @@ class SASSView extends React.Component {
       return(
         <div>
          <VarActors {...this.props} />
-         <DynamicMultipliers {...this.props}/>
-         <BoxShadowContent {...this.props}/>
+         <DynamicMultipliers {...this.props} />
+         <BoxShadowContent {...this.props} />
         </div>
       );
     }
