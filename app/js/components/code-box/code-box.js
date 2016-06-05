@@ -13,18 +13,17 @@ class CodeBoxNav extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick(e){
-    const backStyle = window.getComputedStyle(e.target, null).getPropertyValue("background-color");
     const{dispatch} = this.props;
     const{id, style} = this.toggleButton;
-    console.log(`e.target.tagName: ${e.target.tagName}`);
-    console.log('style:' + window.getComputedStyle(e.target, null).getPropertyValue("background-color"));
-    dispatch(CurrView(e.target.id, backStyle));
+    const backgroundStyle = window.getComputedStyle(e.target, null).getPropertyValue("background-color");
+
+    dispatch(CurrView(e.target.id, backgroundStyle));
   }
 
   render() {
     const{dispatch} = this.props;
     return (
-        <div key = "stop">
+        <div>
           <button styleName="code_toggle--css" key ="css" id ="css" ref={(e) => { this.toggleButton = e}} onClick={this.handleClick}>CSS</button>
           <button styleName="code_toggle--sass" key ="sass" id ="sass" onClick={this.handleClick}>SASS</button>
           <button styleName="code_toggle--less" key ="less" id ="less" onClick={this.handleClick}>LESS</button>

@@ -11,7 +11,7 @@ $code-width: 56px;
   display: block;
   position: fixed;
   width: 230px;
-  height: 100%;
+  height: 100vh;
   top: 0;
   left: 0;
   right: 0;
@@ -22,7 +22,7 @@ $code-width: 56px;
 
 .code_box{
   transition: .7s;
-  height: 100%;
+  height: 100vh;
   background: black;
   color: white;
   box-shadow: 0 0 0 10px #f8f8ff inset;
@@ -32,47 +32,15 @@ $code-width: 56px;
   padding-left: 0.9375rem;
   overflow: scroll;
   font-family: 'Caveat', cursive;
-}
-
-.code_box--css{
-  composes: code_box;
   box-shadow: 0 0 0 10px $css_color inset;
 }
-.code_box--sass {
-  composes: code_box;
-  box-shadow: 0 0 0 10px $sass_color inset;
-}
-.code_box--less {
-  composes: code_box;
-  box-shadow: 0 0 0 10px $less_color inset;
-}
-.code_box--js {
-  composes: code_box;
-  box-shadow: 0 0 0 10px $js_color inset;
-}
 
-.code_box_border{
-  height: .1rem;
+.line-separator{
+  height: 2px;
   background: $css_color;
   margin-top: 1rem;
   transition: 1.5s;
-}
-
-.code_box_border--css{
-  composes: code_box_border;
-  background: $css_color;
-}
-.code_box_border--sass{
-  composes: code_box_border;
-  background: $sass_color;
-}
-.code_box_border--less{
-  composes: code_box_border;
-  background: $less_color;
-}
-.code_box_border--js{
-  composes: code_box_border;
-  background: $js_color;
+  border: none;
 }
 
 //5. Code Toggle

@@ -14,28 +14,32 @@ export default function codeBox(state = initialState, action) {
       js: action.view,
       sass: false,
       less: false,
-      css: false
+      css: false,
+      color: action.color
     });
   case types.CODE_BOX_SASS_VIEW:
     return Object.assign({}, state, {
       sass: action.view,
       js: false,
       less: false,
-      css: false
+      css: false,
+      color: action.color
     });
   case types.CODE_BOX_LESS_VIEW:
     return Object.assign({}, state, {
       less: action.view,
       js: false,
       sass: false,
-      css: false
+      css: false,
+      color: action.color
     });
   case types.CODE_BOX_CSS_VIEW:
     return Object.assign({}, state, {
       css: action.view,
       sass: false,
       less: false,
-      js: false
+      js: false,
+      color: action.color
     });
 
   default:
