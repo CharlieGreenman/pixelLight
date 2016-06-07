@@ -14,7 +14,6 @@ $code-width: 56px;
   height: 100vh;
   top: 0;
   left: 0;
-  right: 0;
   transition: 1s;
   background: black;
   color: white;
@@ -26,11 +25,8 @@ $code-width: 56px;
   background: black;
   color: white;
   box-shadow: 0 0 0 10px #f8f8ff inset;
-  padding-top: 0.9375rem;
-  padding-bottom: 0.9375rem;
-  padding-right: 0.9375rem;
-  padding-left: 0.9375rem;
-  overflow: scroll;
+  padding: 15px;
+  overflow-x: scroll;
   font-family: 'Caveat', cursive;
   box-shadow: 0 0 0 10px $css_color inset;
 }
@@ -38,6 +34,7 @@ $code-width: 56px;
 .line-separator{
   height: 2px;
   background: $css_color;
+  width: 80%;
   margin-top: 1rem;
   transition: 1.5s;
   border: none;
@@ -55,6 +52,9 @@ $code-width: 56px;
   font-family: 'Reenie Beanie', cursive;
   font-size: 18px;
   border: 0;
+  &:focus{
+    outline: none;
+  }
 }
 
 //different backgrounds for different buttons
