@@ -24,7 +24,6 @@
 .header{
   color: white;
   font-family: 'Reenie Beanie', cursive;
-  margin: 0;
   font-size: 25px;
 }
 
@@ -55,12 +54,6 @@
   cursor: pointer;
 }
 
-.color-button-styling{
-  cursor: pointer;
-  width: 88%;
-  margin-left: 6%;
-}
-
 .button{
   background: #000;
   text-align: center;
@@ -72,6 +65,36 @@
   cursor: pointer;
   height: 35px;
   line-height: 35px;
+}
+
+.color-input{
+  border: none;
+  padding: 0;
+  color: white;
+  font-family: 'Reenie Beanie', cursive;
+  text-align: center;
+  background: transparent;
+  font-size: 1.5rem;
+}
+
+.color-picker, .background-color-picker{
+  margin-top: .5rem;
+}
+
+.letter{
+  border-radius: 50%;
+  border: 1px solid white;
+  padding: 5px;
+}
+
+.desc_text{
+  margin-left: 10px;
+}
+
+.color-button-styling{
+  cursor: pointer;
+  width: 88%;
+  margin-left: 6%;
 }
 
 .view-button{
@@ -99,41 +122,9 @@
   }
 }
 
-.color-input{
-  border: none;
-  padding: 0;
-  margin: 0;
-  box-shadow: none;
-  background: none;
-  color: white;
-  font-family: 'Reenie Beanie', cursive;
-  text-align: center;
-  background: transparent;
-  font-size: 1.5rem;
-}
-
-.color-picker, .background-color-picker{
-  display: block;
-  color: black;
-  margin-top: .5rem;
-
-}
-
-.letter{
-  border-radius: 50%;
-  border: 1px solid white;
-  padding: 5px;
-}
-
-.desc_text{
-  margin-left: 10px;
-}
-
 .color_bar{
   height: 2px;
   background: black;
   border: none;
   width: 80%;
 }
-
-//to be moved to own file soon

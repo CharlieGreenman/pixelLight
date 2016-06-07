@@ -6,9 +6,7 @@ $js_color: #F0DB4F;
 $code-height: 30px;
 $code-width: 56px;
 
-//4. Code Box
 .code_box_container{
-  display: block;
   position: fixed;
   width: 230px;
   height: 100vh;
@@ -22,13 +20,12 @@ $code-width: 56px;
 .code_box{
   transition: .7s;
   height: 100vh;
-  background: black;
-  color: white;
-  box-shadow: 0 0 0 10px #f8f8ff inset;
   padding: 15px;
   overflow-x: scroll;
-  font-family: 'Caveat', cursive;
+  color: white;
+  background: black;
   box-shadow: 0 0 0 10px $css_color inset;
+  font-family: 'Caveat', cursive;
 }
 
 .line-separator{
@@ -40,7 +37,6 @@ $code-width: 56px;
   border: none;
 }
 
-//5. Code Toggle
 .code_toggle{
   height: $code-height;
   width: 50%;
@@ -57,7 +53,6 @@ $code-width: 56px;
   }
 }
 
-//different backgrounds for different buttons
 .code_toggle--css{
   composes: code_toggle;
   background: #1572b6;
