@@ -9,19 +9,11 @@ class LineSeparator  extends Component {
     const{codeBoxColor} = this.props;
     return(
       <CSSX styles={ this.styleCodeBoxBorder(codeBoxColor) }>
-        <hr className = "line-separator" styleName = "line-separator" />
+        <hr className = "line_separator" styleName = "line_separator" />
       </CSSX>
     );
   }
-  styleCodeBoxBorder(color) {
-    return (
-      <style>
-       .line-separator {
-         background: {{color}};
-       }
-      </style>
-    )
-  }
+  
 }
 
 export default CSSModules(LineSeparator, styles);
