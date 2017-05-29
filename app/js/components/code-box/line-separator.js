@@ -13,7 +13,7 @@ class LineSeparator  extends Component {
       </CSSX>
     );
   }
-  
+
 }
 
 export default CSSModules(LineSeparator, styles);

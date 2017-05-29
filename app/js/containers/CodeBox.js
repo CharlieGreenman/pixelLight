@@ -21,7 +21,7 @@ class CodeBox extends Component {
         <CSSX styles={ this.styleCodeBoxBorder(codeBoxColor) }>
           <div className = "code-box-border" styleName="code_box">
             <CodeBoxNav {...this.props}/>
-            <LineSeparator {...this.props}/>
+            
             <CSSView {...this.props} />
             <SASSView {...this.props} />
             <LESSView {...this.props} />
